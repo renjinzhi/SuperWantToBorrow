@@ -1,6 +1,7 @@
 package com.superwanttoborrow.ui.home;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseFragment;
+import com.superwanttoborrow.ui.realname.RealNameActivity;
 import com.superwanttoborrow.widget.EasyPickerView;
 import com.superwanttoborrow.widget.bannerhelper.widget.CycleView;
 
@@ -93,7 +95,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.home_button_borrow:
-
+                startActivity(new Intent(getContext(), RealNameActivity.class));
                 break;
             case R.id.home_button_select:
 
