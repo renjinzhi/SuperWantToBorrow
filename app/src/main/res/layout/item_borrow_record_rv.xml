@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/item_br_rv_money"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingTop="12dp"
+        android:text="1000元" android:textColor="@color/gray"
+        android:textSize="15sp" app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/item_br_rv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_marginLeft="21dp"
+        android:layout_marginTop="12dp"
+        android:text="当前借款记录"
+        android:textColor="@color/gray"
+        android:textSize="15sp" app:layout_constraintStart_toStartOf="@+id/item_br_rv_money"
+        app:layout_constraintTop_toTopOf="@+id/item_br_rv_money"/>
+    <TextView
+        android:id="@+id/item_br_rv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="38dp"
+        android:text="待还款"
+        android:textColor="@color/gray"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_br_rv_money"
+        app:layout_constraintEnd_toEndOf="@+id/item_br_rv_money"
+        app:layout_constraintTop_toTopOf="@+id/item_br_rv_money"/>
+
+
+    <ImageView
+        android:layout_width="8dp"
+        android:layout_height="15dp"
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="@id/item_br_rv_money"
+        app:layout_constraintEnd_toEndOf="@id/item_br_rv_money"
+        app:layout_constraintTop_toTopOf="@id/item_br_rv_money"/>
+
+    <TextView
+        android:id="@+id/item_br_rv_time"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="21dp"
+        android:textSize="13sp"
+        android:textColor="@color/nine"
+        android:text="2018-8-24"
+        app:layout_constraintStart_toStartOf="@id/item_br_rv_money"
+        app:layout_constraintTop_toBottomOf="@id/item_br_rv_title"
+        android:layout_width="wrap_content"
+              android:layout_height="wrap_content"/>
+</android.support.constraint.ConstraintLayout>

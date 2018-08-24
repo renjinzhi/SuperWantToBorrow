@@ -13,4 +13,8 @@
     <color name="bg">#F6F5FA</color>
     <color name="view_bg">#e0e0e0</color>
     <color name="text_gray">#363636</color>
+    <color name="six_e">#6E6E6E</color>
+    <color name="hui">#C7C6CB</color>
+    <color name="red_forget">#F31E1F</color>
+
 </resources>

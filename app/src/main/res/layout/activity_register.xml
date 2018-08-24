@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <TextView
+        android:id="@+id/register_title"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:text="注册"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/register_back"
+        android:layout_width="8dp" android:layout_height="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher"/>
+
+    <View
+        android:id="@+id/register_title_view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/view_bg" app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_title"/>
+
+    <TextView
+        android:id="@+id/register_choose_title"
+        android:layout_width="wrap_content"
+        android:layout_height="66dp"
+        android:layout_marginTop="3dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="17dp"
+        android:text="选择身份"
+        android:textColor="@color/six_e"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_title_view"/>
+
+    <TextView
+        android:id="@+id/register_tv_work"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="21dp"
+        android:background="@color/red"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:text="上班族"
+        app:layout_constraintStart_toEndOf="@+id/register_choose_title"
+        app:layout_constraintTop_toBottomOf="@+id/register_title_view"/>
+
+    <TextView
+        android:id="@+id/register_tv_alone"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="21dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:textColor="@color/hui"
+        android:textSize="14sp"
+        android:text="个体"
+        app:layout_constraintStart_toEndOf="@+id/register_tv_work"
+        app:layout_constraintTop_toBottomOf="@+id/register_title_view"/>
+
+    <TextView
+        android:id="@+id/register_tv_free"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="21dp"
+        android:background="@color/white"
+        android:textColor="@color/hui"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:text="自由职业"
+        app:layout_constraintStart_toEndOf="@+id/register_tv_alone"
+        app:layout_constraintTop_toBottomOf="@+id/register_title_view"/>
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/hui"
+        android:textSize="14sp"
+        android:layout_marginTop="21dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="无业"
+        app:layout_constraintStart_toEndOf="@+id/register_tv_free"
+        app:layout_constraintTop_toBottomOf="@+id/register_title_view"/>
+
+
+    <EditText
+        android:id="@+id/register_ed_money"
+        android:layout_width="345dp"
+        android:layout_height="46dp"
+        android:background="@color/white"
+        android:hint="请输入金额"
+        android:paddingLeft="51dp"
+        android:inputType="number"
+        android:maxLength="6"
+        android:textColorHint="@color/hui"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/register_choose_title"/>
+
+    <ImageView
+        android:layout_width="13dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="13.5dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="@id/register_ed_money"
+        app:layout_constraintTop_toTopOf="@id/register_ed_money"/>
+
+    <EditText
+        android:id="@+id/register_ed_phone"
+        android:layout_width="345dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:hint="请输入手机号"
+        android:inputType="number"
+        android:maxLength="11"
+        android:textColorHint="@color/hui"
+        android:textSize="15sp"
+        android:paddingLeft="51dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/register_ed_money"/>
+
+    <ImageView
+        android:layout_width="13dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="13.5dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="@id/register_ed_phone"
+        app:layout_constraintTop_toTopOf="@id/register_ed_phone"/>
+
+    <EditText
+        android:id="@+id/register_ed_code"
+        android:layout_width="345dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:hint="请输入验证码"
+        android:inputType="number"
+        android:textColorHint="@color/hui"
+        android:textSize="15sp"
+        android:maxLength="6"
+        android:paddingLeft="51dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_ed_phone"/>
+
+    <ImageView
+        android:layout_width="13dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="13.5dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="@id/register_ed_code"
+        app:layout_constraintTop_toTopOf="@id/register_ed_code"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="16dp"
+        android:layout_marginRight="110dp"
+        android:background="@color/view_bg"
+        app:layout_constraintBottom_toBottomOf="@id/register_ed_code"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/register_ed_code"/>
+
+    <TextView
+        android:id="@+id/register_tv_get_code"
+        android:layout_width="110dp"
+        android:layout_height="46dp"
+        android:gravity="center"
+        android:text="获取验证码"
+        android:textColor="@color/red"
+        app:layout_constraintEnd_toEndOf="@id/register_ed_code"
+        app:layout_constraintTop_toTopOf="@id/register_ed_code"/>
+
+
+    <EditText
+        android:id="@+id/register_ed_password"
+        android:layout_width="345dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:paddingLeft="51dp"
+        android:maxLength="12"
+        android:hint="密码为6-12位的数字和字母组成"
+        android:inputType="number"
+        android:textColorHint="@color/hui"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_ed_code"/>
+
+    <ImageView
+        android:layout_width="13dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="13.5dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="@id/register_ed_password"
+        app:layout_constraintTop_toTopOf="@id/register_ed_password"/>
+
+    <Button
+        android:id="@+id/register_button_register"
+        android:layout_width="345dp"
+        android:layout_height="44.5dp"
+        android:layout_marginTop="42.5dp"
+        android:background="@color/red"
+        android:text="立即申请"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_ed_password"/>
+</android.support.constraint.ConstraintLayout>
