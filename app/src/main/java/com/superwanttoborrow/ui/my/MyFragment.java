@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseFragment;
 import com.superwanttoborrow.ui.borrowrecord.BorrowRecordActivity;
+import com.superwanttoborrow.ui.changebank.ChangeBankActivity;
 import com.superwanttoborrow.ui.login.LoginActivity;
 
 /**
@@ -59,6 +60,7 @@ public class MyFragment extends MVPBaseFragment<MyContract.View, MyPresenter> im
                 startActivity(new Intent(getContext(), BorrowRecordActivity.class));
                 break;
             case R.id.my_tv_bank:
+                startActivity(new Intent(getContext(), ChangeBankActivity.class));
                 break;
             case R.id.my_tv_help:
                 break;
