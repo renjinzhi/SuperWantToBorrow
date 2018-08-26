@@ -38,7 +38,7 @@
         app:srcCompat="@mipmap/ic_launcher"/>
 
     <TextView
-        android:id="@+id/my_tv_record"
+        android:id="@+id/repay_tv_record"
         android:layout_width="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,30 +54,30 @@
         android:layout_marginBottom="8dp" android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/my_tv_record"
-        app:layout_constraintStart_toStartOf="@+id/my_tv_record"
-        app:layout_constraintTop_toTopOf="@+id/my_tv_record" app:srcCompat="@mipmap/ic_launcher"/>
+        app:layout_constraintBottom_toBottomOf="@+id/repay_tv_record"
+        app:layout_constraintStart_toStartOf="@+id/repay_tv_record"
+        app:layout_constraintTop_toTopOf="@+id/repay_tv_record" app:srcCompat="@mipmap/ic_launcher"/>
     <ImageView
         android:layout_width="8dp" android:layout_height="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/my_tv_record"
-        app:layout_constraintEnd_toEndOf="@+id/my_tv_record"
-        app:layout_constraintTop_toTopOf="@+id/my_tv_record" app:srcCompat="@mipmap/ic_launcher"/>
+        app:layout_constraintBottom_toBottomOf="@+id/repay_tv_record"
+        app:layout_constraintEnd_toEndOf="@+id/repay_tv_record"
+        app:layout_constraintTop_toTopOf="@+id/repay_tv_record" app:srcCompat="@mipmap/ic_launcher"/>
     <View
-        android:id="@+id/my_view_record"
+        android:id="@+id/repay_view_record"
         android:layout_marginLeft="48.5dp"
         android:background="@color/view_bg"
         android:layout_width="0dp" android:layout_height="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_tv_record"
+        app:layout_constraintTop_toBottomOf="@+id/repay_tv_record"
         tools:layout_editor_absoluteX="0dp"/>
 
     <View android:layout_width="48.5dp"
           app:layout_constraintStart_toStartOf="parent"
           android:background="@color/white"
-          app:layout_constraintTop_toBottomOf="@+id/my_tv_record"
+          app:layout_constraintTop_toBottomOf="@+id/repay_tv_record"
           android:layout_height="1dp"/>
 
 
@@ -92,7 +92,7 @@
         android:textSize="16sp"
         android:textColor="@color/gray"
         android:layout_height="50dp"
-        android:text="更改绑定银行卡" app:layout_constraintTop_toBottomOf="@+id/my_view_record"/>
+        android:text="更改绑定银行卡" app:layout_constraintTop_toBottomOf="@+id/repay_view_record"/>
     <ImageView
         android:layout_width="16.5dp" android:layout_height="19dp"
         android:layout_marginBottom="8dp" android:layout_marginLeft="15dp"

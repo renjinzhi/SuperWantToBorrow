@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/wte_title"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="我要展期"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/wte_back"
+        android:layout_width="8dp" android:layout_height="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher"/>
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/wte_tv_extension_time"
+        app:layout_constraintTop_toBottomOf="@id/wte_title"
+        android:background="@color/white"
+        android:text="展期天数"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:layout_width="match_parent" android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/wte_tv_extension_time_set"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="162.5dp"
+        android:textColor="@color/gray"
+        android:textSize="21sp"
+        android:text="14天"
+        app:layout_constraintBottom_toBottomOf="@id/wte_tv_extension_time"
+        app:layout_constraintTop_toTopOf="@id/wte_tv_extension_time"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <View
+        app:layout_constraintBottom_toBottomOf="@id/wte_tv_extension_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="15dp"
+        android:background="@color/view_bg"
+        android:layout_width="0dp" android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/wte_tv_extension_date"
+        app:layout_constraintTop_toBottomOf="@id/wte_tv_extension_time"
+        android:background="@color/white"
+        android:text="展期后还款日"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:layout_width="match_parent" android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/wte_tv_extension_date_set"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="162.5dp"
+        android:textColor="@color/six_e"
+        android:textSize="16sp"
+        android:text="2018—4-12"
+        app:layout_constraintBottom_toBottomOf="@id/wte_tv_extension_date"
+        app:layout_constraintTop_toTopOf="@id/wte_tv_extension_date"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/wte_tv_expire_repay_money"
+        app:layout_constraintTop_toBottomOf="@id/wte_tv_extension_date"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:text="应还金额"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:layout_width="match_parent" android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/wte_tv_expire_repay_money_set"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="162.5dp"
+        android:textColor="@color/six_e"
+        android:textSize="17sp"
+        android:text="￥1000"
+        app:layout_constraintBottom_toBottomOf="@id/wte_tv_expire_repay_money"
+        app:layout_constraintTop_toTopOf="@id/wte_tv_expire_repay_money"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <View
+        app:layout_constraintBottom_toBottomOf="@id/wte_tv_expire_repay_money"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="15dp"
+        android:background="@color/view_bg"
+        android:layout_width="0dp" android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/wte_tv_extension_money"
+        app:layout_constraintTop_toBottomOf="@id/wte_tv_expire_repay_money"
+        android:background="@color/white"
+        android:text="展期金额"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:layout_width="match_parent" android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/wte_tv_extension_money_set"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="162.5dp"
+        android:textColor="@color/six_e"
+        android:textSize="17sp"
+        android:text="￥1250"
+        app:layout_constraintBottom_toBottomOf="@id/wte_tv_extension_money"
+        app:layout_constraintTop_toTopOf="@id/wte_tv_extension_money"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:id="@+id/wte_button_extension"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wte_tv_extension_money"
+        android:layout_marginTop="55dp"
+        android:background="@color/red"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:text="我要展期"
+        android:layout_width="345dp" android:layout_height="44.5dp"/>
+</android.support.constraint.ConstraintLayout>

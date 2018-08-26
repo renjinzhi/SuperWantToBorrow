@@ -14,7 +14,9 @@ import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseFragment;
 import com.superwanttoborrow.ui.borrowrecord.BorrowRecordActivity;
 import com.superwanttoborrow.ui.changebank.ChangeBankActivity;
+import com.superwanttoborrow.ui.help.HelpActivity;
 import com.superwanttoborrow.ui.login.LoginActivity;
+import com.superwanttoborrow.ui.safesetting.SafeSettingActivity;
 
 /**
  * @author renji
@@ -40,7 +42,7 @@ public class MyFragment extends MVPBaseFragment<MyContract.View, MyPresenter> im
     private void initView(View view) {
         my_tv_login = (TextView) view.findViewById(R.id.my_tv_login);
         my_tv_login.setOnClickListener(this);
-        my_tv_record = (TextView) view.findViewById(R.id.my_tv_record);
+        my_tv_record = (TextView) view.findViewById(R.id.repay_tv_record);
         my_tv_record.setOnClickListener(this);
         my_tv_bank = (TextView) view.findViewById(R.id.my_tv_bank);
         my_tv_bank.setOnClickListener(this);
@@ -56,15 +58,17 @@ public class MyFragment extends MVPBaseFragment<MyContract.View, MyPresenter> im
             case R.id.my_tv_login:
                 startActivity(new Intent(getContext(), LoginActivity.class));
                 break;
-            case R.id.my_tv_record:
+            case R.id.repay_tv_record:
                 startActivity(new Intent(getContext(), BorrowRecordActivity.class));
                 break;
             case R.id.my_tv_bank:
                 startActivity(new Intent(getContext(), ChangeBankActivity.class));
                 break;
             case R.id.my_tv_help:
+                startActivity(new Intent(getContext(), HelpActivity.class));
                 break;
             case R.id.my_tv_set:
+                startActivity(new Intent(getContext(), SafeSettingActivity.class));
                 break;
         }
     }

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/repay_detail_title"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:text="还款明细"
+        android:textColor="@color/gray"
+        android:background="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/repay_detail_back"
+        android:layout_width="8dp" android:layout_height="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher"/>
+
+
+    <TextView
+        android:id="@+id/repay_detail_borrow_money"
+        android:background="@color/white"
+        android:paddingLeft="20dp"
+        android:text="借款金额"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repay_detail_title"
+        android:layout_width="0dp" android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/repay_detail_borrow_tv_money"
+        android:layout_marginRight="30dp"
+        android:text="￥1000"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/repay_detail_borrow_money"
+        app:layout_constraintBottom_toBottomOf="@id/repay_detail_borrow_money"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <View
+        android:background="@color/view_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/repay_detail_borrow_money"
+        android:layout_width="0dp" android:layout_height="1dp"/>
+
+
+    <TextView
+        android:id="@+id/repay_detail_time"
+        android:background="@color/white"
+        android:paddingLeft="20dp"
+        android:text="借款期限"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repay_detail_borrow_money"
+        android:layout_width="0dp" android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/repay_detail_tv_time"
+        android:layout_marginRight="30dp"
+        android:text="7天"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/repay_detail_time"
+        app:layout_constraintBottom_toBottomOf="@id/repay_detail_time"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <View
+        android:background="@color/view_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/repay_detail_time"
+        android:layout_width="0dp" android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/repay_detail_borrow_date"
+        android:background="@color/white"
+        android:paddingLeft="20dp"
+        android:text="借款时间"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repay_detail_time"
+        android:layout_width="0dp" android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/repay_detail_tv_borrow_date"
+        android:layout_marginRight="30dp"
+        android:text="2018-6-10"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/repay_detail_borrow_date"
+        app:layout_constraintBottom_toBottomOf="@id/repay_detail_borrow_date"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <View
+        android:background="@color/view_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/repay_detail_borrow_date"
+        android:layout_width="0dp" android:layout_height="1dp"/>
+
+
+    <TextView
+        android:id="@+id/repay_detail_repay_date"
+        android:background="@color/white"
+        android:paddingLeft="20dp"
+        android:text="应还款时间"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repay_detail_borrow_date"
+        android:layout_width="0dp" android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/repay_detail_tv_repay_date"
+        android:layout_marginRight="30dp"
+        android:text="2018-6-17"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/repay_detail_repay_date"
+        app:layout_constraintBottom_toBottomOf="@id/repay_detail_repay_date"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <View
+        android:background="@color/view_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/repay_detail_repay_date"
+        android:layout_width="0dp" android:layout_height="1dp"/>
+
+
+    <TextView
+        android:id="@+id/repay_detail_extension_money"
+        android:background="@color/white"
+        android:paddingLeft="20dp"
+        android:text="逾期金额"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repay_detail_repay_date"
+        android:layout_width="0dp" android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/repay_detail_tv_extension_date"
+        android:layout_marginRight="30dp"
+        android:text="￥0"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/repay_detail_extension_money"
+        app:layout_constraintBottom_toBottomOf="@id/repay_detail_extension_money"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+
+</android.support.constraint.ConstraintLayout>

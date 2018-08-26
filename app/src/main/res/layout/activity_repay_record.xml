@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/bg"
+    android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/repay_record_title"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:text="还款记录"
+        android:textColor="@color/gray"
+        android:background="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/repay_record_back"
+        android:layout_width="8dp" android:layout_height="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher"/>
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:id="@+id/repay_record_ll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repay_record_title"
+        android:orientation="horizontal"
+        android:layout_width="0dp" android:layout_height="45dp">
+
+        <TextView
+            android:textColor="@color/gray"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="序号"
+            android:layout_weight="1"
+            android:layout_width="0dp" android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="@color/gray"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="还款方式"
+            android:layout_weight="1"
+            android:layout_width="0dp" android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="@color/gray"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="还款时间"
+            android:layout_weight="1"
+            android:layout_width="0dp" android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="@color/gray"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="还款金额"
+            android:layout_weight="1"
+            android:layout_width="0dp" android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/repay_record_rv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repay_record_ll"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
+</android.support.constraint.ConstraintLayout>
