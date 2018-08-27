@@ -3,6 +3,7 @@
           package="com.superwanttoborrow">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -31,6 +32,13 @@
         <activity android:name=".ui.repayplan.RepayPlanActivity"/>
         <activity android:name=".ui.repayrecord.RepayRecordActivity"/>
         <activity android:name=".ui.repaydetail.RepayDetailActivity"/>
+        <activity android:name=".ui.forgetpassword.ForgetPasswordActivity"/>
+        <activity android:name=".ui.basicinformation.BasicInformationActivity"/>
+        <activity android:name=".ui.contacts.ContactsActivity"/>
+        <activity android:name=".ui.face.FaceActivity"/>
+        <activity android:name=".ui.bank.BankActivity"/>
+        <activity android:name=".ui.progressquery.ProgressQueryActivity"/>
+
 
         <meta-data
             android:name="design_width_in_dp"

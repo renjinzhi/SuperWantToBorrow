@@ -87,6 +87,7 @@
         android:layout_width="0dp" android:layout_height="50dp"/>
 
     <ImageView
+        android:id="@+id/change_bank_ed_name_show"
         app:layout_constraintTop_toTopOf="@id/change_bank_ed_name"
         app:layout_constraintBottom_toBottomOf="@id/change_bank_ed_name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -292,6 +293,7 @@
         android:layout_width="0dp" android:layout_height="50dp"/>
 
     <TextView
+        android:id="@+id/change_bank_get_code"
         app:layout_constraintTop_toTopOf="@id/change_bank_ed_code"
         app:layout_constraintBottom_toBottomOf="@id/change_bank_ed_code"
         app:layout_constraintEnd_toEndOf="parent"

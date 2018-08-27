@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseFragment;
+import com.superwanttoborrow.ui.progressquery.ProgressQueryActivity;
 import com.superwanttoborrow.ui.realname.RealNameActivity;
 import com.superwanttoborrow.widget.EasyPickerView;
 import com.superwanttoborrow.widget.bannerhelper.widget.CycleView;
@@ -51,18 +52,16 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
 
         final ArrayList<String> data = new ArrayList<String>();
         final ArrayList<String> seconds = new ArrayList<String>();
-        for (int i = 0; i < 10; i++)
-        {
-            data.add("0" + i);
+        for (int i = 1; i <= 10; i++) {
+            data.add("￥"+i + "00");
         }
-        for (int i = 0; i < 60; i++)
-        {
-            seconds.add(i < 10 ? "0" + i : "" + i);
-        }
+        seconds.add("7天");
+        seconds.add("14天");
+        seconds.add("30天");
         picker_money.setDataList(data);
         picker_time.setDataList(seconds);
-        picker_money.moveBy(data.size()/2);
-        picker_time.moveBy(seconds.size()/2);
+        picker_money.moveBy(data.size() / 2);
+        picker_time.moveBy(seconds.size() / 2);
         picker_money.setOnScrollChangedListener(new EasyPickerView.OnScrollChangedListener() {
             @Override
             public void onScrollChanged(int curIndex) {
@@ -89,6 +88,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
 
         home_button_borrow.setOnClickListener(this);
         home_button_select.setOnClickListener(this);
+
     }
 
     @Override
@@ -98,7 +98,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
                 startActivity(new Intent(getContext(), RealNameActivity.class));
                 break;
             case R.id.home_button_select:
-
+                startActivity(new Intent(getContext(), ProgressQueryActivity.class));
                 break;
         }
     }

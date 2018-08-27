@@ -41,4 +41,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     //     recyclerview
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+//    崩溃
+//    implementation 'com.github.nanchen2251:AppManager:1.0.1'
 }

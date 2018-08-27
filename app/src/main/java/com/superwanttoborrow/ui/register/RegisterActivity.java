@@ -1,6 +1,7 @@
 package com.superwanttoborrow.ui.register;
 
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
+import com.superwanttoborrow.utils.Bitmap2Base64;
 
 
 /**
@@ -34,12 +36,20 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
     private TextView register_tv_get_code;
     private EditText register_ed_password;
     private Button register_button_register;
+    private ImageView register_img_img_code;
+    private String imgCodeKey;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         initView();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mPresenter.getImgCode(this);
     }
 
     private void initView() {
@@ -55,6 +65,8 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
         register_ed_password = (EditText) findViewById(R.id.register_ed_password);
         register_button_register = (Button) findViewById(R.id.register_button_register);
         register_button_register.setOnClickListener(this);
+        register_img_img_code = (ImageView) findViewById(R.id.register_img_img_code);
+        register_img_img_code.setOnClickListener(this);
     }
 
     private void submit() {
@@ -95,5 +107,12 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
 
                 break;
         }
+    }
+
+    @Override
+    public void getImgCode(String imgCodeKey, String imgCodeString) {
+        Bitmap bitmap = Bitmap2Base64.stringToBitmap(imgCodeString);
+        register_img_img_code.setImageBitmap(bitmap);
+        this.imgCodeKey = imgCodeKey;
     }
 }

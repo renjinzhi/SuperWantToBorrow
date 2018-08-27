@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:background="@color/white"
+        android:gravity="center" android:text="基本信息"
+        android:textColor="@color/gray"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/repayment_detail_2"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:text="第2/5步"
+        android:textColor="@color/gray"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/basic_information_back"
+        android:layout_width="8dp" android:layout_height="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/repayment_detail_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/repayment_detail_2"
+        app:srcCompat="@mipmap/ic_launcher"/>
+
+    <View
+        android:id="@+id/basic_information_title_view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/view_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/repayment_detail_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/basic_information_title_view">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg"
+            android:focusable="true" android:focusableInTouchMode="true">
+
+            <View
+                android:id="@+id/basic_information_view_title"
+                android:layout_width="0dp"
+                android:layout_height="15dp"
+                android:background="@color/bg"/>
+            <TextView
+                android:id="@+id/basic_information_tv_mess"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="借款信息"
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_view_title"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/basic_information_tv_mess"/>
+
+
+            <ImageView
+                android:layout_width="4dp"
+                android:layout_height="12dp"
+                android:layout_marginLeft="7dp"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintBottom_toBottomOf="@id/basic_information_tv_mess"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/basic_information_tv_mess"/>
+            <android.support.constraint.Guideline
+                android:id="@+id/basic_information_guideline_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="127.5dp"/>
+
+            <TextView
+                android:id="@+id/basic_information_name_title"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="真实姓名"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_tv_mess"/>
+            <TextView
+                android:id="@+id/basic_information_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="XXX"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/basic_information_guideline_text"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_tv_mess"/>
+            <View
+                android:id="@+id/basic_information_view_name"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_name_title"/>
+            <TextView
+                android:id="@+id/basic_information_id_title"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="身份证号"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_view_name"/>
+            <TextView
+                android:id="@+id/basic_information_id_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="xxxxxxxxxxxxxx"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/basic_information_guideline_text"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_view_name"/>
+
+            <View
+                android:id="@+id/basic_information_view_id"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_id_title"/>
+            <TextView
+                android:id="@+id/basic_information_phone_title"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="手机号码"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_view_id"/>
+            <TextView
+                android:id="@+id/basic_information_phone_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="XXXXXXXXXXX"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/basic_information_guideline_text"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_view_id"/>
+
+
+            <View
+                android:id="@+id/basic_information_view_phone"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_phone_title"/>
+
+            <TextView
+                android:id="@+id/basic_information_city_title"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="所在城市"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_view_phone"/>
+
+            <TextView
+                android:id="@+id/basic_information_city_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="xxxxxxxxxxxxxx"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/basic_information_guideline_text"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_view_phone"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="19dp"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintBottom_toBottomOf="@id/basic_information_city_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/basic_information_city_title"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/view_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/basic_information_city_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+
+            <TextView
+                android:id="@+id/basic_information_city_title_2"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="现居住地址"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_city_title"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="127.5dp"
+                android:background="@null"
+                android:textSize="15sp"
+                android:textColor="@color/gray"
+                android:hint="填写详细地址，不少于5个字"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/basic_information_city_title_2"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/view_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/basic_information_city_title_2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+
+            <TextView
+                android:id="@+id/basic_information_culture"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="文化程度"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_city_title_2"/>
+
+            <Spinner
+                android:id="@+id/basic_information_spinner_culture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/basic_information_culture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/basic_information_culture"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/view_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/basic_information_culture"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/basic_information_work"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="工作类型"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_culture"/>
+
+            <Spinner
+                android:id="@+id/basic_information_spinner_work"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/basic_information_work"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/basic_information_work"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/view_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/basic_information_work"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/basic_information_money"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="收入范围"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/basic_information_work"/>
+
+            <Spinner
+                android:id="@+id/basic_information_spinner_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/basic_information_money"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/basic_information_money"/>
+
+            <Button
+            android:id="@+id/basic_information_button_next"
+            android:layout_width="345dp"
+            android:layout_height="44.5dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/red"
+            android:text="下一步"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="@+id/basic_information_tv_mess"
+            app:layout_constraintStart_toStartOf="@+id/basic_information_tv_mess"
+            app:layout_constraintTop_toBottomOf="@id/basic_information_money"/>
+
+            <View
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/basic_information_button_next"/>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

@@ -54,10 +54,10 @@
         android:layout_marginLeft="11dp"
         android:layout_marginTop="21dp"
         android:background="@color/red"
-        android:textColor="@color/white"
-        android:textSize="14sp"
         android:gravity="center"
         android:text="上班族"
+        android:textColor="@color/white"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/register_choose_title"
         app:layout_constraintTop_toBottomOf="@+id/register_title_view"/>
 
@@ -69,9 +69,9 @@
         android:layout_marginTop="21dp"
         android:background="@color/white"
         android:gravity="center"
+        android:text="个体"
         android:textColor="@color/hui"
         android:textSize="14sp"
-        android:text="个体"
         app:layout_constraintStart_toEndOf="@+id/register_tv_work"
         app:layout_constraintTop_toBottomOf="@+id/register_title_view"/>
 
@@ -82,10 +82,10 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="21dp"
         android:background="@color/white"
-        android:textColor="@color/hui"
-        android:textSize="14sp"
         android:gravity="center"
         android:text="自由职业"
+        android:textColor="@color/hui"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/register_tv_alone"
         app:layout_constraintTop_toBottomOf="@+id/register_title_view"/>
 
@@ -93,12 +93,12 @@
         android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginLeft="5dp"
-        android:textColor="@color/hui"
-        android:textSize="14sp"
         android:layout_marginTop="21dp"
         android:background="@color/white"
         android:gravity="center"
         android:text="无业"
+        android:textColor="@color/hui"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/register_tv_free"
         app:layout_constraintTop_toBottomOf="@+id/register_title_view"/>
 
@@ -109,13 +109,14 @@
         android:layout_height="46dp"
         android:background="@color/white"
         android:hint="请输入金额"
-        android:paddingLeft="51dp"
         android:inputType="number"
         android:maxLength="6"
+        android:paddingLeft="51dp"
         android:textColorHint="@color/hui"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/register_choose_title"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_choose_title"/>
 
     <ImageView
         android:layout_width="13dp"
@@ -135,11 +136,12 @@
         android:hint="请输入手机号"
         android:inputType="number"
         android:maxLength="11"
+        android:paddingLeft="51dp"
         android:textColorHint="@color/hui"
         android:textSize="15sp"
-        android:paddingLeft="51dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/register_ed_money"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_ed_money"/>
 
     <ImageView
         android:layout_width="13dp"
@@ -151,6 +153,40 @@
         app:layout_constraintTop_toTopOf="@id/register_ed_phone"/>
 
     <EditText
+        android:id="@+id/register_ed_img_code"
+        android:layout_width="345dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:hint="请输入图片验证码"
+        android:inputType="number"
+        android:maxLength="11"
+        android:paddingLeft="51dp"
+        android:textColorHint="@color/hui"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_ed_phone"/>
+
+    <ImageView
+        android:layout_width="13dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="13.5dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="@id/register_ed_img_code"
+        app:layout_constraintTop_toTopOf="@id/register_ed_img_code"/>
+
+    <ImageView
+        android:id="@+id/register_img_img_code"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="@id/register_ed_img_code"
+        app:layout_constraintEnd_toEndOf="@id/register_ed_img_code"
+        app:layout_constraintTop_toTopOf="@id/register_ed_img_code"/>
+
+    <EditText
         android:id="@+id/register_ed_code"
         android:layout_width="345dp"
         android:layout_height="46dp"
@@ -158,13 +194,13 @@
         android:background="@color/white"
         android:hint="请输入验证码"
         android:inputType="number"
-        android:textColorHint="@color/hui"
-        android:textSize="15sp"
         android:maxLength="6"
         android:paddingLeft="51dp"
+        android:textColorHint="@color/hui"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_ed_phone"/>
+        app:layout_constraintTop_toBottomOf="@id/register_ed_img_code"/>
 
     <ImageView
         android:layout_width="13dp"
@@ -178,10 +214,10 @@
     <View
         android:layout_width="1dp"
         android:layout_height="16dp"
+        android:layout_marginRight="125dp"
         android:background="@color/view_bg"
         app:layout_constraintBottom_toBottomOf="@id/register_ed_code"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="125dp"
         app:layout_constraintTop_toTopOf="@+id/register_ed_code"/>
 
     <TextView
@@ -190,8 +226,8 @@
         android:layout_height="46dp"
         android:gravity="center"
         android:text="获取验证码"
-        android:textSize="15sp"
         android:textColor="@color/red"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@id/register_ed_code"
         app:layout_constraintTop_toTopOf="@id/register_ed_code"/>
 
@@ -202,10 +238,10 @@
         android:layout_height="46dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:paddingLeft="51dp"
-        android:maxLength="12"
         android:hint="密码为6-12位的数字和字母组成"
         android:inputType="textPassword"
+        android:maxLength="12"
+        android:paddingLeft="51dp"
         android:textColorHint="@color/hui"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"

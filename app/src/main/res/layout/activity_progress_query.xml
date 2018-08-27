@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/progress_query_tv_title"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:background="@color/white"
+        android:gravity="center" android:text="进度查询"
+        android:textColor="@color/gray"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/progress_query_back"
+        android:layout_width="8dp" android:layout_height="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/progress_query_tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/progress_query_tv_title"
+        app:srcCompat="@mipmap/ic_launcher"/>
+
+    <View
+        android:id="@+id/progress_query_title_view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/view_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_query_tv_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/progress_query_mess"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@color/red"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:text="您申请的1000元正在放款中..."
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress_query_tv_title"/>
+
+
+    <ImageView
+        android:id="@+id/pq_img_5"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="62.5dp"
+        android:layout_marginTop="29dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress_query_mess"/>
+
+
+    <TextView
+        android:id="@+id/pq_tv_title_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:text="放款成功"
+        android:textColor="@color/nine"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/pq_img_5"
+        app:layout_constraintLeft_toRightOf="@id/pq_img_5"
+        app:layout_constraintTop_toTopOf="@id/pq_img_5"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/pg_guideline_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="122.5dp"
+        android:orientation="horizontal"/>
+    
+    <TextView
+        android:id="@+id/pg_tv_date_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:text="7-17"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@id/pg_guideline_5"
+        app:layout_constraintStart_toStartOf="parent"/>
+    
+    <TextView
+        android:id="@+id/pg_tv_time_5"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="17dp"
+        android:text="14:26"
+        app:layout_constraintTop_toBottomOf="@id/pg_guideline_5"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <View
+        android:id="@+id/pg_view_4"
+        android:background="@color/view_bg"
+        app:layout_constraintTop_toBottomOf="@id/pq_img_5"
+        app:layout_constraintStart_toStartOf="@id/pq_img_5"
+        app:layout_constraintEnd_toEndOf="@id/pq_img_5"
+        android:layout_width="1dp" android:layout_height="56dp"/>
+
+
+    <ImageView
+        android:id="@+id/pq_img_4"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="62.5dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pg_view_4"/>
+
+    <TextView
+        android:id="@+id/pq_tv_title_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:text="正在放款"
+        android:textColor="@color/nine"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/pq_img_4"
+        app:layout_constraintLeft_toRightOf="@id/pq_img_4"
+        app:layout_constraintTop_toTopOf="@id/pq_img_4"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/pg_guideline_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="197.5dp"
+        android:orientation="horizontal"/>
+
+    <TextView
+        android:id="@+id/pg_tv_date_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:text="7-17"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@id/pg_guideline_4"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/pg_tv_time_4"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="17dp"
+        android:text="14:26"
+        app:layout_constraintTop_toBottomOf="@id/pg_guideline_4"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <View
+        android:id="@+id/pg_view_3"
+        android:background="@color/view_bg"
+        app:layout_constraintTop_toBottomOf="@id/pq_img_4"
+        app:layout_constraintStart_toStartOf="@id/pq_img_4"
+        app:layout_constraintEnd_toEndOf="@id/pq_img_4"
+        android:layout_width="1dp" android:layout_height="56dp"/>
+
+
+    <ImageView
+        android:id="@+id/pq_img_3"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="62.5dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pg_view_3"/>
+
+    <TextView
+        android:id="@+id/pq_tv_title_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:text="申请放款"
+        android:textColor="@color/nine"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/pq_img_3"
+        app:layout_constraintLeft_toRightOf="@id/pq_img_3"
+        app:layout_constraintTop_toTopOf="@id/pq_img_3"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/pg_guideline_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="272.5dp"
+        android:orientation="horizontal"/>
+
+    <TextView
+        android:id="@+id/pg_tv_date_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:text="7-17"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@id/pg_guideline_3"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/pg_tv_time_3"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="17dp"
+        android:text="14:26"
+        app:layout_constraintTop_toBottomOf="@id/pg_guideline_3"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <View
+        android:id="@+id/pg_view_2"
+        android:background="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/pq_img_3"
+        app:layout_constraintStart_toStartOf="@id/pq_img_3"
+        app:layout_constraintEnd_toEndOf="@id/pq_img_3"
+        android:layout_width="1dp" android:layout_height="56dp"/>
+
+
+
+    <ImageView
+        android:id="@+id/pq_img_2"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="62.5dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pg_view_2"/>
+
+    <TextView
+        android:id="@+id/pq_tv_title_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:text="人工审核"
+        android:textColor="@color/nine"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/pq_img_2"
+        app:layout_constraintLeft_toRightOf="@id/pq_img_2"
+        app:layout_constraintTop_toTopOf="@id/pq_img_2"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/pg_guideline_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="347.5dp"
+        android:orientation="horizontal"/>
+
+    <TextView
+        android:id="@+id/pg_tv_date_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:text="7-17"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@id/pg_guideline_2"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/pg_tv_time_2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="17dp"
+        android:text="14:26"
+        app:layout_constraintTop_toBottomOf="@id/pg_guideline_2"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <View
+        android:id="@+id/pg_view_1"
+        android:background="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/pq_img_2"
+        app:layout_constraintStart_toStartOf="@id/pq_img_2"
+        app:layout_constraintEnd_toEndOf="@id/pq_img_2"
+        android:layout_width="1dp" android:layout_height="56dp"/>
+
+
+    <ImageView
+        android:id="@+id/pq_img_1"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="62.5dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pg_view_1"/>
+
+    <TextView
+        android:id="@+id/pq_tv_title_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:text="系统审核"
+        android:textColor="@color/nine"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/pq_img_1"
+        app:layout_constraintLeft_toRightOf="@id/pq_img_1"
+        app:layout_constraintTop_toTopOf="@id/pq_img_1"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/pg_guideline_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="422.5dp"
+        android:orientation="horizontal"/>
+
+    <TextView
+        android:id="@+id/pg_tv_date_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:text="7-17"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@id/pg_guideline_1"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/pg_tv_time_1"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="17dp"
+        android:text="14:26"
+        app:layout_constraintTop_toBottomOf="@id/pg_guideline_1"
+        android:textColor="@color/red"
+        android:textSize="13sp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <Button
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pq_tv_title_1"
+        android:layout_marginTop="69dp"
+        android:text="申请放款"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@color/red"
+        android:layout_width="345dp" android:layout_height="44.5dp"/>
+
+</android.support.constraint.ConstraintLayout>
