@@ -15,7 +15,11 @@ public class RegisterContract {
 
     interface View extends BaseView {
 
+        //图片验证码
         void getImgCode(String imgCodeKey,String imgCodeString);
+
+        //注册成功的回调
+        void registerSuccess(String name,String token);
     }
 
     interface  Presenter extends BasePresenter<View> {

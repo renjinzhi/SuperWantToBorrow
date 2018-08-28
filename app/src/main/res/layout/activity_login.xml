@@ -71,7 +71,7 @@
         android:layout_marginTop="15dp"
         android:background="@color/white"
         android:hint="请输入密码"
-        android:inputType="number"
+        android:inputType="textPassword"
         android:maxLength="12"
         android:paddingLeft="51dp"
         android:textColorHint="@color/hui"
@@ -90,12 +90,11 @@
         app:layout_constraintStart_toStartOf="@id/login_ed_password"
         app:layout_constraintTop_toTopOf="@id/login_ed_password"/>
 
-    <ImageView
+    <CheckBox
         android:id="@+id/login_img_password_vis"
         android:layout_width="19dp"
         android:layout_height="9.5dp"
         android:layout_marginRight="15dp"
-        android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="@id/login_ed_password"
         app:layout_constraintEnd_toEndOf="@id/login_ed_password"
         app:layout_constraintTop_toTopOf="@id/login_ed_password"/>
@@ -105,13 +104,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        app:constraint_referenced_ids="login_ed_code,login_img_code,login_view_code,login_tv_get_code"/>
+        app:constraint_referenced_ids="login_tv_register_query,login_tv_query,login_button_login_query,login_ed_img_code,login_quick_img,login_img_img_code,login_ed_code,login_img_code,login_view_code,login_tv_get_code"/>
 
     <android.support.constraint.Group
-        app:constraint_referenced_ids="login_ed_password,login_img_password_vis,login_img_password,login_tv_forget"
+        app:constraint_referenced_ids="login_tv_register_pass,login_tv_pass,login_button_login_pass,login_ed_password,login_img_password_vis,login_img_password,login_tv_forget"
         android:id="@+id/login_group_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/login_ed_img_code"
+        android:layout_width="345dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:hint="请输入图片验证码"
+        android:maxLength="4"
+        android:paddingLeft="51dp"
+        android:textColorHint="@color/hui"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_ed_phone"/>
+
+    <ImageView
+        android:id="@+id/login_quick_img"
+        android:layout_width="13dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="13.5dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="@id/login_ed_img_code"
+        app:layout_constraintTop_toTopOf="@id/login_ed_img_code"/>
+
+    <ImageView
+        android:id="@+id/login_img_img_code"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="@id/login_ed_img_code"
+        app:layout_constraintEnd_toEndOf="@id/login_ed_img_code"
+        app:layout_constraintTop_toTopOf="@id/login_ed_img_code"/>
+
 
     <EditText
         android:id="@+id/login_ed_code"
@@ -121,13 +155,13 @@
         android:background="@color/white"
         android:hint="请输入验证码"
         android:inputType="number"
-        android:maxLength="6"
+        android:maxLength="4"
         android:paddingLeft="51dp"
         android:textColorHint="@color/hui"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_ed_phone"/>
+        app:layout_constraintTop_toBottomOf="@id/login_ed_img_code"/>
 
     <ImageView
         android:id="@+id/login_img_code"
@@ -171,7 +205,7 @@
         android:textSize="12sp" app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_ed_password"/>
     <Button
-        android:id="@+id/login_button_login"
+        android:id="@+id/login_button_login_pass"
         android:layout_width="345dp"
         android:layout_height="44.5dp"
         android:layout_marginTop="42.5dp"
@@ -184,18 +218,18 @@
         app:layout_constraintTop_toBottomOf="@+id/login_ed_password"
     />
     <TextView
-        android:id="@+id/login_tv_register"
+        android:id="@+id/login_tv_register_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="37.5dp"
         android:layout_marginTop="17dp"
         android:text="立即注册" android:textColor="@color/six_e"
         android:textSize="14sp" app:layout_constraintEnd_toStartOf="@+id/login_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/login_button_login"/>
+        app:layout_constraintTop_toBottomOf="@+id/login_button_login_pass"/>
 
 
     <TextView
-        android:id="@+id/login_tv_quick"
+        android:id="@+id/login_tv_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="37.5dp"
@@ -204,7 +238,49 @@
         android:textColor="@color/six_e"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/login_guideline"
-        app:layout_constraintTop_toBottomOf="@id/login_button_login"/>
+        app:layout_constraintTop_toBottomOf="@id/login_button_login_pass"/>
+
+
+
+
+    <Button
+        android:id="@+id/login_button_login_query"
+        android:layout_width="345dp"
+        android:layout_height="44.5dp"
+        android:layout_marginTop="42.5dp"
+        android:background="@color/red"
+        android:text="登录"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_ed_code"
+    />
+    <TextView
+        android:id="@+id/login_tv_register_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="37.5dp"
+        android:layout_marginTop="17dp"
+        android:text="立即注册" android:textColor="@color/six_e"
+        android:textSize="14sp" app:layout_constraintEnd_toStartOf="@+id/login_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/login_button_login_query"/>
+
+
+    <TextView
+        android:id="@+id/login_tv_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="37.5dp"
+        android:layout_marginTop="17dp"
+        android:text="密码登陆"
+        android:textColor="@color/six_e"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/login_guideline"
+        app:layout_constraintTop_toBottomOf="@id/login_button_login_query"/>
+
+
+
     <android.support.constraint.Guideline android:id="@+id/login_guideline"
                                           android:layout_width="wrap_content"
                                           android:layout_height="wrap_content"

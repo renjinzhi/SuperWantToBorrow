@@ -104,35 +104,11 @@
         app:layout_constraintTop_toBottomOf="@+id/register_title_view"/>
 
 
-    <EditText
-        android:id="@+id/register_ed_money"
-        android:layout_width="345dp"
-        android:layout_height="46dp"
-        android:background="@color/white"
-        android:hint="请输入金额"
-        android:inputType="number"
-        android:maxLength="6"
-        android:paddingLeft="51dp"
-        android:textColorHint="@color/hui"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_choose_title"/>
-
-    <ImageView
-        android:layout_width="13dp"
-        android:layout_height="19dp"
-        android:layout_marginLeft="21dp"
-        android:layout_marginTop="13.5dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintStart_toStartOf="@id/register_ed_money"
-        app:layout_constraintTop_toTopOf="@id/register_ed_money"/>
 
     <EditText
         android:id="@+id/register_ed_phone"
         android:layout_width="345dp"
         android:layout_height="46dp"
-        android:layout_marginTop="15dp"
         android:background="@color/white"
         android:hint="请输入手机号"
         android:inputType="number"
@@ -142,7 +118,7 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_ed_money"/>
+        app:layout_constraintTop_toBottomOf="@id/register_choose_title"/>
 
     <ImageView
         android:layout_width="13dp"
@@ -160,7 +136,7 @@
         android:layout_marginTop="15dp"
         android:background="@color/white"
         android:hint="请输入图片验证码"
-        android:maxLength="11"
+        android:maxLength="4"
         android:paddingLeft="51dp"
         android:textColorHint="@color/hui"
         android:textSize="15sp"
@@ -194,7 +170,7 @@
         android:background="@color/white"
         android:hint="请输入验证码"
         android:inputType="number"
-        android:maxLength="6"
+        android:maxLength="4"
         android:paddingLeft="51dp"
         android:textColorHint="@color/hui"
         android:textSize="15sp"

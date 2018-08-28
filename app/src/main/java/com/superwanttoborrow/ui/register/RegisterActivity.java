@@ -1,6 +1,7 @@
 package com.superwanttoborrow.ui.register;
 
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,7 +32,6 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
     private TextView register_tv_work;
     private TextView register_tv_alone;
     private TextView register_tv_free;
-    private EditText register_ed_money;
     private EditText register_ed_phone;
     private EditText register_ed_code;
     private TextView register_tv_get_code;
@@ -43,6 +43,8 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
     private String phone;
     private EditText register_ed_img_code;
     private String imgCode;
+    private String code;
+    private String password;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,7 +70,6 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
         register_tv_alone.setOnClickListener(this::onClick);
         register_tv_free = (TextView) findViewById(R.id.register_tv_free);
         register_tv_free.setOnClickListener(this::onClick);
-        register_ed_money = (EditText) findViewById(R.id.register_ed_money);
         register_ed_phone = (EditText) findViewById(R.id.register_ed_phone);
         register_ed_code = (EditText) findViewById(R.id.register_ed_code);
         register_tv_get_code = (TextView) findViewById(R.id.register_tv_get_code);
@@ -89,7 +90,7 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
         switch (v.getId()) {
             //注册
             case R.id.register_button_register:
-
+                register();
                 break;
             //图片验证码
             case R.id.register_img_img_code:
@@ -119,9 +120,26 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
     }
 
 
-
-    private void register(){
-
+    private void register() {
+        MyTextUtils.hideSoftKeyboard(register_ed_password, this);
+        phone = register_ed_phone.getText().toString();
+        code = register_ed_code.getText().toString();
+        password = register_ed_password.getText().toString();
+        if (TextUtils.isEmpty(phone)) {
+            Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show();
+        } else if (!PhoneNumberCheck.checkCellphone(phone)) {
+            Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(code)) {
+            Toast.makeText(this, "请输入收到的短信验证码", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "请设置您的密码", Toast.LENGTH_SHORT).show();
+        } else if (password.length() < 6) {
+            Toast.makeText(this, "密码长度不得少于6位", Toast.LENGTH_SHORT).show();
+        } else if (!MyTextUtils.isPassword(password)) {
+            Toast.makeText(this, "密码只能由数字和字母组成", Toast.LENGTH_SHORT).show();
+        } else {
+            mPresenter.register(this, phone, code, password);
+        }
     }
 
     //获取验证码
@@ -159,4 +177,17 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
         this.imgCodeKey = imgCodeKey;
     }
 
+    //注册成功
+    @Override
+    public void registerSuccess(String name, String token) {
+        Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
+        SharedPreferences sp = getSharedPreferences("User", 0);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.clear();
+        editor.putString("user", name);
+        editor.putString("token", token);
+        editor.apply();
+//        startActivity(new Intent(this, LoginActivity.class));
+        finish();
+    }
 }

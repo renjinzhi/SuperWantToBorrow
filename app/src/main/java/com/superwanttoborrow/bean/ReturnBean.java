@@ -1,12 +1,8 @@
 package com.superwanttoborrow.bean;
 
-/**
- *
- * @author renji
- * @date 2018/3/2
- */
+import java.io.Serializable;
 
-public class ImgCodeBean {
+public class ReturnBean implements Serializable {
 
     private String code;
     private DataBean data;
@@ -38,8 +34,27 @@ public class ImgCodeBean {
 
     public class DataBean{
 
+        private String mobile;
+        private String token;
         private String imgCodeKey;
         private String imgCodeString;
+
+
+        public String getMobile() {
+            return mobile;
+        }
+
+        public void setMobile(String mobile) {
+            this.mobile = mobile;
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
+        }
 
         public String getImgCodeKey() {
             return imgCodeKey;
