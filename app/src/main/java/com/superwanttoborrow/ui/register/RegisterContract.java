@@ -1,6 +1,7 @@
 package com.superwanttoborrow.ui.register;
 
 import android.content.Context;
+import android.widget.TextView;
 
 import com.superwanttoborrow.mvp.BasePresenter;
 import com.superwanttoborrow.mvp.BaseView;
@@ -19,7 +20,13 @@ public class RegisterContract {
 
     interface  Presenter extends BasePresenter<View> {
 
+        //获取图片验证码
         void getImgCode(Context context);
-        
+
+        //获取注册验证码
+        void getCodeRegister(Context context, String phone, String imgCode, String imgCodeKey, TextView tv);
+
+        //注册
+        void register(Context context,String phone,String code,String password);
     }
 }

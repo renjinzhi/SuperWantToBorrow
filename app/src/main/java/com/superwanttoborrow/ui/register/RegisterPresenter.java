@@ -1,17 +1,19 @@
 package com.superwanttoborrow.ui.register;
 
 import android.content.Context;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.superwanttoborrow.api.Constants;
 import com.superwanttoborrow.bean.ImgCodeBean;
 import com.superwanttoborrow.bean.RequestBean;
 import com.superwanttoborrow.mvp.BasePresenterImpl;
 import com.superwanttoborrow.utils.BeanSetHelper;
+import com.superwanttoborrow.utils.JsonCallback;
+import com.superwanttoborrow.utils.MyCountDownTimer;
 
 /**
  * MVPPlugin
@@ -27,25 +29,57 @@ public class RegisterPresenter extends BasePresenterImpl<RegisterContract.View> 
 
         RequestBean requestBean = new RequestBean();
         requestBean.setServiceId("JUNCAI0046");
-        OkGo.<String>post(Constants.HOST_URL)
+        OkGo.<ImgCodeBean>post(Constants.HOST_URL)
                 .upJson(gson.toJson(requestBean))
-                .execute(new StringCallback() {
+                .execute(new JsonCallback<ImgCodeBean>() {
                     @Override
-                    public void onSuccess(Response<String> response) {
-                        String body = response.body();
-                        ImgCodeBean imgCodeBean = gson.fromJson(body, ImgCodeBean.class);
+                    public void onSuccess(Response<ImgCodeBean> response) {
+                        ImgCodeBean imgCodeBean  = response.body();
                         if (BeanSetHelper.CODESUCCESS.equals(imgCodeBean.getCode())) {
                             mView.getImgCode(imgCodeBean.getData().getImgCodeKey(), imgCodeBean.getData().getImgCodeString());
                         } else {
                             Toast.makeText(context, imgCodeBean.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
+                });
+    }
 
+    @Override
+    public void getCodeRegister(Context context, String phone, String imgCode, String imgCodeKey, TextView tv) {
+
+        RequestBean getCodeRequestBean = new RequestBean();
+        getCodeRequestBean.setServiceId("JUNCAI0001");
+        RequestBean.DataBean dataBean = new RequestBean.DataBean();
+        dataBean.setMobile(phone);
+        dataBean.setImgCode(imgCode);
+        dataBean.setImgCodeKey(imgCodeKey);
+        dataBean.setRequestType("1");
+        getCodeRequestBean.setData(dataBean);
+        OkGo.<ImgCodeBean>post(Constants.HOST_URL)
+                .upJson(gson.toJson(getCodeRequestBean))
+                .execute(new JsonCallback<ImgCodeBean>() {
                     @Override
-                    public void onError(Response<String> response) {
-                        super.onError(response);
-                        Toast.makeText(context,"图片验证码获取失败",Toast.LENGTH_SHORT).show();
+                    public void onSuccess(Response<ImgCodeBean> response) {
+                        ImgCodeBean imgCodeBean = response.body();
+                        if (BeanSetHelper.CODESUCCESS.equals(imgCodeBean.getCode())) {
+                            Toast.makeText(context, "短信验证码发送成功", Toast.LENGTH_SHORT).show();
+                            new Thread(new MyCountDownTimer(tv)).start();
+                        }else {
+                            Toast.makeText(context,imgCodeBean.getMessage(),Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
+    }
+
+    @Override
+    public void register(Context context, String phone, String code, String password) {
+        RequestBean registerRequestBean = new RequestBean();
+        registerRequestBean.setServiceId("JUNCAI0008");
+        RequestBean.DataBean dataBean = new RequestBean.DataBean();
+        dataBean.setMobile(phone);
+        dataBean.setCheckCode(code);
+        dataBean.setPassword(password);
+        registerRequestBean.setData(dataBean);
+
     }
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/sm_rv_title_time"
+        android:layout_width="104dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8.5dp"
+        android:background="@color/gray"
+        android:gravity="center"
+        android:text="2018年8月21"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/sm_tv_mess"
+        android:layout_width="0dp"
+        android:layout_height="167dp"
+        android:layout_marginTop="8.5dp"
+        android:background="@color/white"
+        android:maxLength="30"
+        android:paddingLeft="49dp"
+        android:paddingRight="23dp"
+        android:paddingTop="48.5dp"
+        android:text="因为银行业务调整，股发哈负激励咖啡好喝爱妃hi哦啊沙发就开始浪费哈利按揭付款后方可垃圾啊阿加快疯了接口"
+        android:textColor="@color/nine"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sm_rv_title_time"/>
+
+    <TextView
+        android:id="@+id/sm_rv_title_mess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="49dp"
+        android:layout_marginTop="22.5dp"
+        android:text="重要公告"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/sm_tv_mess"/>
+
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="18dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/sm_tv_mess"/>
+
+    <ImageView
+        android:id="@+id/sm_rv_img_time"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginBottom="2.5dp"
+        android:layout_marginLeft="49dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="@id/sm_tv_mess"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/sm_rv_mess_time"
+        app:layout_constraintBottom_toBottomOf="@id/sm_tv_mess"
+        android:layout_marginBottom="2.5dp"
+        app:layout_constraintLeft_toRightOf="@id/sm_rv_img_time"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/nine"
+        android:textSize="10sp"
+        android:text="2018-7-24 13：12"
+        android:layout_width="wrap_content"
+              android:layout_height="wrap_content"/>
+</android.support.constraint.ConstraintLayout>

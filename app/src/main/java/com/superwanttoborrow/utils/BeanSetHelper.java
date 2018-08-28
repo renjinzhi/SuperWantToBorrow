@@ -7,8 +7,8 @@ package com.superwanttoborrow.utils;
 
 public class BeanSetHelper {
 
-    public static final String CHANNELNUMBER = "01";
-    public static final String MECHANISMNUMBER = "01";
+    public static final String CHANNELNUMBER = "03";
+    public static final String MECHANISMNUMBER = "02";
     public static final String VERSIONNUMBER = "V" + VersionHelper.getVersionName();
 
     public static final String CODESUCCESS = "000000";

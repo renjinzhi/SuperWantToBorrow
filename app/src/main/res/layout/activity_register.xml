@@ -90,6 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/register_title_view"/>
 
     <TextView
+        android:id="@+id/register_tv_unemployed"
         android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginLeft="5dp"
@@ -159,7 +160,6 @@
         android:layout_marginTop="15dp"
         android:background="@color/white"
         android:hint="请输入图片验证码"
-        android:inputType="number"
         android:maxLength="11"
         android:paddingLeft="51dp"
         android:textColorHint="@color/hui"

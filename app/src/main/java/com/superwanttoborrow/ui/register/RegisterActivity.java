@@ -15,11 +15,12 @@ import android.widget.Toast;
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
 import com.superwanttoborrow.utils.Bitmap2Base64;
+import com.superwanttoborrow.utils.MyTextUtils;
+import com.superwanttoborrow.utils.PhoneNumberCheck;
 
 
 /**
- * MVPPlugin
- * 邮箱 784787081@qq.com
+ * 注册界面
  */
 
 public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, RegisterPresenter> implements RegisterContract.View, View.OnClickListener {
@@ -38,6 +39,10 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
     private Button register_button_register;
     private ImageView register_img_img_code;
     private String imgCodeKey;
+    private TextView register_tv_unemployed;
+    private String phone;
+    private EditText register_ed_img_code;
+    private String imgCode;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,64 +54,102 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
     @Override
     protected void onStart() {
         super.onStart();
+        //获取图片验证码
         mPresenter.getImgCode(this);
     }
 
     private void initView() {
         register_back = (ImageView) findViewById(R.id.register_back);
+        register_back.setOnClickListener(view -> finish());
         register_choose_title = (TextView) findViewById(R.id.register_choose_title);
         register_tv_work = (TextView) findViewById(R.id.register_tv_work);
+        register_tv_work.setOnClickListener(this);
         register_tv_alone = (TextView) findViewById(R.id.register_tv_alone);
+        register_tv_alone.setOnClickListener(this::onClick);
         register_tv_free = (TextView) findViewById(R.id.register_tv_free);
+        register_tv_free.setOnClickListener(this::onClick);
         register_ed_money = (EditText) findViewById(R.id.register_ed_money);
         register_ed_phone = (EditText) findViewById(R.id.register_ed_phone);
         register_ed_code = (EditText) findViewById(R.id.register_ed_code);
         register_tv_get_code = (TextView) findViewById(R.id.register_tv_get_code);
+        register_tv_get_code.setOnClickListener(this::onClick);
         register_ed_password = (EditText) findViewById(R.id.register_ed_password);
         register_button_register = (Button) findViewById(R.id.register_button_register);
         register_button_register.setOnClickListener(this);
         register_img_img_code = (ImageView) findViewById(R.id.register_img_img_code);
         register_img_img_code.setOnClickListener(this);
+        register_tv_unemployed = (TextView) findViewById(R.id.register_tv_unemployed);
+        register_tv_unemployed.setOnClickListener(this);
+        register_ed_img_code = (EditText) findViewById(R.id.register_ed_img_code);
     }
 
-    private void submit() {
-        // validate
-        String money = register_ed_money.getText().toString().trim();
-        if (TextUtils.isEmpty(money)) {
-            Toast.makeText(this, "请输入金额", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        String phone = register_ed_phone.getText().toString().trim();
-        if (TextUtils.isEmpty(phone)) {
-            Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        String code = register_ed_code.getText().toString().trim();
-        if (TextUtils.isEmpty(code)) {
-            Toast.makeText(this, "请输入验证码", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        String password = register_ed_password.getText().toString().trim();
-        if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "密码为6-12位的数字和字母组成", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // TODO validate success, do something
-
-
-    }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            //注册
             case R.id.register_button_register:
 
                 break;
+            //图片验证码
+            case R.id.register_img_img_code:
+                mPresenter.getImgCode(this);
+                break;
+            //上班族
+            case R.id.register_tv_work:
+                setChooseBg(register_tv_work, register_tv_alone, register_tv_free, register_tv_unemployed);
+                break;
+            //个体
+            case R.id.register_tv_alone:
+                setChooseBg(register_tv_alone, register_tv_work, register_tv_free, register_tv_unemployed);
+                break;
+            //自由职业
+            case R.id.register_tv_free:
+                setChooseBg(register_tv_free, register_tv_alone, register_tv_work, register_tv_unemployed);
+                break;
+            //无业
+            case R.id.register_tv_unemployed:
+                setChooseBg(register_tv_unemployed, register_tv_alone, register_tv_free, register_tv_work);
+                break;
+            //获取验证码
+            case R.id.register_tv_get_code:
+                getCode();
+                break;
         }
+    }
+
+
+
+    private void register(){
+
+    }
+
+    //获取验证码
+    private void getCode() {
+        MyTextUtils.hideSoftKeyboard(register_ed_img_code, this);
+        phone = register_ed_phone.getText().toString();
+        imgCode = register_ed_img_code.getText().toString();
+        if (TextUtils.isEmpty(phone)) {
+            Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show();
+        } else if (!PhoneNumberCheck.checkCellphone(phone)) {
+            Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(imgCode)) {
+            Toast.makeText(this, "请输入图片中的验证码", Toast.LENGTH_SHORT).show();
+        } else {
+            mPresenter.getCodeRegister(this, phone, imgCode, imgCodeKey, register_tv_get_code);
+        }
+    }
+
+    //身份选择
+    public void setChooseBg(TextView isChoose, TextView tv1, TextView tv2, TextView tv3) {
+        isChoose.setBackgroundColor(getResources().getColor(R.color.red));
+        isChoose.setTextColor(getResources().getColor(R.color.white));
+        tv1.setBackgroundColor(getResources().getColor(R.color.white));
+        tv1.setTextColor(getResources().getColor(R.color.hui));
+        tv2.setBackgroundColor(getResources().getColor(R.color.white));
+        tv2.setTextColor(getResources().getColor(R.color.hui));
+        tv3.setBackgroundColor(getResources().getColor(R.color.white));
+        tv3.setTextColor(getResources().getColor(R.color.hui));
     }
 
     @Override
@@ -115,4 +158,5 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
         register_img_img_code.setImageBitmap(bitmap);
         this.imgCodeKey = imgCodeKey;
     }
+
 }

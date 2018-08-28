@@ -38,6 +38,8 @@
         <activity android:name=".ui.face.FaceActivity"/>
         <activity android:name=".ui.bank.BankActivity"/>
         <activity android:name=".ui.progressquery.ProgressQueryActivity"/>
+        <activity android:name=".ui.message.MessageActivity"/>
+        <activity android:name=".ui.systemmessage.SystemMessageActivity"/>
 
 
         <meta-data

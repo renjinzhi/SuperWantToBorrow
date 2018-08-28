@@ -14,6 +14,6 @@ public class Constants {
 //    public static final String HOST_URL = "";
 
     //测试环境
-    public static final String HOST_URL = "http://118.186.229.73:18604/gateway/gateway/";
+    public static final String HOST_URL = "http://118.186.229.83:18603/gateway/gateway/";
 
 }
