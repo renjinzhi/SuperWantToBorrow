@@ -1,4 +1,4 @@
-package com.superwanttoborrow.ui.my;
+package com.superwanttoborrow.ui.web;
 
 import android.content.Context;
 
@@ -10,14 +10,12 @@ import com.superwanttoborrow.mvp.BaseView;
  *  邮箱 784787081@qq.com
  */
 
-public class MyContract {
+public class WebContract {
     interface View extends BaseView {
-
-       void initData();
+        
     }
 
     interface  Presenter extends BasePresenter<View> {
-
-        void getUserDetails(Context context, String phone);
+        
     }
 }

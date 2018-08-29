@@ -11,11 +11,14 @@ import com.superwanttoborrow.mvp.BaseView;
  */
 
 public class SafeSettingContract {
+
     interface View extends BaseView {
-        
+
+        void exit();
     }
 
     interface  Presenter extends BasePresenter<View> {
-        
+
+        void exit(Context context, String phone);
     }
 }

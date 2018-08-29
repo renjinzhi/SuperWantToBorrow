@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.superwanttoborrow.R;
+import com.superwanttoborrow.bean.ReturnBean;
+import com.superwanttoborrow.utils.MyTextUtils;
 
 import java.util.List;
 
@@ -17,14 +19,14 @@ public class BrRvAdapter extends RecyclerView.Adapter<BrRvAdapter.BrRvHolder>{
 
 
     private Context mContext;
-    private List<String> mList;
+    private List<ReturnBean.DataBean.HistoryRecordsBean> mList;
 
-    public BrRvAdapter(Context context, List<String> list) {
+    public BrRvAdapter(Context context, List<ReturnBean.DataBean.HistoryRecordsBean> list) {
         mContext = context;
         mList = list;
     }
 
-    public void updata(List<String> list){
+    public void updata(List<ReturnBean.DataBean.HistoryRecordsBean> list){
         this.mList = list;
         notifyDataSetChanged();
     }
@@ -39,12 +41,10 @@ public class BrRvAdapter extends RecyclerView.Adapter<BrRvAdapter.BrRvHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull BrRvHolder holder, int position) {
-        String s = mList.get(position);
-        holder.money.setText(s);
-        holder.time.setText(s);
-        holder.title.setText(s);
-        holder.state.setText(s);
-        holder.money.setOnClickListener((view -> {}));
+        holder.money.setText(mList.get(position).getLoanAmount()+"元");
+        holder.time.setText((MyTextUtils.getStrTime(mList.get(position).getCreateTime()+"")));
+        holder.title.setText("借款记录");
+        holder.state.setText(MyTextUtils.getStatus(mList.get(position).getLoanStatus()));
     }
 
     @Override

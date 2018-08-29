@@ -11,12 +11,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.superwanttoborrow.R;
+import com.superwanttoborrow.bean.ReturnBean;
 import com.superwanttoborrow.mvp.MVPBaseFragment;
 import com.superwanttoborrow.ui.repaydetail.RepayDetailActivity;
 import com.superwanttoborrow.ui.repayplan.RepayPlanActivity;
 import com.superwanttoborrow.ui.repayrecord.RepayRecordActivity;
 import com.superwanttoborrow.ui.wanttoextension.WantToExtensionActivity;
 import com.superwanttoborrow.ui.wanttorepay.WantToRepayActivity;
+
+import java.text.DecimalFormat;
 
 /**
  * @author renji
@@ -33,6 +36,9 @@ public class RepaymentFragment extends MVPBaseFragment<RepaymentContract.View, R
     private TextView repayTvWantExtension;
     private TextView repayTvMyPlan;
     private TextView repayTvMyRecord;
+    private boolean boo = true;
+    private String presentDueTot;
+    private String presentAmtForSettled;
 
     @Nullable
     @Override
@@ -62,7 +68,7 @@ public class RepaymentFragment extends MVPBaseFragment<RepaymentContract.View, R
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.repayment_detail:
                 startActivity(new Intent(getContext(), RepayDetailActivity.class));
                 break;
@@ -79,5 +85,64 @@ public class RepaymentFragment extends MVPBaseFragment<RepaymentContract.View, R
                 startActivity(new Intent(getContext(), RepayRecordActivity.class));
                 break;
         }
+    }
+
+    @Override
+    public void getRepayment(ReturnBean.DataBean dataBean) {
+        if (dataBean.getRepaymentStatus().equals("1")){
+            boo = false;
+        }else {
+            boo = true;
+        }
+        DecimalFormat df = new DecimalFormat("0.00");
+        repayShouldMoney.setText("￥" + df.format(dataBean.getPresentTotDue()));
+        presentDueTot = df.format(dataBean.getPresentTotDue()) + "";
+        presentAmtForSettled = df.format(dataBean.getPresentAmtForSettled() + dataBean.getPresentPenalty()) + "";
+        switch (Integer.parseInt(dataBean.getStatus())) {
+            //未申请放款
+            case -1:
+                break;
+                //已还款
+            case 0:
+                repayTvOverdue.setVisibility(View.VISIBLE);
+                break;
+                //逾期
+            case 1:
+                break;
+                //已结清
+            case 2:
+                break;
+                //一次结清
+            case 3:
+                break;
+                //取消借款
+            case 4:
+                break;
+                //已提交
+            case 5:
+                break;
+                //提交失败
+            case 6:
+                break;
+                //待还款
+            case 7:
+                break;
+                //放款成功
+            case 8:
+                break;
+                //放款失败
+            case 9:
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void getNoRepayment() {
+        repayShouldMoney.setText("0");
+        repayTvExtension.setVisibility(View.GONE);
+        repayTvOverdue.setVisibility(View.GONE);
+        repayTvNormal.setVisibility(View.GONE);
     }
 }

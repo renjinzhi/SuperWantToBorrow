@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.bumptech.glide.request.RequestOptions;
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.widget.bannerhelper.adapter.CycleViewAdapter;
 import com.superwanttoborrow.widget.bannerhelper.model.CycleModel;
@@ -362,8 +363,11 @@ public class CycleView extends FrameLayout implements ViewPager.OnPageChangeList
                 RelativeLayout.LayoutParams.MATCH_PARENT);
         imageView.setLayoutParams(layoutParams);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        // 加载图片资源
-//        Glide.with(context).load(url).error(R.mipmap.ic_launcher).into(imageView);
+        // todo 加载图片资源失败图与占位图
+        RequestOptions options = new RequestOptions()
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher);
+//        Glide.with(context).load(url).apply(options).into(imageView);
         mRelativeLayout.addView(imageView);
         return mRelativeLayout;
     }

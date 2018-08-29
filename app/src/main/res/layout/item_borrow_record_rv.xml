@@ -39,25 +39,16 @@
         app:layout_constraintEnd_toEndOf="@+id/item_br_rv_money"
         app:layout_constraintTop_toTopOf="@+id/item_br_rv_money"/>
 
-
-    <ImageView
-        android:layout_width="8dp"
-        android:layout_height="15dp"
-        android:layout_marginRight="15dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="@id/item_br_rv_money"
-        app:layout_constraintEnd_toEndOf="@id/item_br_rv_money"
-        app:layout_constraintTop_toTopOf="@id/item_br_rv_money"/>
-
     <TextView
         android:id="@+id/item_br_rv_time"
-        android:layout_marginTop="17dp"
-        android:layout_marginLeft="21dp"
-        android:textSize="13sp"
-        android:textColor="@color/nine"
-        android:text="2018-8-24"
-        app:layout_constraintStart_toStartOf="@id/item_br_rv_money"
-        app:layout_constraintTop_toBottomOf="@id/item_br_rv_title"
         android:layout_width="wrap_content"
-              android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="17dp"
+        android:text="2018-8-24"
+        android:textColor="@color/nine"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@id/item_br_rv_money"
+        app:layout_constraintTop_toBottomOf="@id/item_br_rv_title"/>
+
 </android.support.constraint.ConstraintLayout>

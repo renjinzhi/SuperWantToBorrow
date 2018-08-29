@@ -2,13 +2,17 @@ package com.superwanttoborrow.ui.my;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseFragment;
@@ -30,6 +34,8 @@ public class MyFragment extends MVPBaseFragment<MyContract.View, MyPresenter> im
     private TextView my_tv_bank;
     private TextView my_tv_help;
     private TextView my_tv_set;
+    private ImageView my_img_title;
+    private SharedPreferences sharedPreferences;
 
     @Nullable
     @Override
@@ -38,6 +44,7 @@ public class MyFragment extends MVPBaseFragment<MyContract.View, MyPresenter> im
         initView(view);
         return view;
     }
+
 
     private void initView(View view) {
         my_tv_login = (TextView) view.findViewById(R.id.my_tv_login);
@@ -50,26 +57,86 @@ public class MyFragment extends MVPBaseFragment<MyContract.View, MyPresenter> im
         my_tv_help.setOnClickListener(this);
         my_tv_set = (TextView) view.findViewById(R.id.my_tv_set);
         my_tv_set.setOnClickListener(this);
+        my_img_title = (ImageView) view.findViewById(R.id.my_img_title);
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
+            //登录注册
             case R.id.my_tv_login:
-                startActivity(new Intent(getContext(), LoginActivity.class));
+                if ("请登录/注册".equals(my_tv_login.getText().toString())) {
+                    startActivity(new Intent(getContext(), LoginActivity.class));
+                } else {
+
+                }
                 break;
+            //借款记录
             case R.id.repay_tv_record:
-                startActivity(new Intent(getContext(), BorrowRecordActivity.class));
+                sharedPreferences = getActivity().getSharedPreferences("User", 0);
+                if (sharedPreferences.getBoolean("isLogin", false)) {
+                    startActivity(new Intent(getContext(), BorrowRecordActivity.class));
+                } else {
+                    Toast.makeText(getContext(), "请先登录", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                }
                 break;
+            //改绑银行卡
             case R.id.my_tv_bank:
-                startActivity(new Intent(getContext(), ChangeBankActivity.class));
+                sharedPreferences = getActivity().getSharedPreferences("User", 0);
+                if (sharedPreferences.getBoolean("isLogin", false)) {
+                    startActivity(new Intent(getContext(), ChangeBankActivity.class));
+                } else {
+                    Toast.makeText(getContext(), "请先登录", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                }
                 break;
+            //帮助中心
             case R.id.my_tv_help:
                 startActivity(new Intent(getContext(), HelpActivity.class));
                 break;
+            //安全设置
             case R.id.my_tv_set:
-                startActivity(new Intent(getContext(), SafeSettingActivity.class));
+                sharedPreferences = getActivity().getSharedPreferences("User", 0);
+                if (sharedPreferences.getBoolean("isLogin", false)) {
+                    startActivity(new Intent(getContext(), SafeSettingActivity.class));
+                } else {
+                    Toast.makeText(getContext(), "请先登录", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                }
                 break;
+        }
+    }
+
+
+    public void initData() {
+        SharedPreferences sp = getContext().getSharedPreferences("User", 0);
+        String user = sp.getString("user", null);
+        if (!TextUtils.isEmpty(user)) {
+            my_tv_login.setText(user);
+//            my_img_title.setImageResource(R.mipmap.touxiang);
+        } else {
+            my_tv_login.setText("请登录/注册");
+//            my_img_title.setImageResource(R.mipmap.login_nor);
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        sharedPreferences = getActivity().getSharedPreferences("User", 0);
+        String user = sharedPreferences.getString("user", null);
+        mPresenter.getUserDetails(getContext(),user);
+    }
+
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden){
+            sharedPreferences = getActivity().getSharedPreferences("User", 0);
+            String user = sharedPreferences.getString("user", null);
+            mPresenter.getUserDetails(getContext(),user);
         }
     }
 }

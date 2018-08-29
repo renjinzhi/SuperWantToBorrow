@@ -12,14 +12,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.superwanttoborrow.R;
+import com.superwanttoborrow.bean.ReturnBean;
+import com.superwanttoborrow.bean.ReturnDataListBean;
 import com.superwanttoborrow.mvp.MVPBaseFragment;
 import com.superwanttoborrow.ui.message.MessageActivity;
 import com.superwanttoborrow.ui.progressquery.ProgressQueryActivity;
 import com.superwanttoborrow.ui.realname.RealNameActivity;
+import com.superwanttoborrow.ui.web.WebActivity;
 import com.superwanttoborrow.widget.EasyPickerView;
+import com.superwanttoborrow.widget.bannerhelper.model.CycleModel;
 import com.superwanttoborrow.widget.bannerhelper.widget.CycleView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author renji
@@ -33,13 +38,18 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
     private EasyPickerView picker_time;
     private Button home_button_borrow;
     private Button home_button_select;
+    private List<CycleModel> mData;
+    private List<ReturnDataListBean.DataBean> list;
+    private CycleModel mCycleModel;
+    private ArrayList<String> mPeriodsList;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initView(view);
-        initData();
+        mPresenter.getBanner(getContext());
+        mPresenter.getOther(getContext());
         return view;
     }
 
@@ -71,20 +81,42 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
         }
     }
 
-
-    private void initData(){
-        final ArrayList<String> data = new ArrayList<String>();
-        final ArrayList<String> seconds = new ArrayList<String>();
-        for (int i = 1; i <= 10; i++) {
-            data.add("￥"+i + "00");
+    @Override
+    public void getBanner(List<ReturnDataListBean.DataBean> list) {
+//        img_banner.setVisibility(View.GONE);
+        cycleView.setVisibility(View.VISIBLE);
+        mData = new ArrayList<>();
+        this.list = list;
+        ArrayList<String> list1 = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            mCycleModel = new CycleModel(list.get(i).getId() + "", list.get(i).getBannerinfoImageUrl());
+            mData.add(mCycleModel);
         }
-        seconds.add("7天");
-        seconds.add("14天");
-        seconds.add("30天");
-        picker_money.setDataList(data);
-        picker_time.setDataList(seconds);
-        picker_money.moveBy(data.size() / 2);
-        picker_time.moveBy(seconds.size() / 2);
+        // 设置为有轮播功能
+        cycleView.setIsHasWheel(true);
+        cycleView.setIndicators(R.drawable.dot_focus, R.drawable.dot_normal);
+        // 设置数据源并设置监听
+        cycleView.setData(mData, getContext(), position -> {
+            //轮播图已设置
+            if (list.get(position).getBannerinfoImageLinkurl() != null && !list.get(position).getBannerinfoImageLinkurl().equals("")) {
+                    Intent intent = new Intent(getActivity(), WebActivity.class);
+                    intent.putExtra("url", list.get(position).getBannerinfoImageLinkurl());
+                    intent.putExtra("name", list.get(position).getBannerinfoImageTitle());
+                    startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void getOther(ArrayList<String> moneys,ArrayList<ReturnBean.DataBean.SupportPeriodBean> supportPeriodList) {
+        picker_money.setDataList(moneys);
+        mPeriodsList = new ArrayList<>();
+        for (int i = 0; i < supportPeriodList.size(); i++) {
+            mPeriodsList.add(supportPeriodList.get(i).getDictCode());
+        }
+        picker_time.setDataList(mPeriodsList);
+        picker_money.moveBy(moneys.size() / 2);
+        picker_time.moveBy(mPeriodsList.size() / 2);
         picker_money.setOnScrollChangedListener(new EasyPickerView.OnScrollChangedListener() {
             @Override
             public void onScrollChanged(int curIndex) {
@@ -93,7 +125,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
 
             @Override
             public void onScrollFinished(int curIndex) {
-                data.get(curIndex);
+                moneys.get(curIndex);
             }
         });
 
@@ -105,9 +137,19 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
 
             @Override
             public void onScrollFinished(int curIndex) {
-                seconds.get(curIndex);
+                mPeriodsList.get(curIndex);
             }
         });
+
+    }
+
+    @Override
+    public void getRequestID(ReturnBean.DataBean dataBean) {
+
+    }
+
+    @Override
+    public void setNullBanner() {
 
     }
 }
