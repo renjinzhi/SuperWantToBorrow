@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.superwanttoborrow.R;
+import com.superwanttoborrow.bean.ReturnDataListBean;
+import com.superwanttoborrow.utils.MyTextUtils;
 
 import java.util.List;
 
@@ -16,14 +18,14 @@ public class RrRvAdapter extends RecyclerView.Adapter<RrRvAdapter.RrRvHolder>{
 
 
     private Context mContext;
-    private List<String> mList;
+    private List<ReturnDataListBean.DataBean> mList;
 
-    public RrRvAdapter(Context context, List<String> list) {
+    public RrRvAdapter(Context context, List<ReturnDataListBean.DataBean> list) {
         mContext = context;
         mList = list;
     }
 
-    public void updata(List<String> list){
+    public void updata(List<ReturnDataListBean.DataBean> list){
         this.mList = list;
         notifyDataSetChanged();
     }
@@ -38,11 +40,10 @@ public class RrRvAdapter extends RecyclerView.Adapter<RrRvAdapter.RrRvHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull RrRvHolder holder, int position) {
-        String s = mList.get(position);
-        holder.num.setText(s);
-        holder.mode.setText(s);
-        holder.time.setText(s);
-        holder.money.setText(s);
+        holder.num.setText(position+1+"");
+        holder.mode.setText(MyTextUtils.getChannel(mList.get(position).getChannel()));
+        holder.time.setText(MyTextUtils.getStrData(mList.get(position).getPresentTime() + ""));
+        holder.money.setText(mList.get(position).getTotalMoney() + "");
     }
 
     @Override

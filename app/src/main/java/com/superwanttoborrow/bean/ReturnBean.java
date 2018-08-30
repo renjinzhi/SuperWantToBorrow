@@ -56,6 +56,78 @@ public class ReturnBean implements Serializable {
         private ArrayList<SupportPeriodBean> supportPeriod;
         private HistoryRecordsBean currentRecord;
         private List<HistoryRecordsBean> historyRecords;
+        private String applicantName;
+        private String bankCardId;
+        private String cardId;
+        private String depositBank;
+        private String linkman1Cell;
+        private String linkman1Name;
+        private List<UserSmsBean> userSms;
+        private List<SystemSmsBean> systemSms;
+
+        public List<UserSmsBean> getUserSms() {
+            return userSms;
+        }
+
+        public void setUserSms(List<UserSmsBean> userSms) {
+            this.userSms = userSms;
+        }
+
+        public List<SystemSmsBean> getSystemSms() {
+            return systemSms;
+        }
+
+        public void setSystemSms(List<SystemSmsBean> systemSms) {
+            this.systemSms = systemSms;
+        }
+
+        public String getApplicantName() {
+            return applicantName;
+        }
+
+        public void setApplicantName(String applicantName) {
+            this.applicantName = applicantName;
+        }
+
+        public String getBankCardId() {
+            return bankCardId;
+        }
+
+        public void setBankCardId(String bankCardId) {
+            this.bankCardId = bankCardId;
+        }
+
+        public String getCardId() {
+            return cardId;
+        }
+
+        public void setCardId(String cardId) {
+            this.cardId = cardId;
+        }
+
+        public String getDepositBank() {
+            return depositBank;
+        }
+
+        public void setDepositBank(String depositBank) {
+            this.depositBank = depositBank;
+        }
+
+        public String getLinkman1Cell() {
+            return linkman1Cell;
+        }
+
+        public void setLinkman1Cell(String linkman1Cell) {
+            this.linkman1Cell = linkman1Cell;
+        }
+
+        public String getLinkman1Name() {
+            return linkman1Name;
+        }
+
+        public void setLinkman1Name(String linkman1Name) {
+            this.linkman1Name = linkman1Name;
+        }
 
         public HistoryRecordsBean getCurrentRecord() {
             return currentRecord;
@@ -600,6 +672,97 @@ public class ReturnBean implements Serializable {
 
             public void setRequestId(String requestId) {
                 this.requestId = requestId;
+            }
+        }
+
+        public static class UserSmsBean implements Serializable{
+            /**
+             * createTime : 2017-12-30 10:23:46
+             * title : 放款成功
+             * content : 尊敬的水象云贷用户，您申请的借款已成功发放至您绑定的银行账户，金额为100元。温馨提示：您的第一期还款日为100，还款金额为100元，祝您生活愉快！
+             */
+
+            private String createTime;
+            private String title;
+            private String content;
+
+            public String getCreateTime() {
+                return createTime;
+            }
+
+            public void setCreateTime(String createTime) {
+                this.createTime = createTime;
+            }
+
+            public String getTitle() {
+                return title;
+            }
+
+            public void setTitle(String title) {
+                this.title = title;
+            }
+
+            public String getContent() {
+                return content;
+            }
+
+            public void setContent(String content) {
+                this.content = content;
+            }
+
+            @Override
+            public String toString() {
+                return "UserSmsBean{" +
+                        "createTime='" + createTime + '\'' +
+                        ", title='" + title + '\'' +
+                        ", content='" + content + '\'' +
+                        '}';
+            }
+        }
+
+
+        public static class SystemSmsBean implements Serializable{
+            /**
+             * createtime : 2017-12-27
+             * sendData : 尊敬的用户您好：请及时更新版本
+             * title : 系统
+             */
+
+            private String createtime;
+            private String sendData;
+            private String title;
+
+            public String getCreatetime() {
+                return createtime;
+            }
+
+            public void setCreatetime(String createtime) {
+                this.createtime = createtime;
+            }
+
+            public String getSendData() {
+                return sendData;
+            }
+
+            public void setSendData(String sendData) {
+                this.sendData = sendData;
+            }
+
+            public String getTitle() {
+                return title;
+            }
+
+            public void setTitle(String title) {
+                this.title = title;
+            }
+
+            @Override
+            public String toString() {
+                return "SystemSmsBean{" +
+                        "createtime='" + createtime + '\'' +
+                        ", sendData='" + sendData + '\'' +
+                        ", title='" + title + '\'' +
+                        '}';
             }
         }
 

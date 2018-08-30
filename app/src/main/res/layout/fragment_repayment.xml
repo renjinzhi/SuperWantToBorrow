@@ -6,10 +6,10 @@
     android:layout_height="match_parent" android:background="@color/bg">
 
     <TextView
-        android:gravity="center"
         android:id="@+id/repay_tv_title"
-        android:layout_width="0dp" android:layout_height="44dp"
-        android:background="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="44dp" android:background="@color/white"
+        android:gravity="center"
         android:text="还款"
         android:textColor="@color/gray" android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,8 @@
         app:layout_constraintTop_toTopOf="parent"/>
     <ImageView
         android:id="@+id/repay_img_bg"
-        android:layout_width="0dp" android:layout_height="175dp"
+        android:layout_width="0dp"
+        android:layout_height="229dp"
         android:background="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +37,7 @@
         android:id="@+id/repay_should_money_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="45dp"
         android:text="应还款金额"
         android:textColor="@color/white"
         android:textSize="14sp" app:layout_constraintEnd_toEndOf="parent"
@@ -44,9 +45,10 @@
         app:layout_constraintTop_toTopOf="@+id/repay_img_bg"/>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
+        android:id="@+id/repay_rela"
         android:layout_width="120dp"
-        android:layout_height="wrap_content" android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/repay_img_bg"
@@ -56,7 +58,7 @@
             android:id="@+id/repay_should_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1000"
+            android:text="0"
             android:textColor="@color/white"
             android:textSize="40dp"/>
         <TextView
@@ -69,146 +71,171 @@
             android:textColor="@color/white"
             android:textSize="15sp"/>
     </RelativeLayout>
+
+    <View
+        android:id="@+id/repay_bg_view"
+        android:layout_width="1dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/view_bg"
+        app:layout_constraintBottom_toBottomOf="@id/repay_img_bg"
+        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+
     <TextView
-        android:id="@+id/repay_tv_extension"
+        android:id="@+id/repay_tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center_vertical"
+        android:text="展期"
+        android:textColor="@color/white_tv"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@id/repay_bg_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repay_rela"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/repay_gui"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="展期"
-        android:textSize="13sp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/repay_img_bg"
-        app:layout_constraintEnd_toStartOf="@+id/repay_guideline2"
-        app:layout_constraintStart_toStartOf="parent"/>
-    <TextView
-        android:id="@+id/repay_tv_overdue"
+        android:orientation="horizontal" app:layout_constraintGuide_begin="245dp"
+    />
+
+    <android.support.constraint.Group
+        android:id="@+id/repay_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_marginBottom="15dp"
-        android:text="逾期"
-        android:textSize="13sp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/repay_img_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="repay_tv_time,repay_tv_date"/>
     <TextView
-        android:id="@+id/repay_tv_normal"
+        android:id="@+id/repay_tv_time"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_marginBottom="15dp"
-        android:text="正常"
-        android:textSize="13sp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/repay_img_bg"
+        android:layout_height="wrap_content"
+        android:text="应还时间"
+        android:textColor="@color/white_tv"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/repay_gui"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/repay_guideline3"/>
-    <android.support.constraint.Guideline android:id="@+id/repay_guideline2"
-                                          android:layout_width="wrap_content"
-                                          android:layout_height="wrap_content"
-                                          android:orientation="vertical"
-                                          app:layout_constraintGuide_begin="122dp"/>
-    <android.support.constraint.Guideline android:id="@+id/repay_guideline3"
-                                          android:layout_width="wrap_content"
-                                          android:layout_height="wrap_content"
-                                          android:orientation="vertical"
-                                          app:layout_constraintGuide_end="122dp"/>
+        app:layout_constraintStart_toStartOf="@+id/repay_bg_view"/>
+
+    <TextView
+        android:id="@+id/repay_tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2018-8-30"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/repay_bg_view"
+        app:layout_constraintTop_toBottomOf="@id/repay_gui"/>
+
     <TextView
         android:id="@+id/repay_tv_want_to_repay"
         android:layout_width="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:paddingLeft="48.5dp"
-        android:background="@color/white"
-        android:textSize="16sp"
+        android:text="我要还款"
         android:textColor="@color/gray"
-        android:layout_height="50dp" android:layout_marginTop="10dp"
-        android:text="我要还款" app:layout_constraintTop_toBottomOf="@+id/repay_img_bg"
+        android:textSize="16sp" app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repay_img_bg"
         tools:layout_editor_absoluteX="72dp"/>
     <ImageView
-        android:layout_width="18.5dp" android:layout_height="19dp"
-        android:layout_marginBottom="8dp" android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="18.5dp"
+        android:layout_height="19dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/repay_tv_want_to_repay"
         app:layout_constraintStart_toStartOf="@+id/repay_tv_want_to_repay"
-        app:layout_constraintTop_toTopOf="@+id/repay_tv_want_to_repay" app:srcCompat="@mipmap/ic_launcher"/>
+        app:layout_constraintTop_toTopOf="@+id/repay_tv_want_to_repay"
+        app:srcCompat="@mipmap/ic_launcher"/>
     <ImageView
         android:layout_width="8dp" android:layout_height="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/repay_tv_want_to_repay"
         app:layout_constraintEnd_toEndOf="@+id/repay_tv_want_to_repay"
-        app:layout_constraintTop_toTopOf="@+id/repay_tv_want_to_repay" app:srcCompat="@mipmap/ic_launcher"/>
+        app:layout_constraintTop_toTopOf="@+id/repay_tv_want_to_repay"
+        app:srcCompat="@mipmap/ic_launcher"/>
     <View
         android:id="@+id/repay_view_record"
-        android:layout_marginLeft="48.5dp"
-        android:background="@color/view_bg"
-        android:layout_width="0dp" android:layout_height="1dp"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="48.5dp" android:background="@color/view_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/repay_tv_want_to_repay"
         tools:layout_editor_absoluteX="0dp"/>
 
     <View android:layout_width="48.5dp"
-          app:layout_constraintStart_toStartOf="parent"
+          android:layout_height="1dp"
           android:background="@color/white"
-          app:layout_constraintTop_toBottomOf="@+id/repay_tv_want_to_repay"
-          android:layout_height="1dp"/>
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/repay_tv_want_to_repay"/>
 
     <TextView
         android:id="@+id/repay_tv_want_extension"
         android:layout_width="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:paddingLeft="48.5dp"
-        android:background="@color/white"
-        android:layout_height="50dp"
-        android:textSize="16sp"
+        android:text="我要展期"
         android:textColor="@color/gray"
-        android:text="我要展期" app:layout_constraintTop_toBottomOf="@+id/repay_view_record"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repay_view_record"
         tools:layout_editor_absoluteX="72dp"/>
     <ImageView
         android:layout_width="18.5dp" android:layout_height="19dp"
-        android:layout_marginBottom="8dp" android:layout_marginLeft="15dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/repay_tv_want_extension"
         app:layout_constraintStart_toStartOf="@+id/repay_tv_want_extension"
-        app:layout_constraintTop_toTopOf="@+id/repay_tv_want_extension" app:srcCompat="@mipmap/ic_launcher"/>
+        app:layout_constraintTop_toTopOf="@+id/repay_tv_want_extension"
+        app:srcCompat="@mipmap/ic_launcher"/>
     <ImageView
         android:layout_width="8dp" android:layout_height="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/repay_tv_want_extension"
         app:layout_constraintEnd_toEndOf="@+id/repay_tv_want_extension"
-        app:layout_constraintTop_toTopOf="@+id/repay_tv_want_extension" app:srcCompat="@mipmap/ic_launcher"/>
+        app:layout_constraintTop_toTopOf="@+id/repay_tv_want_extension"
+        app:srcCompat="@mipmap/ic_launcher"/>
     <View
         android:id="@+id/repay_view_extension"
-        android:layout_marginLeft="48.5dp"
-        android:background="@color/view_bg"
-        android:layout_width="0dp" android:layout_height="1dp"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="48.5dp" android:background="@color/view_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/repay_tv_want_extension"
         tools:layout_editor_absoluteX="0dp"/>
     <View android:layout_width="48.5dp"
-          app:layout_constraintStart_toStartOf="parent"
+          android:layout_height="1dp"
           android:background="@color/white"
-          app:layout_constraintTop_toBottomOf="@+id/repay_tv_want_extension"
-          android:layout_height="1dp"/>
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/repay_tv_want_extension"/>
 
     <TextView
         android:id="@+id/repay_tv_my_plan"
         android:layout_width="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:paddingLeft="48.5dp"
-        android:textSize="16sp"
+        android:text="我的还款计划"
         android:textColor="@color/gray"
-        android:background="@color/white"
-        android:layout_height="50dp"
-        android:text="我的还款计划" app:layout_constraintTop_toBottomOf="@+id/repay_view_extension"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repay_view_extension"
         tools:layout_editor_absoluteX="72dp"/>
     <ImageView
         android:layout_width="18.5dp" android:layout_height="19dp"
@@ -217,41 +244,44 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/repay_tv_my_plan"
         app:layout_constraintStart_toStartOf="@+id/repay_tv_my_plan"
-        app:layout_constraintTop_toTopOf="@+id/repay_tv_my_plan" app:srcCompat="@mipmap/ic_launcher"/>
+        app:layout_constraintTop_toTopOf="@+id/repay_tv_my_plan"
+        app:srcCompat="@mipmap/ic_launcher"/>
     <ImageView
         android:layout_width="8dp" android:layout_height="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/repay_tv_my_plan"
         app:layout_constraintEnd_toEndOf="@+id/repay_tv_my_plan"
-        app:layout_constraintTop_toTopOf="@+id/repay_tv_my_plan" app:srcCompat="@mipmap/ic_launcher"/>
+        app:layout_constraintTop_toTopOf="@+id/repay_tv_my_plan"
+        app:srcCompat="@mipmap/ic_launcher"/>
     <View
         android:id="@+id/repay_view_plan"
-        android:layout_marginLeft="48.5dp"
-        android:background="@color/view_bg"
-        android:layout_width="0dp" android:layout_height="1dp"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="48.5dp" android:background="@color/view_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/repay_tv_my_plan"
         tools:layout_editor_absoluteX="0dp"/>
     <View android:layout_width="48.5dp"
-          app:layout_constraintStart_toStartOf="parent"
+          android:layout_height="1dp"
           android:background="@color/white"
-          app:layout_constraintTop_toBottomOf="@+id/repay_tv_my_plan"
-          android:layout_height="1dp"/>
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/repay_tv_my_plan"/>
 
     <TextView
         android:id="@+id/repay_tv_my_record"
         android:layout_width="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:paddingLeft="48.5dp"
-        android:background="@color/white"
-        android:textSize="16sp"
+        android:text="还款记录"
         android:textColor="@color/gray"
-        android:layout_height="50dp"
-        android:text="还款记录" app:layout_constraintTop_toBottomOf="@+id/repay_view_plan"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repay_view_plan"
         tools:layout_editor_absoluteX="72dp"/>
     <ImageView
         android:layout_width="18.5dp" android:layout_height="19dp"
@@ -260,12 +290,14 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/repay_tv_my_record"
         app:layout_constraintStart_toStartOf="@+id/repay_tv_my_record"
-        app:layout_constraintTop_toTopOf="@+id/repay_tv_my_record" app:srcCompat="@mipmap/ic_launcher"/>
+        app:layout_constraintTop_toTopOf="@+id/repay_tv_my_record"
+        app:srcCompat="@mipmap/ic_launcher"/>
     <ImageView
         android:layout_width="8dp" android:layout_height="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/repay_tv_my_record"
         app:layout_constraintEnd_toEndOf="@+id/repay_tv_my_record"
-        app:layout_constraintTop_toTopOf="@+id/repay_tv_my_record" app:srcCompat="@mipmap/ic_launcher"/>
+        app:layout_constraintTop_toTopOf="@+id/repay_tv_my_record"
+        app:srcCompat="@mipmap/ic_launcher"/>
 </android.support.constraint.ConstraintLayout>

@@ -16,6 +16,7 @@ public class ChangeBankContract {
     }
 
     interface  Presenter extends BasePresenter<View> {
-        
+
+        void getBankCode(Context context, String name, String cardId, String mobile, String bankCard);
     }
 }

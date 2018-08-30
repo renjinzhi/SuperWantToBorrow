@@ -6,10 +6,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.superwanttoborrow.R;
+import com.superwanttoborrow.bean.ReturnBean;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
 import com.superwanttoborrow.ui.systemmessage.SystemMessageActivity;
+
+import java.io.Serializable;
 
 
 /**
@@ -33,6 +37,17 @@ public class MessageActivity extends MVPBaseActivity<MessageContract.View, Messa
         message_back = (ImageView) findViewById(R.id.message_back);
         message_back.setOnClickListener(view -> finish());
         message_tv_mess = (TextView) findViewById(R.id.message_tv_mess);
-        message_tv_mess.setOnClickListener(view -> startActivity(new Intent(this,SystemMessageActivity.class )));
+        message_tv_mess.setOnClickListener(view -> mPresenter.getMessage(this));
+    }
+
+    @Override
+    public void getMessage(ReturnBean.DataBean dataBean) {
+        if (null != dataBean.getSystemSms() && dataBean.getSystemSms().size() != 0) {
+            Intent intent = new Intent(this, SystemMessageActivity.class);
+            intent.putExtra("systemMessList",(Serializable) dataBean.getSystemSms());
+            startActivity(intent);
+        }else {
+            Toast.makeText(this,"暂时没有消息",Toast.LENGTH_SHORT).show();
+        }
     }
 }

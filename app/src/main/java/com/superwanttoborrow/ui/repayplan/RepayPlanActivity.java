@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.adapters.RpRvAdapter;
+import com.superwanttoborrow.bean.ReturnDataListBean;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
 
 import java.util.ArrayList;
@@ -25,14 +26,14 @@ public class RepayPlanActivity extends MVPBaseActivity<RepayPlanContract.View, R
 
     private ImageView repayPlanBack;
     private RecyclerView repayPlanRv;
-    private List<String> mList;
+    private List<ReturnDataListBean.DataBean> mList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.avtivity_repay_plan);
         initView();
-        initData();
+        mPresenter.getRepaymentPlan(this);
     }
 
     private void initView() {
@@ -40,18 +41,29 @@ public class RepayPlanActivity extends MVPBaseActivity<RepayPlanContract.View, R
         repayPlanRv = (RecyclerView) findViewById(R.id.repay_plan_rv);
     }
 
-    private void initData(){
-        mList = new ArrayList<String>();
-        mList.add("aaa");
-        mList.add("bbb");
-        mList.add("ccc");
-        mList.add("ddd");
-        mList.add("eee");
+
+    @Override
+    public void getNoPlan() {
+        mList = new ArrayList<ReturnDataListBean.DataBean>();
+        ReturnDataListBean.DataBean dataBean = new ReturnDataListBean.DataBean();
+        dataBean.setBillPeriods(0);
+        dataBean.setPresentTotDue(0);
+        dataBean.setStatus("暂无借款");
+        dataBean.setRepaidDeadline(0);
+        mList.add(dataBean);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         repayPlanRv.setLayoutManager(linearLayoutManager);
         RpRvAdapter rpRvAdapter = new RpRvAdapter(this, mList);
         repayPlanRv.setAdapter(rpRvAdapter);
-        }
+    }
 
+    @Override
+    public void getPlan(List<ReturnDataListBean.DataBean> dataList) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        repayPlanRv.setLayoutManager(linearLayoutManager);
+        RpRvAdapter rpRvAdapter = new RpRvAdapter(this, dataList);
+        repayPlanRv.setAdapter(rpRvAdapter);
+    }
 }

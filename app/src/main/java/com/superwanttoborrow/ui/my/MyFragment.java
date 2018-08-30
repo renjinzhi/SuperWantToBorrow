@@ -85,7 +85,23 @@ public class MyFragment extends MVPBaseFragment<MyContract.View, MyPresenter> im
             case R.id.my_tv_bank:
                 sharedPreferences = getActivity().getSharedPreferences("User", 0);
                 if (sharedPreferences.getBoolean("isLogin", false)) {
-                    startActivity(new Intent(getContext(), ChangeBankActivity.class));
+                    SharedPreferences sharedPreferences = getContext().getSharedPreferences("BankMess",0);
+                    String name = sharedPreferences.getString("name", null);
+                    if (TextUtils.isEmpty(name)){
+                        Toast.makeText(getContext(),"请先前往首页“立即借款”进行审核认证",Toast.LENGTH_SHORT).show();
+                    }else {
+                        String cardId = sharedPreferences.getString("cardId", null);
+                        String mobile = sharedPreferences.getString("mobile", null);
+                        String bankCard = sharedPreferences.getString("bankCard", null);
+                        String bank = sharedPreferences.getString("bank", null);
+                        Intent intent = new Intent(getContext(), ChangeBankActivity.class);
+                        intent.putExtra("name", name);
+                        intent.putExtra("mobile", mobile);
+                        intent.putExtra("bankCard", bankCard);
+                        intent.putExtra("bank", bank);
+                        intent.putExtra("cardId",cardId);
+                        startActivity(intent);
+                    }
                 } else {
                     Toast.makeText(getContext(), "请先登录", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getActivity(), LoginActivity.class));
@@ -117,6 +133,8 @@ public class MyFragment extends MVPBaseFragment<MyContract.View, MyPresenter> im
 //            my_img_title.setImageResource(R.mipmap.touxiang);
         } else {
             my_tv_login.setText("请登录/注册");
+            SharedPreferences sharedPreferences = getContext().getSharedPreferences("BankMess",0);
+            sharedPreferences.edit().clear().apply();
 //            my_img_title.setImageResource(R.mipmap.login_nor);
         }
     }
@@ -139,4 +157,6 @@ public class MyFragment extends MVPBaseFragment<MyContract.View, MyPresenter> im
             mPresenter.getUserDetails(getContext(),user);
         }
     }
+
+
 }

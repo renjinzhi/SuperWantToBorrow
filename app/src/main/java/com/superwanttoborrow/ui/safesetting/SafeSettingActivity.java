@@ -66,12 +66,7 @@ public class SafeSettingActivity extends MVPBaseActivity<SafeSettingContract.Vie
                     mExitDialog = new ExitDialog(this);
                     mExitDialog.show();
                     Button exit = (Button) mExitDialog.findViewById(R.id.dialog_confirm);
-                    exit.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            mPresenter.exit(SafeSettingActivity.this, user);
-                        }
-                    });
+                    exit.setOnClickListener(v1 -> mPresenter.exit(SafeSettingActivity.this, user));
                 }
                 break;
         }

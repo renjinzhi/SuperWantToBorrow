@@ -67,6 +67,96 @@ public class ReturnDataListBean implements Serializable {
         private int id;
         private long updateTime;
         private String updateUsername;
+        private int billPeriods;
+        private double presentTotDue;
+        private long repaidDeadline;
+        private String requestId;
+        private String status;
+        private String channel;
+        private long presentTime;
+        private double repaidServiceFee;
+        private String swiftNumber;
+        private double totalMoney;
+
+        public String getChannel() {
+            return channel;
+        }
+
+        public void setChannel(String channel) {
+            this.channel = channel;
+        }
+
+        public long getPresentTime() {
+            return presentTime;
+        }
+
+        public void setPresentTime(long presentTime) {
+            this.presentTime = presentTime;
+        }
+
+        public double getRepaidServiceFee() {
+            return repaidServiceFee;
+        }
+
+        public void setRepaidServiceFee(double repaidServiceFee) {
+            this.repaidServiceFee = repaidServiceFee;
+        }
+
+        public String getSwiftNumber() {
+            return swiftNumber;
+        }
+
+        public void setSwiftNumber(String swiftNumber) {
+            this.swiftNumber = swiftNumber;
+        }
+
+        public double getTotalMoney() {
+            return totalMoney;
+        }
+
+        public void setTotalMoney(double totalMoney) {
+            this.totalMoney = totalMoney;
+        }
+
+        public int getBillPeriods() {
+            return billPeriods;
+        }
+
+        public void setBillPeriods(int billPeriods) {
+            this.billPeriods = billPeriods;
+        }
+
+        public double getPresentTotDue() {
+            return presentTotDue;
+        }
+
+        public void setPresentTotDue(double presentTotDue) {
+            this.presentTotDue = presentTotDue;
+        }
+
+        public long getRepaidDeadline() {
+            return repaidDeadline;
+        }
+
+        public void setRepaidDeadline(long repaidDeadline) {
+            this.repaidDeadline = repaidDeadline;
+        }
+
+        public String getRequestId() {
+            return requestId;
+        }
+
+        public void setRequestId(String requestId) {
+            this.requestId = requestId;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
 
         public String getBannerinfoImageLinkurl() {
             return bannerinfoImageLinkurl;

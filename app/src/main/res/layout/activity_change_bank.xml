@@ -73,27 +73,17 @@
         android:text="真实姓名"
         android:layout_width="0dp" android:layout_height="50dp"/>
 
-    <EditText
+    <TextView
+        android:gravity="center_vertical"
         android:id="@+id/change_bank_ed_name"
-        android:hint="XXX"
         android:textSize="16sp"
         android:textColor="@color/gray"
-        android:layout_marginRight="34dp"
         app:layout_constraintTop_toBottomOf="@id/change_bank_id_mess"
         android:layout_marginLeft="127.5dp"
         android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="0dp" android:layout_height="50dp"/>
-
-    <ImageView
-        android:id="@+id/change_bank_ed_name_show"
-        app:layout_constraintTop_toTopOf="@id/change_bank_ed_name"
-        app:layout_constraintBottom_toBottomOf="@id/change_bank_ed_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="15dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_width="19dp" android:layout_height="19dp"/>
 
     <View
         android:id="@+id/change_bank_view_name"
@@ -116,10 +106,10 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/change_bank_ed_name"/>
 
-    <EditText
+    <TextView
         android:id="@+id/change_bank_ed_id_card"
-        android:hint="XXXXXXXXXXXXXXXXXX"
         android:textSize="16sp"
+        android:gravity="center_vertical"
         android:textColor="@color/gray"
         android:maxLength="18"
         android:inputType="number"
@@ -200,7 +190,7 @@
         android:paddingLeft="74dp"
         android:textColor="@color/gray"
         android:textSize="16sp"
-        android:text="招商银行"
+        android:text="请选择所属银行"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -216,13 +206,14 @@
         app:layout_constraintBottom_toBottomOf="@id/change_bank_tv_bank"
         android:layout_width="30dp" android:layout_height="30dp"/>
 
-    <ImageView
+    <Spinner
+        android:id="@+id/change_bank_spinner"
         app:layout_constraintTop_toTopOf="@id/change_bank_tv_bank"
         app:layout_constraintBottom_toBottomOf="@id/change_bank_tv_bank"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="15dp"
         android:src="@mipmap/ic_launcher"
-        android:layout_width="8dp" android:layout_height="15dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp" android:layout_height="50dp"/>
 
     <View
         android:id="@+id/change_bank_view_phone"
@@ -244,9 +235,9 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/change_bank_view_phone"/>
 
-    <EditText
+    <TextView
         android:id="@+id/change_bank_ed_phone"
-        android:hint="xxxxxxxxxxx"
+        android:gravity="center_vertical"
         android:textSize="16sp"
         android:textColor="@color/gray"
         android:maxLength="11"

@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.superwanttoborrow.R;
+import com.superwanttoborrow.bean.ReturnDataListBean;
+import com.superwanttoborrow.utils.MyTextUtils;
 
 import java.util.List;
 
@@ -16,14 +18,14 @@ public class RpRvAdapter extends RecyclerView.Adapter<RpRvAdapter.RpRvHolder>{
 
 
     private Context mContext;
-    private List<String> mList;
+    private List<ReturnDataListBean.DataBean> mList;
 
-    public RpRvAdapter(Context context, List<String> list) {
+    public RpRvAdapter(Context context, List<ReturnDataListBean.DataBean> list) {
         mContext = context;
         mList = list;
     }
 
-    public void updata(List<String> list){
+    public void updata(List<ReturnDataListBean.DataBean> list){
         this.mList = list;
         notifyDataSetChanged();
     }
@@ -38,11 +40,10 @@ public class RpRvAdapter extends RecyclerView.Adapter<RpRvAdapter.RpRvHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull RpRvHolder holder, int position) {
-        String s = mList.get(position);
-        holder.periods.setText(s);
-        holder.money.setText(s);
-        holder.time.setText(s);
-        holder.state.setText(s);
+        holder.periods.setText(mList.get(position).getBillPeriods()+"");
+        holder.money.setText(mList.get(position).getPresentTotDue()+"");
+        holder.time.setText(MyTextUtils.getStrData(mList.get(position).getRepaidDeadline() + ""));
+        holder.state.setText(MyTextUtils.getStatus(mList.get(position).getStatus()));
     }
 
     @Override

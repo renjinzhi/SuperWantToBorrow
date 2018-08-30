@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.adapters.SmRvAdapter;
+import com.superwanttoborrow.bean.ReturnBean.DataBean.SystemSmsBean;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
 
 import java.util.ArrayList;
@@ -41,17 +42,12 @@ public class SystemMessageActivity extends MVPBaseActivity<SystemMessageContract
         system_message_rv = (RecyclerView) findViewById(R.id.system_message_rv);
     }
 
-    private void initData(){
-        mList = new ArrayList<String>();
-        mList.add("aaa");
-        mList.add("bbb");
-        mList.add("ccc");
-        mList.add("ddd");
-        mList.add("eee");
+    private void initData() {
+        ArrayList systemMessList = (ArrayList<SystemSmsBean>)getIntent().getSerializableExtra("systemMessList");
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         system_message_rv.setLayoutManager(linearLayoutManager);
-        SmRvAdapter smRvAdapter = new SmRvAdapter(this, mList);
+        SmRvAdapter smRvAdapter = new SmRvAdapter(this, systemMessList);
         system_message_rv.setAdapter(smRvAdapter);
-        }
+    }
 }

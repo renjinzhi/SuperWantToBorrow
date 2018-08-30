@@ -40,10 +40,20 @@ public class MyPresenter extends BasePresenterImpl<MyContract.View> implements M
                     public void onSuccess(Response<ReturnBean> response) {
                         ReturnBean returnBean = response.body();
                         if (BeanSetHelper.CODESUCCESS.equals(returnBean.getCode())) {
+                            ReturnBean.DataBean data = returnBean.getData();
+                            SharedPreferences sharedPreferences1 = context.getSharedPreferences("BankMess",0);
+                            SharedPreferences.Editor edit = sharedPreferences.edit();
+                            edit.putString("name",data.getApplicantName());
+                            edit.putString("mobile",data.getCallNumber());
+                            edit.putString("bankCard",data.getBankCardId());
+                            edit.putString("bank",data.getDepositBank());
+                            edit.putString("cardId",data.getCardId());
+                            edit.apply();
                         } else if ("952".equals(returnBean.getCode())) {
                         } else if (BeanSetHelper.CODELOGIN.equals(returnBean.getCode())) {
                             SharedPreferences sharedPreferences = context.getSharedPreferences("User", 0);
                             sharedPreferences.edit().clear().apply();
+                            Toast.makeText(context,"登录过期，请重新登录",Toast.LENGTH_SHORT).show();
                         } else if (BeanSetHelper.CODENEEDLOGIN.equals(returnBean.getCode())) {
                             SharedPreferences sharedPreferences = context.getSharedPreferences("User", 0);
                             sharedPreferences.edit().clear().apply();
