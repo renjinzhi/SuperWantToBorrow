@@ -25,7 +25,7 @@
         android:layout_marginStart="15dp" android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher"/>
+        app:srcCompat="@mipmap/back"/>
 
     <View
         android:id="@+id/change_bank_title_view"
@@ -138,7 +138,7 @@
         android:layout_marginRight="127.5dp"
         app:layout_constraintBottom_toBottomOf="@+id/change_bank_bank_mess"
         app:layout_constraintEnd_toEndOf="@+id/change_bank_bank_mess" app:layout_constraintTop_toTopOf="@+id/change_bank_bank_mess"
-        app:srcCompat="@mipmap/ic_launcher"/>
+        app:srcCompat="@mipmap/help"/>
     <TextView
         android:id="@+id/change_bank_tv_support"
         android:layout_width="wrap_content"
@@ -201,7 +201,7 @@
         android:id="@+id/change_bank_img_bank"
         android:layout_marginLeft="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/zhaoshang"
         app:layout_constraintTop_toTopOf="@id/change_bank_tv_bank"
         app:layout_constraintBottom_toBottomOf="@id/change_bank_tv_bank"
         android:layout_width="30dp" android:layout_height="30dp"/>
@@ -301,7 +301,9 @@
         app:layout_constraintTop_toBottomOf="@id/change_bank_ed_code"
         android:layout_marginTop="17dp"
         android:checked="true"
-        android:layout_width="15dp" android:layout_height="15dp"/>
+        android:background="@drawable/checkbox_style"
+        android:layout_width="15dp"
+        android:layout_height="15dp"/>
 
     <TextView
         android:id="@+id/change_bank_tv_agree"
@@ -329,7 +331,7 @@
         android:id="@+id/change_bank_button"
         app:layout_constraintTop_toBottomOf="@id/change_bank_tv_deal"
         android:layout_marginTop="40dp"
-        android:background="@color/red"
+        android:background="@mipmap/button"
         android:text="确定绑卡"
         android:textColor="@color/white"
         android:textSize="17sp"

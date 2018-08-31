@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.bean.ReturnBean;
+import com.superwanttoborrow.bean.ReturnBean.DataBean.UseBean;
 import com.superwanttoborrow.bean.ReturnDataListBean;
 import com.superwanttoborrow.mvp.MVPBaseFragment;
 import com.superwanttoborrow.ui.login.LoginActivity;
@@ -45,6 +46,8 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
     private List<ReturnDataListBean.DataBean> list;
     private CycleModel mCycleModel;
     private ArrayList<String> mPeriodsList;
+    private SharedPreferences sharedPreferences;
+    private UseBean use = new UseBean();
 
     @Nullable
     @Override
@@ -118,6 +121,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
 
     @Override
     public void getOther(ArrayList<String> moneys,ArrayList<ReturnBean.DataBean.SupportPeriodBean> supportPeriodList) {
+        sharedPreferences = getContext().getSharedPreferences("User",0);
         picker_money.setDataList(moneys);
         mPeriodsList = new ArrayList<>();
         for (int i = 0; i < supportPeriodList.size(); i++) {
@@ -129,24 +133,22 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
         picker_money.setOnScrollChangedListener(new EasyPickerView.OnScrollChangedListener() {
             @Override
             public void onScrollChanged(int curIndex) {
-
             }
 
             @Override
             public void onScrollFinished(int curIndex) {
-                moneys.get(curIndex);
+                sharedPreferences.edit().putString("money",moneys.get(curIndex)).apply();
             }
         });
 
         picker_time.setOnScrollChangedListener(new EasyPickerView.OnScrollChangedListener() {
             @Override
             public void onScrollChanged(int curIndex) {
-
             }
 
             @Override
             public void onScrollFinished(int curIndex) {
-                mPeriodsList.get(curIndex);
+                sharedPreferences.edit().putString("periods",mPeriodsList.get(curIndex)).apply();
             }
         });
 
@@ -154,11 +156,37 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
 
     @Override
     public void getRequestID(ReturnBean.DataBean dataBean) {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("User", 0);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        use = dataBean.getUse();
+        edit.putString("requestID", dataBean.getRequestId());
+        if (use != null) {
+            edit.putString("addres_code", dataBean.getUse().getAddresCode());
+            edit.putString("applicantName", dataBean.getUse().getApplicantName());
+            edit.putString("cardId", dataBean.getUse().getCardId());
+            edit.putString("bankCardId", dataBean.getUse().getBankCardId());
+            edit.putString("bankName", dataBean.getUse().getDepositBank());
 
+            edit.putString("linkman1Name", dataBean.getUse().getLinkman1Name());
+            edit.putString("linkman2Name", dataBean.getUse().getLinkman2Name());
+            edit.putString("linkman1Cell", dataBean.getUse().getLinkman1Cell());
+            edit.putString("linkman2Cell", dataBean.getUse().getLinkman2Cell());
+            edit.putString("loanReason", dataBean.getUse().getBorrowMoneyUse());
+            edit.putString("house", dataBean.getUse().getRentalSituation());
+
+            edit.putString("bizWorkfor", dataBean.getUse().getBizWorkfor());
+            edit.putString("perAddr", dataBean.getUse().getBizAddr());
+            edit.putString("mail", dataBean.getUse().getMail());
+            edit.putString("bizType", dataBean.getUse().getBizType());
+            edit.putString("income", dataBean.getUse().getMonthlyIncome());
+
+        }
+        edit.apply();
+        startActivity(new Intent(getContext(),RealNameActivity.class));
     }
 
-    @Override
-    public void setNullBanner() {
-
-    }
+//    @Override
+//    public void setNullBanner() {
+//
+//    }
 }

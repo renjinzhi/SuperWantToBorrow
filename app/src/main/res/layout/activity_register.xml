@@ -24,7 +24,7 @@
         android:layout_marginStart="15dp" android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher"/>
+        app:srcCompat="@mipmap/back"/>
 
     <View
         android:id="@+id/register_title_view"
@@ -125,7 +125,7 @@
         android:layout_height="19dp"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="13.5dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/cellphone"
         app:layout_constraintStart_toStartOf="@id/register_ed_phone"
         app:layout_constraintTop_toTopOf="@id/register_ed_phone"/>
 
@@ -157,7 +157,7 @@
         android:id="@+id/register_img_img_code"
         android:layout_width="84dp"
         android:layout_height="0dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/logo"
         app:layout_constraintBottom_toBottomOf="@id/register_ed_img_code"
         app:layout_constraintEnd_toEndOf="@id/register_ed_img_code"
         app:layout_constraintTop_toTopOf="@id/register_ed_img_code"/>
@@ -183,7 +183,7 @@
         android:layout_height="19dp"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="13.5dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/identifyingcode"
         app:layout_constraintStart_toStartOf="@id/register_ed_code"
         app:layout_constraintTop_toTopOf="@id/register_ed_code"/>
 
@@ -229,7 +229,7 @@
         android:layout_height="19dp"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="13.5dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/password"
         app:layout_constraintStart_toStartOf="@id/register_ed_password"
         app:layout_constraintTop_toTopOf="@id/register_ed_password"/>
 
@@ -238,7 +238,7 @@
         android:layout_width="345dp"
         android:layout_height="44.5dp"
         android:layout_marginTop="42.5dp"
-        android:background="@color/red"
+        android:background="@mipmap/button"
         android:text="立即申请"
         android:textColor="@color/white"
         android:textSize="17sp"

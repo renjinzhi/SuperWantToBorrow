@@ -26,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="@id/progress_query_tv_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/progress_query_tv_title"
-        app:srcCompat="@mipmap/ic_launcher"/>
+        app:srcCompat="@mipmap/back"/>
 
     <View
         android:id="@+id/progress_query_title_view"
@@ -58,7 +58,7 @@
         android:layout_height="19dp"
         android:layout_marginLeft="62.5dp"
         android:layout_marginTop="29dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/xuanxiang_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progress_query_mess"/>
 
@@ -116,7 +116,7 @@
         android:layout_width="19dp"
         android:layout_height="19dp"
         android:layout_marginLeft="62.5dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/xuanxiang_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pg_view_4"/>
 
@@ -173,7 +173,7 @@
         android:layout_width="19dp"
         android:layout_height="19dp"
         android:layout_marginLeft="62.5dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/xuanxiang"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pg_view_3"/>
 
@@ -231,7 +231,7 @@
         android:layout_width="19dp"
         android:layout_height="19dp"
         android:layout_marginLeft="62.5dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/xuanxiang"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pg_view_2"/>
 
@@ -288,7 +288,7 @@
         android:layout_width="19dp"
         android:layout_height="19dp"
         android:layout_marginLeft="62.5dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/xuanxiang"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pg_view_1"/>
 
@@ -339,7 +339,7 @@
         android:text="申请放款"
         android:textSize="17sp"
         android:textColor="@color/white"
-        android:background="@color/red"
+        android:background="@mipmap/button"
         android:layout_width="345dp" android:layout_height="44.5dp"/>
 
 </android.support.constraint.ConstraintLayout>

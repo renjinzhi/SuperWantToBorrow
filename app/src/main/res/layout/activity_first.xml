@@ -13,8 +13,8 @@
         android:layout_height="match_parent"
         hjm:tab_font_size="11sp"
         hjm:tab_img_font_padding="6.5px"
-        hjm:tab_img_height="10.5dp"
-        hjm:tab_img_width="10.5dp"
+        hjm:tab_img_height="7.875dp"
+        hjm:tab_img_width="7.875dp"
         hjm:tab_padding_top="8.5px"
         hjm:tab_unselected_color="#BFBFBF"/>
 

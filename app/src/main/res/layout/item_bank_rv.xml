@@ -23,7 +23,7 @@
         android:layout_width="27dp"
         android:layout_height="27dp"
         android:layout_marginLeft="20dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/gongshang"
         app:layout_constraintBottom_toBottomOf="@id/item_bank_rv_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/item_bank_rv_tv"/>

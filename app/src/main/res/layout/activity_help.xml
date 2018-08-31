@@ -24,11 +24,11 @@
         android:layout_marginStart="15dp" android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher"/>
+        app:srcCompat="@mipmap/back"/>
 
     <ImageView
         android:id="@+id/help_img_mess"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/banner_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/help_title"
@@ -49,7 +49,7 @@
         android:layout_width="0dp" android:layout_height="50dp"/>
     
     <ImageView
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/biao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/help_tv_how"
         app:layout_constraintBottom_toBottomOf="@id/help_tv_how"
@@ -80,7 +80,7 @@
         android:layout_width="0dp" android:layout_height="50dp"/>
 
     <ImageView
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/biao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/help_tv_time"
         app:layout_constraintBottom_toBottomOf="@id/help_tv_time"
@@ -111,7 +111,7 @@
         android:layout_width="0dp" android:layout_height="50dp"/>
 
     <ImageView
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/biao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/help_tv_why"
         app:layout_constraintBottom_toBottomOf="@id/help_tv_why"
@@ -141,7 +141,7 @@
         android:layout_width="0dp" android:layout_height="50dp"/>
 
     <ImageView
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/biao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/help_tv_state"
         app:layout_constraintBottom_toBottomOf="@id/help_tv_state"
@@ -170,7 +170,7 @@
         <ImageView
             android:layout_marginLeft="51.5dp"
             android:layout_marginTop="11dp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@mipmap/auditing"
             android:layout_width="22dp"
             android:layout_height="21dp"/>
 
@@ -200,7 +200,7 @@
             android:layout_marginLeft="51.5dp"
             android:id="@+id/help_img_ques"
             android:layout_marginTop="11dp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@mipmap/auditing"
             android:layout_width="22dp"
             android:layout_height="21dp"/>
 
@@ -230,7 +230,7 @@
             android:layout_marginLeft="51.5dp"
             android:id="@+id/help_img_data"
             android:layout_marginTop="11dp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@mipmap/auditing"
             android:layout_width="22dp"
             android:layout_height="21dp"/>
 
@@ -254,7 +254,8 @@
     android:textColor="@color/white"
     android:textSize="17sp"
     android:text="咨询在线客服"
-    android:background="@color/red"
-    android:layout_width="345dp" android:layout_height="44.5dp"/>
+    android:background="@mipmap/button"
+    android:layout_width="345dp"
+    android:layout_height="44.5dp"/>
 
 </android.support.constraint.ConstraintLayout>

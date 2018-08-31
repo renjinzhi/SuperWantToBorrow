@@ -10,6 +10,8 @@ public class ReturnBean implements Serializable {
     private DataBean data;
     private String message;
 
+
+
     public String getCode() {
         return code;
     }
@@ -64,6 +66,8 @@ public class ReturnBean implements Serializable {
         private String linkman1Name;
         private List<UserSmsBean> userSms;
         private List<SystemSmsBean> systemSms;
+
+
 
         public List<UserSmsBean> getUserSms() {
             return userSms;
@@ -258,6 +262,10 @@ public class ReturnBean implements Serializable {
         }
 
         public static class UseBean {
+
+            public UseBean() {
+            }
+
             /**
              * addresCode : 北京-北京市-东城区
              * addrs : {"area":"东城区","bizAddr":"汉威国际广场"}
@@ -275,6 +283,7 @@ public class ReturnBean implements Serializable {
              * mobile :
              * bizAddr : 汉威国际广场
              */
+
 
             private String addresCode;
             private String addrs;

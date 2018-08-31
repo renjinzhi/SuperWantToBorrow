@@ -25,7 +25,7 @@
         app:layout_constraintBottom_toBottomOf="@id/system_message_tv_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/system_message_tv_title"
-        app:srcCompat="@mipmap/ic_launcher"/>
+        app:srcCompat="@mipmap/back"/>
 
     <View
         android:id="@+id/system_message_view"

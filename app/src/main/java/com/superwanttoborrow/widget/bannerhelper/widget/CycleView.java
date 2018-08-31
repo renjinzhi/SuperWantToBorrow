@@ -363,10 +363,10 @@ public class CycleView extends FrameLayout implements ViewPager.OnPageChangeList
                 RelativeLayout.LayoutParams.MATCH_PARENT);
         imageView.setLayoutParams(layoutParams);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        // todo 加载图片资源失败图与占位图
         RequestOptions options = new RequestOptions()
-                .placeholder(R.mipmap.ic_launcher)
-                .error(R.mipmap.ic_launcher);
+                .placeholder(R.mipmap.banner)
+                .error(R.mipmap.banner);
+        //todo
 //        Glide.with(context).load(url).apply(options).into(imageView);
         mRelativeLayout.addView(imageView);
         return mRelativeLayout;

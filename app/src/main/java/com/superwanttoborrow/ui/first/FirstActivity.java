@@ -31,8 +31,8 @@ public class FirstActivity extends MVPBaseActivity<FirstContract.View, FirstPres
         bottom_tab_bar = (BottomTabBar) findViewById(R.id.bottom_tab_bar);
         bottom_tab_bar.init(getSupportFragmentManager())
                 .setFontSize(10)
-                .addTabItem("首页", R.mipmap.ic_launcher, R.mipmap.ic_launcher, HomeFragment.class)
-                .addTabItem("还款", R.mipmap.ic_launcher, R.mipmap.ic_launcher, RepaymentFragment.class)
-                .addTabItem("我的", R.mipmap.ic_launcher, R.mipmap.ic_launcher, MyFragment.class);
+                .addTabItem("首页", R.mipmap.homepage, R.mipmap.homepage_1, HomeFragment.class)
+                .addTabItem("还款", R.mipmap.repayment, R.mipmap.repayment_1, RepaymentFragment.class)
+                .addTabItem("我的", R.mipmap.my, R.mipmap.my_1, MyFragment.class);
     }
 }

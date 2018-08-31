@@ -53,7 +53,7 @@
         android:layout_height="22dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="18dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/inform"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/sm_tv_mess"/>
 
@@ -63,7 +63,7 @@
         android:layout_height="12dp"
         android:layout_marginBottom="2.5dp"
         android:layout_marginLeft="49dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/clock"
         app:layout_constraintBottom_toBottomOf="@id/sm_tv_mess"
         app:layout_constraintStart_toStartOf="parent"/>
 

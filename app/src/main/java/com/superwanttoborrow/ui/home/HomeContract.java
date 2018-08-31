@@ -24,7 +24,7 @@ public class HomeContract {
 
         void getRequestID(ReturnBean.DataBean dataBean);
 
-        void setNullBanner();
+//        void setNullBanner();
     }
 
     interface  Presenter extends BasePresenter<View> {
