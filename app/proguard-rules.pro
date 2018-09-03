@@ -182,6 +182,7 @@
 #-keep class com.enjoyborrowing.ui.mall.MallContract
 #-keep class com.enjoyborrowing.ui.mall.MallPresenter
 
+-keep public class com.megvii.**{*;}
 
 -keepattributes *Annotation*
 -keepattributes *JavascriptInterface*

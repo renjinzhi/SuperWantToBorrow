@@ -66,8 +66,24 @@ public class ReturnBean implements Serializable {
         private String linkman1Name;
         private List<UserSmsBean> userSms;
         private List<SystemSmsBean> systemSms;
+        private String name;
+        private String idCardNumber;
 
+        public String getName() {
+            return name;
+        }
 
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getIdCardNumber() {
+            return idCardNumber;
+        }
+
+        public void setIdCardNumber(String idCardNumber) {
+            this.idCardNumber = idCardNumber;
+        }
 
         public List<UserSmsBean> getUserSms() {
             return userSms;

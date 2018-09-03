@@ -10,8 +10,8 @@ package com.superwanttoborrow.api;
 public class Constants {
 
 
-    //生产环境
-//    public static final String HOST_URL = "";
+    //本地测试环境
+//    public static final String HOST_URL = "http://192.168.1.112:18603/gateway/gateway/";
 
     //测试环境
     public static final String HOST_URL = "http://118.186.229.83:18603/gateway/gateway/";

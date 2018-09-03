@@ -85,6 +85,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline_picker"
         app:layout_constraintTop_toBottomOf="@+id/home_tv_time"/>
+
+    <ImageView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@mipmap/shouyekuang"
+        app:layout_constraintTop_toTopOf="@id/picker_money"
+        app:layout_constraintBottom_toBottomOf="@id/picker_money"
+        android:layout_width="283dp" android:layout_height="50dp"/>
+
     <Button
         android:id="@+id/home_button_borrow"
         android:layout_width="345dp"

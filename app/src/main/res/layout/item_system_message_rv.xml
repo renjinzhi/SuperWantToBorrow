@@ -10,7 +10,7 @@
         android:layout_width="104dp"
         android:layout_height="24dp"
         android:layout_marginTop="8.5dp"
-        android:background="@color/gray"
+        android:background="@mipmap/xiaoxibeijing"
         android:gravity="center"
         android:text="2018年8月21"
         android:textColor="@color/white"

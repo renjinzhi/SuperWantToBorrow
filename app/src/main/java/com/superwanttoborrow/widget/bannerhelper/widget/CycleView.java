@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.widget.bannerhelper.adapter.CycleViewAdapter;
@@ -367,7 +368,7 @@ public class CycleView extends FrameLayout implements ViewPager.OnPageChangeList
                 .placeholder(R.mipmap.banner)
                 .error(R.mipmap.banner);
         //todo
-//        Glide.with(context).load(url).apply(options).into(imageView);
+        Glide.with(context).load(url).apply(options).into(imageView);
         mRelativeLayout.addView(imageView);
         return mRelativeLayout;
     }

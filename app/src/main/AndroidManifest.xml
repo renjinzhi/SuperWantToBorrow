@@ -4,6 +4,19 @@
 
     <!--网络请求权限-->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!--获取通讯录权限-->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
         android:name=".App"
@@ -43,6 +56,7 @@
         <activity android:name=".ui.progressquery.ProgressQueryActivity"/>
         <activity android:name=".ui.message.MessageActivity"/>
         <activity android:name=".ui.systemmessage.SystemMessageActivity"/>
+        <activity android:name=".ui.bindbank.BindBankActivity"/>
 
 
         <meta-data
@@ -51,6 +65,26 @@
         <meta-data
             android:name="design_height_in_dp"
             android:value="667"/>
+
+
+        <meta-data
+            android:name="KZGgMdjMGTZaTjOGM0BgIV0OwfYWn1o0"
+            android:value="你的 key" />
+        <!--//service组件，固定配置-->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.superwanttoborrow.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
     </application>
 
 

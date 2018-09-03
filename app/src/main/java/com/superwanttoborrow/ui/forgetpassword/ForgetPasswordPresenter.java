@@ -1,5 +1,6 @@
 package com.superwanttoborrow.ui.forgetpassword;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import com.superwanttoborrow.utils.MyCountDownTimer;
 public class ForgetPasswordPresenter extends BasePresenterImpl<ForgetPasswordContract.View> implements ForgetPasswordContract.Presenter{
 
     Gson gson = new Gson();
+    private ProgressDialog progressDialog;
     @Override
     public void getCode(Context context, String phone, String imgCode, String imgCodeKey, TextView tv) {
         RequestBean getCodeRequestBean = new RequestBean();
@@ -33,11 +35,15 @@ public class ForgetPasswordPresenter extends BasePresenterImpl<ForgetPasswordCon
         dataBean.setImgCode(imgCode);
         dataBean.setImgCodeKey(imgCodeKey);
         getCodeRequestBean.setData(dataBean);
+        progressDialog = ProgressDialog.show(context, "请稍等...", "正在获取验证码...", true);
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
         OkGo.<ReturnBean>post(Constants.HOST_URL)
                 .upJson(gson.toJson(getCodeRequestBean))
                 .execute(new JsonCallback<ReturnBean>() {
                     @Override
                     public void onSuccess(Response<ReturnBean> response) {
+                        progressDialog.dismiss();
                         ReturnBean returnBean = response.body();
                         if (BeanSetHelper.CODESUCCESS.equals(returnBean.getCode())) {
                             Toast.makeText(context, "短信验证码发送成功", Toast.LENGTH_SHORT).show();
@@ -46,28 +52,46 @@ public class ForgetPasswordPresenter extends BasePresenterImpl<ForgetPasswordCon
                             Toast.makeText(context,returnBean.getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     }
-                });
+
+                             @Override
+                             public void onError(Response<ReturnBean> response) {
+                                 super.onError(response);
+                                 progressDialog.dismiss();
+                             }
+                         }
+                );
     }
 
     @Override
-    public void next(Context context, String phone, String code) {
+    public void next(Context context, String phone, String code,String password) {
         RequestBean loginForCodeRequestBean = new RequestBean();
-        loginForCodeRequestBean.setServiceId("JUNCAI0006");
+        loginForCodeRequestBean.setServiceId("JUNCAI0055");
         RequestBean.DataBean dataBean = new RequestBean.DataBean();
         dataBean.setMobile(phone);
         dataBean.setCheckCode(code);
+        dataBean.setPassword(password);
         loginForCodeRequestBean.setData(dataBean);
+        progressDialog = ProgressDialog.show(context, "请稍等...", "正在重置密码...", true);
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
         OkGo.<ReturnBean>post(Constants.HOST_URL)
                 .upJson(gson.toJson(loginForCodeRequestBean))
                 .execute(new JsonCallback<ReturnBean>() {
                     @Override
                     public void onSuccess(Response<ReturnBean> response) {
+                        progressDialog.dismiss();
                         ReturnBean returnBean = response.body();
                         if (BeanSetHelper.CODESUCCESS.equals(returnBean.getCode())) {
-                            //todo
+                            mView.changeSucc();
                         }else {
                             Toast.makeText(context, returnBean.getMessage(), Toast.LENGTH_SHORT).show();
                         }
+                    }
+
+                    @Override
+                    public void onError(Response<ReturnBean> response) {
+                        super.onError(response);
+                        progressDialog.dismiss();
                     }
                 });
 

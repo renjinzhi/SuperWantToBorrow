@@ -190,7 +190,7 @@
         android:paddingLeft="74dp"
         android:textColor="@color/gray"
         android:textSize="16sp"
-        android:text="请选择所属银行"
+        android:text="工商银行"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -301,7 +301,7 @@
         app:layout_constraintTop_toBottomOf="@id/change_bank_ed_code"
         android:layout_marginTop="17dp"
         android:checked="true"
-        android:background="@drawable/checkbox_style"
+        style="@style/CustomCheckboxTheme"
         android:layout_width="15dp"
         android:layout_height="15dp"/>
 

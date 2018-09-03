@@ -17,4 +17,13 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
+    <style name="Check_Login" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/check_login</item>
+    </style>
+
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+    </style>
+
+
 </resources>

@@ -16,6 +16,8 @@ public class ForgetPasswordContract {
     interface View extends BaseView {
 
         void getImgCode(String imgCodeKey,String imgCodeString);
+
+        void changeSucc();
     }
 
     interface  Presenter extends BasePresenter<View> {
@@ -24,7 +26,7 @@ public class ForgetPasswordContract {
         void getCode(Context context, String phone, String imgCode, String imgCodeKey, TextView tv);
 
         //下一步
-        void next(Context context,String phone,String code);
+        void next(Context context,String phone,String code,String password);
 
         void getImgCode(Context context);
     }

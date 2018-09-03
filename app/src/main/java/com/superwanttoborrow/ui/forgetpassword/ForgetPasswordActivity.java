@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
 import com.superwanttoborrow.utils.Bitmap2Base64;
+import com.superwanttoborrow.utils.MyTextUtils;
 import com.superwanttoborrow.utils.PhoneNumberCheck;
 
 
@@ -37,6 +38,8 @@ public class ForgetPasswordActivity extends MVPBaseActivity<ForgetPasswordContra
     private String imgCodeKey;
     private String phone;
     private String imgCode;
+    private String code;
+    private String password;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,7 +67,24 @@ public class ForgetPasswordActivity extends MVPBaseActivity<ForgetPasswordContra
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.forget_button_forget:
-
+                phone = forget_ed_phone.getText().toString();
+                code = forget_ed_code.getText().toString();
+                password = forget_ed_password.getText().toString();
+                if (TextUtils.isEmpty(phone)) {
+                    Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show();
+                } else if (!PhoneNumberCheck.checkCellphone(phone)) {
+                    Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(code)) {
+                    Toast.makeText(this, "请输入获取的短信验证码", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
+                } else if (password.length() < 6) {
+                    Toast.makeText(this, "密码长度不得少于6位", Toast.LENGTH_SHORT).show();
+                } else if (!MyTextUtils.isPassword(password)) {
+                    Toast.makeText(this, "密码只能由数字和字母组成", Toast.LENGTH_SHORT).show();
+                } else {
+                    mPresenter.next(this, phone, code, password);
+                }
                 break;
             case R.id.forget_tv_get_code:
                 phone = forget_ed_phone.getText().toString();
@@ -73,8 +93,7 @@ public class ForgetPasswordActivity extends MVPBaseActivity<ForgetPasswordContra
                     Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show();
                 } else if (!PhoneNumberCheck.checkCellphone(phone)) {
                     Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
-                }
-                if (TextUtils.isEmpty(imgCode)) {
+                } else if (TextUtils.isEmpty(imgCode)) {
                     Toast.makeText(this, "请输入图片中的验证码", Toast.LENGTH_SHORT).show();
                 } else {
                     mPresenter.getCode(this, phone, imgCode, imgCodeKey, forget_tv_get_code);
@@ -96,4 +115,9 @@ public class ForgetPasswordActivity extends MVPBaseActivity<ForgetPasswordContra
         mPresenter.getImgCode(this);
     }
 
+    @Override
+    public void changeSucc() {
+        Toast.makeText(this, "密码重置成功", Toast.LENGTH_SHORT).show();
+        finish();
+    }
 }

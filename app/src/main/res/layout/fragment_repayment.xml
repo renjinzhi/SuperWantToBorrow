@@ -29,7 +29,7 @@
         android:id="@+id/repay_img_bg"
         android:layout_width="0dp"
         android:layout_height="229dp"
-        android:background="@color/red"
+        android:background="@mipmap/beijing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/repay_tv_title"/>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="325dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/dialog_bc_title"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:text="温馨提示"
+        android:textColor="@color/text_gray"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/dialog_bc_img"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginRight="20dp"
+        android:src="@mipmap/close"
+        app:layout_constraintBottom_toBottomOf="@id/dialog_bc_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dialog_bc_title"/>
+
+    <TextView
+        android:id="@+id/dialog_bc_mess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="为确保您的资金安全，需要验证您绑定的银行"
+        android:textColor="@color/gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_bc_title"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/dialog_pg_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <TextView
+        android:id="@+id/bc_tv_mess_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="卡是否有效，请点击获取并输入验证码!"
+        android:textColor="@color/gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_bc_mess"/>
+
+
+    <EditText
+        android:gravity="center"
+        android:id="@+id/dialog_bc_ed"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="28.5dp"
+        android:layout_marginTop="29dp"
+        android:background="@mipmap/shurukuang"
+        android:inputType="number"
+        android:maxLength="6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bc_tv_mess_details"/>
+
+
+    <Button
+        android:id="@+id/dialog_bc_button_get_code"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="29dp"
+        android:background="@mipmap/yanzhengma"
+        android:text="获取验证码"
+        android:textColor="@color/six_e"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@id/dialog_bc_ed"
+        app:layout_constraintTop_toBottomOf="@id/bc_tv_mess_details"/>
+    <Button
+        android:id="@+id/dialog_pg_button"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="29dp"
+        android:background="@color/red"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_bc_ed"/>
+
+</android.support.constraint.ConstraintLayout>

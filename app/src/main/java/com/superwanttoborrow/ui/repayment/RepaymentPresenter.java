@@ -51,7 +51,7 @@ public class RepaymentPresenter extends BasePresenterImpl<RepaymentContract.View
                         } else if ("010".equals(returnBean.getCode())) {
                             mView.getNoRepayment();
                         } else if (BeanSetHelper.CODENEEDLOGIN.equals(returnBean.getCode())) {
-                            Toast.makeText(context,"请先登录",Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(context,"请先登录",Toast.LENGTH_SHORT).show();
                             mView.getNoRepayment();
                         } else {
                             Toast.makeText(context, returnBean.getMessage(), Toast.LENGTH_SHORT).show();

@@ -134,6 +134,7 @@
         app:layout_constraintTop_toBottomOf="@id/face_img_three"/>
 
     <Button
+        android:id="@+id/face_button"
         android:layout_width="345dp"
         android:layout_height="44.5dp"
         android:layout_marginTop="93dp"

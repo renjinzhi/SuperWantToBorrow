@@ -160,13 +160,13 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
 
     //身份选择
     public void setChooseBg(TextView isChoose, TextView tv1, TextView tv2, TextView tv3) {
-        isChoose.setBackgroundColor(getResources().getColor(R.color.red));
+        isChoose.setBackgroundResource(R.mipmap.shangbanzu);
         isChoose.setTextColor(getResources().getColor(R.color.white));
-        tv1.setBackgroundColor(getResources().getColor(R.color.white));
+        tv1.setBackgroundResource(R.mipmap.geti);
         tv1.setTextColor(getResources().getColor(R.color.hui));
-        tv2.setBackgroundColor(getResources().getColor(R.color.white));
+        tv2.setBackgroundResource(R.mipmap.geti);
         tv2.setTextColor(getResources().getColor(R.color.hui));
-        tv3.setBackgroundColor(getResources().getColor(R.color.white));
+        tv3.setBackgroundResource(R.mipmap.geti);
         tv3.setTextColor(getResources().getColor(R.color.hui));
     }
 

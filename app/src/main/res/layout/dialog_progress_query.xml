@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="313dp"
-    android:layout_height="wrap_content" android:background="@color/white">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/dialog_pq_title"
@@ -94,7 +95,6 @@
         app:layout_constraintStart_toStartOf="@id/dialog_pg_bg_money"
         app:layout_constraintTop_toTopOf="@id/dialog_pg_view_money"/>
 
-
     <TextView
         android:id="@+id/dialog_pg_tv_money"
         android:layout_width="wrap_content"
@@ -107,6 +107,14 @@
         app:layout_constraintStart_toStartOf="@id/dialog_pg_view_money"
         app:layout_constraintTop_toTopOf="@id/dialog_pg_view_money"/>
 
+    <ImageView
+        app:layout_constraintTop_toTopOf="@id/dialog_pg_tv_money"
+        app:layout_constraintBottom_toBottomOf="@id/dialog_pg_tv_money"
+        android:src="@mipmap/jindukuang"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="233.5dp"
+        android:layout_height="40dp"/>
 
     <View
         android:id="@+id/dialog_pg_view_deadline"
@@ -148,6 +156,14 @@
         app:layout_constraintStart_toStartOf="@id/dialog_pg_view_deadline"
         app:layout_constraintTop_toTopOf="@id/dialog_pg_view_deadline"/>
 
+    <ImageView
+        app:layout_constraintTop_toTopOf="@id/dialog_pg_tv_deadline"
+        app:layout_constraintBottom_toBottomOf="@id/dialog_pg_tv_deadline"
+        android:src="@mipmap/jindukuang"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="233.5dp"
+        android:layout_height="40dp"/>
 
     <Button
         android:id="@+id/dialog_pg_button"

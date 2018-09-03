@@ -133,7 +133,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:gravity="center_vertical"
-                android:text="XXX"
                 android:textColor="@color/text_gray"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/real_guideline_text"
@@ -161,7 +160,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:gravity="center_vertical"
-                android:text="xxxxxxxxxxxxxx"
                 android:textColor="@color/text_gray"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/real_guideline_text"
@@ -192,7 +190,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:gravity="center_vertical"
-                android:text="XXXXXXXXXXX"
                 android:textColor="@color/text_gray"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/real_guideline_text"
@@ -208,78 +205,6 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/real_phone_title"/>
 
-            <TextView
-                android:id="@+id/real_bank_title"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp" android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:gravity="center_vertical"
-                android:text="银行卡号"
-                android:textColor="@color/text_gray"
-                android:textSize="16sp" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/real_view_phone"/>
-            <TextView
-                android:id="@+id/real_bank_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:text="xxxxxxxxxxxxxx"
-                android:textColor="@color/text_gray"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/real_guideline_text"
-                app:layout_constraintTop_toBottomOf="@+id/real_view_phone"/>
-
-            <View
-                android:id="@+id/real_view_bank"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginLeft="20dp"
-                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/real_bank_title"/>
-
-
-            <EditText
-                android:id="@+id/real_edit_code"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="1dp"
-                android:background="@null"
-                android:gravity="center_vertical"
-                android:inputType="number"
-                android:maxLength="6"
-                android:textColor="@color/text_gray"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/real_bank_tv"/>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="16dp"
-                android:layout_marginRight="125dp"
-                android:layout_marginTop="17dp"
-                android:background="@color/view_bg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/real_bank_tv"/>
-
-            <TextView
-                android:id="@+id/real_tv_get_code"
-                android:layout_width="125dp"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:text="获取验证码"
-                android:textColor="@color/red_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/real_bank_tv"/>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/real_tv_get_code"/>
 
             <TextView
                 android:id="@+id/real_tv_bottom_mess"
@@ -294,7 +219,7 @@
                 android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/real_tv_get_code"/>
+                app:layout_constraintTop_toBottomOf="@id/real_phone_title"/>
 
             <ImageView
                 android:layout_width="15dp"
@@ -303,7 +228,7 @@
                 android:layout_marginTop="11dp"
                 android:src="@mipmap/help_1"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/real_edit_code"/>
+                app:layout_constraintTop_toBottomOf="@id/real_phone_title"/>
 
             <Button
                 android:id="@+id/real_button_next"
