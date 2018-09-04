@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.superwanttoborrow.R;
@@ -37,7 +38,12 @@ public class BankActivity extends MVPBaseActivity<BankContract.View, BankPresent
 
     private void initView() {
         basic_information_back = (ImageView) findViewById(R.id.basic_information_back);
-        basic_information_back.setOnClickListener((view -> finish()));
+        basic_information_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         bank_rv = (RecyclerView) findViewById(R.id.bank_rv);
     }
 

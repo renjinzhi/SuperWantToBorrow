@@ -41,7 +41,12 @@ public class BorrowRecordActivity extends MVPBaseActivity<BorrowRecordContract.V
 
     private void initView() {
         borrow_record_back = (ImageView) findViewById(R.id.borrow_record_back);
-        borrow_record_back.setOnClickListener((view) -> finish());
+        borrow_record_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         borrow_record_rv = (RecyclerView) findViewById(R.id.borrow_record_rv);
         borrow_record_img = (ImageView) findViewById(R.id.borrow_record_img);
     }

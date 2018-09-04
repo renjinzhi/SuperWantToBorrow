@@ -12,10 +12,11 @@ import com.superwanttoborrow.mvp.BaseView;
 
 public class FaceContract {
     interface View extends BaseView {
-        
+
+        void postPace();
     }
 
     interface  Presenter extends BasePresenter<View> {
-        
+        void postFace(Context context,String fileContent, String fileName, String fileType,String delta);
     }
 }

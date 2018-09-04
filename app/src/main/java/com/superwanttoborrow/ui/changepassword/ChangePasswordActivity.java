@@ -45,7 +45,12 @@ public class ChangePasswordActivity extends MVPBaseActivity<ChangePasswordContra
 
     private void initView() {
         cp_back = (ImageView) findViewById(R.id.cp_back);
-        cp_back.setOnClickListener(view -> finish());
+        cp_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         cp_tv_phone = (TextView) findViewById(R.id.cp_tv_phone);
         cp_ed_pass_old = (EditText) findViewById(R.id.cp_ed_pass_old);
         cp_ed_pass_new = (EditText) findViewById(R.id.cp_ed_pass_new);

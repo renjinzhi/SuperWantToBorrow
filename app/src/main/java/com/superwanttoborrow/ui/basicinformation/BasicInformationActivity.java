@@ -79,7 +79,7 @@ public class BasicInformationActivity extends MVPBaseActivity<BasicInformationCo
         basic_information_ed_weixin = (EditText) findViewById(R.id.basic_information_ed_weixin);
         basic_information_ed_qq = (EditText) findViewById(R.id.basic_information_ed_qq);
         basic_information_location = (ImageView) findViewById(R.id.basic_information_location);
-        basic_information_location.setOnClickListener(this::onClick);
+        basic_information_location.setOnClickListener(this);
     }
 
     private void initData() {
@@ -196,22 +196,28 @@ public class BasicInformationActivity extends MVPBaseActivity<BasicInformationCo
     };
 
     private void getLocation() {
-        progressDialog = ProgressDialog.show(this,"请稍等...","正在获取定位信息...",true);
+        progressDialog = ProgressDialog.show(this, "请稍等...", "正在获取定位信息...", true);
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
-        BdLocationUtil.getInstance().requestLocation(location -> {
-            progressDialog.dismiss();
-            if (location == null) {
-                return;
-            }
-            if (location.getLocType() == BDLocation.TypeNetWorkLocation) {
-                String mCounty = location.getCountry();        //获取国家
-                String mProvince = location.getProvince();     //获取省份
-                String mCity = location.getCity();             //获取城市
-                String mDistrict = location.getDistrict();     //获取区
-                basic_information_city_tv.setText(mProvince +"   "+ mCity);
+        BdLocationUtil.getInstance().requestLocation(new BdLocationUtil.MyLocationListener() {
+            @Override
+            public void myLocation(BDLocation location) {
+
+                progressDialog.dismiss();
+                if (location == null) {
+                    return;
+                }
+                if (location.getLocType() == BDLocation.TypeNetWorkLocation) {
+                    String mCounty = location.getCountry();        //获取国家
+                    String mProvince = location.getProvince();     //获取省份
+                    String mCity = location.getCity();             //获取城市
+                    String mDistrict = location.getDistrict();     //获取区
+                    basic_information_city_tv.setText(mProvince + "   " + mCity);
+                }
             }
         });
+
+
     }
 
 }
