@@ -1,24 +1,123 @@
 package com.superwanttoborrow.ui.bindbank;
 
 
+import android.app.AlertDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
+import com.superwanttoborrow.utils.PhoneNumberCheck;
 
 
 /**
  * MVPPlugin
- *  邮箱 784787081@qq.com
+ * 邮箱 784787081@qq.com
  */
 
-public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, BindBankPresenter> implements BindBankContract.View {
+public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, BindBankPresenter> implements BindBankContract.View, View.OnClickListener {
 
+
+    private ImageView bind_bank_back;
+    private EditText bind_bank_ed_bank_card;
+    private TextView bind_bank_tv_bank;
+    private ImageView bind_bank_img_bank;
+    private TextView bind_bank_ed_phone;
+    private Button bind_bank_button;
+    private AlertDialog dialog;
+    private ImageView dialog_bc_img;
+    private EditText dialog_bc_ed;
+    private Button dialog_bc_button_get_code;
+    private Button dialog_pg_button;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bind_bank);
+        initView();
+        initData();
+        initBqsDFSDK();
     }
+
+    private void initView() {
+        bind_bank_back = (ImageView) findViewById(R.id.bind_bank_back);
+        bind_bank_back.setOnClickListener(view -> finish());
+        bind_bank_ed_bank_card = (EditText) findViewById(R.id.bind_bank_ed_bank_card);
+        bind_bank_tv_bank = (TextView) findViewById(R.id.bind_bank_tv_bank);
+        bind_bank_img_bank = (ImageView) findViewById(R.id.bind_bank_img_bank);
+        bind_bank_ed_phone = (TextView) findViewById(R.id.bind_bank_ed_phone);
+        bind_bank_button = (Button) findViewById(R.id.bind_bank_button);
+        bind_bank_button.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bind_bank_button:
+                mPresenter.isReal(this);
+                break;
+        }
+    }
+
+    private void initData() {
+        bind_bank_ed_bank_card.addTextChangedListener(new TextWatcher() {
+            private CharSequence temp;
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                temp = charSequence;
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() > 16) {
+                    if (PhoneNumberCheck.checkBankCard(editable.toString())) {
+
+                    } else {
+                        Toast.makeText(BindBankActivity.this, "银行卡格式错误，请检查您的银行卡号", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+        SharedPreferences user = getSharedPreferences("User", 0);
+        bind_bank_ed_phone.setText(user.getString("user", null));
+    }
+
+    @Override
+    public void isReal(Boolean isBank) {
+        if (isBank) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            dialog = builder.create();
+            View view = View.inflate(this, R.layout.dialog_bank_code, null);
+            dialog.setView(view, 0, 0, 0, 0);// 设置边距为0,保证在2.x的版本上运行没问题
+            dialog.setCanceledOnTouchOutside(false);
+            dialog_bc_img = (ImageView) view.findViewById(R.id.dialog_bc_img);
+            dialog_bc_img.setOnClickListener(view1 -> dialog.dismiss());
+            dialog_bc_ed = (EditText) view.findViewById(R.id.dialog_bc_ed);
+            dialog_bc_button_get_code = (Button) view.findViewById(R.id.dialog_bc_button_get_code);
+            dialog_bc_button_get_code.setOnClickListener(this);
+            dialog_pg_button = (Button) view.findViewById(R.id.dialog_pg_button);
+            dialog_pg_button.setOnClickListener(this);
+            dialog.show();
+        } else {
+            //不需要验证码
+            Toast.makeText(this,"不需要验证码",Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

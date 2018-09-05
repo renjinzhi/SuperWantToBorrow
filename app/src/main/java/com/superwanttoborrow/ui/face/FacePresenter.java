@@ -34,7 +34,7 @@ public class FacePresenter extends BasePresenterImpl<FaceContract.View> implemen
         SharedPreferences sharedPreferences = context.getSharedPreferences("User", 0);
         String user = sharedPreferences.getString("user", null);
         String token = sharedPreferences.getString("token", null);
-        String requestID = sharedPreferences.getString("requestID", null);
+        String requestID = sharedPreferences.getString("requestId", null);
         dataBean.setMobile(user);
         dataBean.setToken(token);
         dataBean.setDelta(delta);

@@ -11,11 +11,15 @@ import com.superwanttoborrow.mvp.BaseView;
  */
 
 public class BindBankContract {
+
     interface View extends BaseView {
-        
+
+        void isReal(Boolean isBank);
     }
 
     interface  Presenter extends BasePresenter<View> {
+
+        void isReal(Context context);
         
     }
 }

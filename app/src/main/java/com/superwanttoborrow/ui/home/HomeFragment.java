@@ -77,6 +77,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
         switch (v.getId()) {
             case R.id.home_button_borrow:
                 startActivity(new Intent(getContext(), RealNameActivity.class));
+//                mPresenter.getRequestID(getContext());
                 break;
             case R.id.home_button_select:
                 startActivity(new Intent(getContext(), ProgressQueryActivity.class));
@@ -159,7 +160,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("User", 0);
         SharedPreferences.Editor edit = sharedPreferences.edit();
         use = dataBean.getUse();
-        edit.putString("requestID", dataBean.getRequestId());
+        edit.putString("requestId", dataBean.getRequestId());
         if (use != null) {
             edit.putString("addres_code", dataBean.getUse().getAddresCode());
             edit.putString("applicantName", dataBean.getUse().getApplicantName());
@@ -179,7 +180,6 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
             edit.putString("mail", dataBean.getUse().getMail());
             edit.putString("bizType", dataBean.getUse().getBizType());
             edit.putString("income", dataBean.getUse().getMonthlyIncome());
-
         }
         edit.apply();
         startActivity(new Intent(getContext(),RealNameActivity.class));

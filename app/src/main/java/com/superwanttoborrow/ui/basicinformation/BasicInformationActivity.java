@@ -199,21 +199,23 @@ public class BasicInformationActivity extends MVPBaseActivity<BasicInformationCo
         progressDialog = ProgressDialog.show(this, "请稍等...", "正在获取定位信息...", true);
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
-        BdLocationUtil.getInstance().requestLocation(new BdLocationUtil.MyLocationListener() {
-            @Override
-            public void myLocation(BDLocation location) {
+        BdLocationUtil.getInstance().requestLocation(location -> {
 
-                progressDialog.dismiss();
-                if (location == null) {
-                    return;
-                }
-                if (location.getLocType() == BDLocation.TypeNetWorkLocation) {
-                    String mCounty = location.getCountry();        //获取国家
-                    String mProvince = location.getProvince();     //获取省份
-                    String mCity = location.getCity();             //获取城市
-                    String mDistrict = location.getDistrict();     //获取区
-                    basic_information_city_tv.setText(mProvince + "   " + mCity);
-                }
+            progressDialog.dismiss();
+            if (location == null) {
+                return;
+            }
+            if (location.getLocType() == BDLocation.TypeNetWorkLocation) {
+                String mCounty = location.getCountry();        //获取国家
+                String mProvince = location.getProvince();     //获取省份
+                String mCity = location.getCity();             //获取城市
+                String mDistrict = location.getDistrict();     //获取区
+                basic_information_city_tv.setText(mProvince + "   " + mCity);
+                SharedPreferences sharedPreferences = getSharedPreferences("User", 0);
+                SharedPreferences.Editor edit = sharedPreferences.edit();
+                edit.putString("bankProvince",mProvince);
+                edit.putString("bankCity",mCity);
+                edit.apply();
             }
         });
 

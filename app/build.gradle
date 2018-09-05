@@ -69,6 +69,10 @@ dependencies {
     implementation project(':livenesslib')
     //融360运营商
     implementation 'com.rong360.sdk.crawler:crawlerlib:1.5.7-01'
+    implementation files('libs/baiqishi-risk-sdk-2.3.2.jar')
+
+    //加密
+    implementation 'bouncycastle:bcprov-jdk15:140'
 }
 
 configurations.all {

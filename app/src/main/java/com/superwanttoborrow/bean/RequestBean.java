@@ -109,6 +109,24 @@ public class RequestBean implements Serializable {
         private String open_uuid;
         private String local_ips;
         private String appNames;
+        private String bankProvince;
+        private String bankCity;
+
+        public String getBankProvince() {
+            return bankProvince;
+        }
+
+        public void setBankProvince(String bankProvince) {
+            this.bankProvince = bankProvince;
+        }
+
+        public String getBankCity() {
+            return bankCity;
+        }
+
+        public void setBankCity(String bankCity) {
+            this.bankCity = bankCity;
+        }
 
         public String getOpen_uuid() {
             return open_uuid;

@@ -16,12 +16,12 @@ import com.megvii.idcardlib.util.Util;
 import com.megvii.licensemanager.Manager;
 import com.megvii.livenessdetection.LivenessLicenseManager;
 import com.megvii.livenesslib.LivenessActivity;
-import com.rong360.app.crawler.CrawlerCallBack;
 import com.rong360.app.crawler.CrawlerManager;
 import com.rong360.app.crawler.CrawlerStatus;
 import com.rong360.app.crawler.Util.CommonUtil;
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
+import com.superwanttoborrow.ui.bindbank.BindBankActivity;
 import com.superwanttoborrow.utils.Bitmap2Base64;
 import com.superwanttoborrow.utils.DialogHelp;
 import com.yanzhenjie.permission.AndPermission;
@@ -31,7 +31,6 @@ import com.yanzhenjie.permission.RationaleListener;
 
 import java.util.List;
 import java.util.Map;
-
 
 
 /**
@@ -63,7 +62,7 @@ public class FaceActivity extends MVPBaseActivity<FaceContract.View, FacePresent
         face_button = (Button) findViewById(R.id.face_button);
         face_button.setOnClickListener(this);
         uuid = Util.getUUIDString(this);
-        mPrivateKey = CommonUtil.getFromAssets("rsa.cer");
+        mPrivateKey = CommonUtil.getFromAssets("private_key.pem");
         CrawlerManager.getInstance().setDebug(true);//打开debug
     }
 
@@ -72,7 +71,7 @@ public class FaceActivity extends MVPBaseActivity<FaceContract.View, FacePresent
         switch (v.getId()) {
             case R.id.face_button:
 //                getPermission();
-                startCrawlerTask("mobile");
+                startActivity(new Intent(this,BindBankActivity.class));
                 break;
         }
     }
@@ -202,12 +201,18 @@ public class FaceActivity extends MVPBaseActivity<FaceContract.View, FacePresent
         crawlerStatus.cellphone = "13512345678";//手机
 
         CrawlerManager.getInstance().startCrawlerByType(
-                new CrawlerCallBack() {
-                    @Override
-                    public void onStatus(CrawlerStatus crawlerStatus) {
-                        Toast.makeText(FaceActivity.this, getStringStatus(crawlerStatus.status), Toast.LENGTH_SHORT)
-                                .show();
-
+                crawlerStatus1 -> {
+                    switch (crawlerStatus1.status) {
+                        case 2:
+                            startActivity(new Intent(FaceActivity.this, BindBankActivity.class));
+                            break;
+                        case 3:
+                            startActivity(new Intent(FaceActivity.this, BindBankActivity.class));
+                            break;
+                        default:
+                            Toast.makeText(FaceActivity.this, getStringStatus(crawlerStatus1.status), Toast.LENGTH_SHORT)
+                                    .show();
+                            break;
                     }
                 }, crawlerStatus);
 
@@ -230,10 +235,11 @@ public class FaceActivity extends MVPBaseActivity<FaceContract.View, FacePresent
                 text = "抓取成功";
                 break;
             case 4:
-                text = "失败";
+                text = "授权失败";
                 break;
             case 5:
-                text = "用户返回界面";
+//                text = "用户返回界面";
+                text = "取消授权";
                 break;
             case 6:
                 text = "打开登陆页面,支付宝和淘宝的登陆页面";

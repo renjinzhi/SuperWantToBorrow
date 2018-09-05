@@ -36,12 +36,12 @@ public class RealNamePresenter extends BasePresenterImpl<RealNameContract.View> 
         SharedPreferences sharedPreferences = context.getSharedPreferences("User", 0);
         String user = sharedPreferences.getString("user", null);
         String token = sharedPreferences.getString("token", null);
-        String requestID = sharedPreferences.getString("requestID", null);
+        String requestId = sharedPreferences.getString("requestId", null);
         dataBean.setMobile(user);
         dataBean.setToken(token);
         dataBean.setFileName(fileName);
         dataBean.setFileType(fileType);
-        dataBean.setRequestId(requestID);
+        dataBean.setRequestId(requestId);
         requestBean.setData(dataBean);
         progressDialog = ProgressDialog.show(context, "请稍等...", "图片上传中...", true);
         progressDialog.setCancelable(false);

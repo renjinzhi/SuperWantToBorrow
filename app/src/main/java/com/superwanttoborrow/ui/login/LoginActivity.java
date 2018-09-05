@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.Group;
 import android.text.TextUtils;
@@ -19,13 +20,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bqs.risk.df.android.BqsDF;
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
 import com.superwanttoborrow.ui.first.FirstActivity;
 import com.superwanttoborrow.ui.forgetpassword.ForgetPasswordActivity;
 import com.superwanttoborrow.ui.register.RegisterActivity;
 import com.superwanttoborrow.utils.Bitmap2Base64;
+import com.superwanttoborrow.utils.Global;
 import com.superwanttoborrow.utils.MyTextUtils;
+import com.superwanttoborrow.utils.PermissionUtils;
 import com.superwanttoborrow.utils.PhoneNumberCheck;
 
 
@@ -62,17 +66,20 @@ public class LoginActivity extends MVPBaseActivity<LoginContract.View, LoginPres
     private String imgCodeKey;
     private EditText login_ed_img_code;
 
+    //获取6.0运行时权限列表，第一个参数：是否授权gps，第二个参数：是否授权通讯录，第三个参数：是否授权通话记录,第四个参数：是否授权短信数量
+    String[] requestPermissions = BqsDF.getInstance().getRuntimePermissions(true, true, true,true);
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initView();
+        PermissionUtils.requestMultiPermissions(this, requestPermissions, mPermissionGrant);
     }
 
     private void initView() {
         Intent intent = getIntent();
         toFirst = intent.getBooleanExtra("toFirst", false);
-
         login_back = (ImageView) findViewById(R.id.login_back);
         login_back.setOnClickListener(this);
         login_ed_phone = (EditText) findViewById(R.id.login_ed_phone);
@@ -256,6 +263,24 @@ public class LoginActivity extends MVPBaseActivity<LoginContract.View, LoginPres
         Bitmap bitmap = Bitmap2Base64.stringToBitmap(imgCodeString);
         login_img_img_code.setImageBitmap(bitmap);
         this.imgCodeKey = imgCodeKey;
+    }
+
+
+    /**
+     * 授权结果，该回调不管权限是拒绝还是同意都会进入该回调方法
+     */
+    private PermissionUtils.PermissionGrant mPermissionGrant = (requestCode, permissions, grantResults, requestPermissions) -> {
+        Global.authRuntimePermissions = true;
+        /**
+         * 在授权结果回调中出发一次初始化
+         */
+        initBqsDFSDK();
+    };
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        PermissionUtils.requestPermissionsResult(requestCode, requestPermissions, grantResults, requestPermissions, mPermissionGrant);
     }
 
 }
