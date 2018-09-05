@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
-import com.superwanttoborrow.utils.PhoneNumberCheck;
 
 
 /**
@@ -38,6 +37,8 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
     private EditText dialog_bc_ed;
     private Button dialog_bc_button_get_code;
     private Button dialog_pg_button;
+    private String bank;
+    private boolean hasBank = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,18 +65,19 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bind_bank_button:
-                mPresenter.isReal(this);
+                if (hasBank) {
+                    mPresenter.isReal(this);
+                }else {
+                    Toast.makeText(this,"请先输入银行卡号",Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }
 
     private void initData() {
         bind_bank_ed_bank_card.addTextChangedListener(new TextWatcher() {
-            private CharSequence temp;
-
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                temp = charSequence;
             }
 
             @Override
@@ -86,11 +88,8 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() > 16) {
-                    if (PhoneNumberCheck.checkBankCard(editable.toString())) {
-
-                    } else {
-                        Toast.makeText(BindBankActivity.this, "银行卡格式错误，请检查您的银行卡号", Toast.LENGTH_SHORT).show();
-                    }
+                    bank = editable.toString();
+                    mPresenter.isBank(BindBankActivity.this, bank);
                 }
             }
         });
@@ -116,8 +115,20 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
             dialog.show();
         } else {
             //不需要验证码
-            Toast.makeText(this,"不需要验证码",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "不需要验证码", Toast.LENGTH_SHORT).show();
         }
+
     }
 
+    @Override
+    public void isBank(String bankName) {
+        hasBank = true;
+        SharedPreferences sharedPreferences = getSharedPreferences("User", 0);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putString("bankCardId",bank);
+        edit.putString("depositBank",bankName);
+        edit.apply();
+        bind_bank_tv_bank.setText(bankName);
+//        bind_bank_img_bank.setImageResource();
+    }
 }

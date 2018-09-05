@@ -15,11 +15,14 @@ public class BindBankContract {
     interface View extends BaseView {
 
         void isReal(Boolean isBank);
+
+        void isBank(String bankName);
     }
 
     interface  Presenter extends BasePresenter<View> {
 
         void isReal(Context context);
-        
+
+        void isBank(Context context,String bank);
     }
 }

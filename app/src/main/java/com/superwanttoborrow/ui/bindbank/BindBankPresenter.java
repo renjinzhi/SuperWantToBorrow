@@ -11,6 +11,7 @@ import com.lzy.okgo.model.Response;
 import com.superwanttoborrow.api.Constants;
 import com.superwanttoborrow.bean.RequestBean;
 import com.superwanttoborrow.bean.RequestEncryotionBean;
+import com.superwanttoborrow.bean.ReturnBean;
 import com.superwanttoborrow.bean.ReturnBooBean;
 import com.superwanttoborrow.mvp.BasePresenterImpl;
 import com.superwanttoborrow.utils.BeanSetHelper;
@@ -83,6 +84,35 @@ public class BindBankPresenter extends BasePresenterImpl<BindBankContract.View> 
                     public void onError(Response<ReturnBooBean> response) {
                         super.onError(response);
                         progressDialog.dismiss();
+                    }
+                });
+    }
+
+    @Override
+    public void isBank(Context context, String bank) {
+        RequestBean requestBean = new RequestBean();
+        requestBean.setServiceId("JUNCAI0020");
+        RequestBean.DataBean dataBean = new RequestBean.DataBean();
+        SharedPreferences user = context.getSharedPreferences("User", 0);
+        dataBean.setMobile(user.getString("user",null));
+        dataBean.setToken(user.getString("token",null));
+        dataBean.setCardNumber(bank);
+        requestBean.setData(dataBean);
+        OkGo.<ReturnBean>post(Constants.HOST_URL)
+                .upJson(gson.toJson(requestBean))
+                .execute(new JsonCallback<ReturnBean>() {
+                    @Override
+                    public void onSuccess(Response<ReturnBean> response) {
+                        ReturnBean returnBean = response.body();
+                        if (BeanSetHelper.CODESUCCESS.equals(returnBean)){
+                            mView.isBank(returnBean.getData().getBankName());
+                        } else if (BeanSetHelper.CODELOGIN.equals(returnBean.getMessage())) {
+                            SharedPreferences sharedPreferences = context.getSharedPreferences("User", 0);
+                            sharedPreferences.edit().clear().apply();
+                            Toast.makeText(context, "登录过期,请先登录", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(context, returnBean.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
     }
