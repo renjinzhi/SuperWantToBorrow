@@ -70,8 +70,7 @@ public class FaceActivity extends MVPBaseActivity<FaceContract.View, FacePresent
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.face_button:
-//                getPermission();
-                startActivity(new Intent(this,BindBankActivity.class));
+                getPermission();
                 break;
         }
     }

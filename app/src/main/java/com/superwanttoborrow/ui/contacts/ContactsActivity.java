@@ -6,18 +6,21 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +28,7 @@ import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
 import com.superwanttoborrow.ui.face.FaceActivity;
 import com.superwanttoborrow.utils.DialogHelp;
+import com.superwanttoborrow.utils.PhoneNumberCheck;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 import com.yanzhenjie.permission.PermissionListener;
@@ -88,8 +92,8 @@ public class ContactsActivity extends MVPBaseActivity<ContactsContract.View, Con
         contacts_phone_title_2 = (TextView) findViewById(R.id.contacts_phone_title_2);
         contacts_phone_title_2.setOnClickListener(this);
     }
-    
-    private void initData(){
+
+    private void initData() {
         relations1 = new ArrayList<>();
         relations2 = new ArrayList<>();
         relations1.add("");
@@ -129,7 +133,37 @@ public class ContactsActivity extends MVPBaseActivity<ContactsContract.View, Con
 
             }
         });
+
+        SharedPreferences sharedPreferences = getSharedPreferences("User", 0);
+        contacts_name_tv.setText(sharedPreferences.getString("linkman1Name", null));
+        contacts_name_tv_2.setText(sharedPreferences.getString("linkman2Name", null));
+        contacts_phone_tv.setText(sharedPreferences.getString("linkman1Cell", null));
+        contacts_phone_tv_2.setText(sharedPreferences.getString("linkman2Cell", null));
+
+        String linkman1Relationship = sharedPreferences.getString("linkman1Relationship", null);
+        if (!TextUtils.isEmpty(linkman1Relationship)) {
+            SpinnerAdapter adapter1 = contacts_first_spinner.getAdapter();
+            int count = adapter1.getCount();
+            for (int i = 0; i < count; i++) {
+                if (linkman1Relationship.equals(adapter1.getItem(i).toString())) {
+                    contacts_first_spinner.setSelection(i, true);
+                    break;
+                }
+            }
         }
+
+        String linkman2Relationship = sharedPreferences.getString("linkman2Relationship", null);
+        if (!TextUtils.isEmpty(linkman2Relationship)) {
+            SpinnerAdapter adapter3 = contacts_second_spinner.getAdapter();
+            int count2 = adapter3.getCount();
+            for (int i = 0; i < count2; i++) {
+                if (linkman2Relationship.equals(adapter3.getItem(i).toString())) {
+                    contacts_second_spinner.setSelection(i, true);
+                    break;
+                }
+            }
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -138,7 +172,36 @@ public class ContactsActivity extends MVPBaseActivity<ContactsContract.View, Con
                 finish();
                 break;
             case R.id.contacts_button_next:
-                startActivity(new Intent(this, FaceActivity.class));
+                String linkman1Relationship = contacts_first_spinner.getSelectedItem().toString();
+                String linkman2Relationship = contacts_second_spinner.getSelectedItem().toString();
+                String linkman1Name = contacts_name_tv.getText().toString();
+                String linkman2Name = contacts_name_tv_2.getText().toString();
+                String linkman1Cell = contacts_phone_tv.getText().toString().replace(" ", "");
+                String linkman2Cell = contacts_phone_tv_2.getText().toString().replace(" ", "");
+                if (TextUtils.isEmpty(linkman1Relationship)) {
+                    Toast.makeText(this, "请选择联系人（1）与您的关系", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(linkman1Name) && TextUtils.isEmpty(linkman1Cell)) {
+                    Toast.makeText(this, "请选择联系人（1）", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(linkman2Relationship)) {
+                    Toast.makeText(this, "请选择联系人（2）与您的关系", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(linkman2Name) && TextUtils.isEmpty(linkman2Cell)) {
+                    Toast.makeText(this, "请选择联系人（1）", Toast.LENGTH_SHORT).show();
+                } else if (!PhoneNumberCheck.checkCellphone(linkman1Cell)) {
+                    Toast.makeText(this, "联系人（1）手机格式有误", Toast.LENGTH_SHORT).show();
+                } else if (!PhoneNumberCheck.checkCellphone(linkman2Cell)) {
+                    Toast.makeText(this, "联系人（2）手机格式有误", Toast.LENGTH_SHORT).show();
+                } else {
+                    SharedPreferences user = getSharedPreferences("User", 0);
+                    SharedPreferences.Editor edit = user.edit();
+                    edit.putString("linkman1Relationship", linkman1Relationship);
+                    edit.putString("linkman2Relationship", linkman2Relationship);
+                    edit.putString("linkman1Name", linkman1Name);
+                    edit.putString("linkman2Name", linkman2Name);
+                    edit.putString("linkman1Cell", linkman1Cell);
+                    edit.putString("linkman2Cell", linkman2Cell);
+                    edit.apply();
+                    startActivity(new Intent(this, FaceActivity.class));
+                }
                 break;
             case R.id.contacts_name_title:
                 boo = true;

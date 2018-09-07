@@ -69,6 +69,69 @@ public class ReturnBean implements Serializable {
         private String name;
         private String idCardNumber;
         private String bankName;
+        private int node;
+        private int refundPeriods;
+        private double applyMoney;
+        private int approvedPeriods;
+        private double approvedMoney;
+        private List<StateBean> state;
+        private double refundRate;
+
+        public int getNode() {
+            return node;
+        }
+
+        public void setNode(int node) {
+            this.node = node;
+        }
+
+        public int getRefundPeriods() {
+            return refundPeriods;
+        }
+
+        public void setRefundPeriods(int refundPeriods) {
+            this.refundPeriods = refundPeriods;
+        }
+
+        public double getApplyMoney() {
+            return applyMoney;
+        }
+
+        public void setApplyMoney(double applyMoney) {
+            this.applyMoney = applyMoney;
+        }
+
+        public int getApprovedPeriods() {
+            return approvedPeriods;
+        }
+
+        public void setApprovedPeriods(int approvedPeriods) {
+            this.approvedPeriods = approvedPeriods;
+        }
+
+        public double getApprovedMoney() {
+            return approvedMoney;
+        }
+
+        public void setApprovedMoney(double approvedMoney) {
+            this.approvedMoney = approvedMoney;
+        }
+
+        public List<StateBean> getState() {
+            return state;
+        }
+
+        public void setState(List<StateBean> state) {
+            this.state = state;
+        }
+
+        public double getRefundRate() {
+            return refundRate;
+        }
+
+        public void setRefundRate(double refundRate) {
+            this.refundRate = refundRate;
+        }
 
         public String getBankName() {
             return bankName;
@@ -286,6 +349,44 @@ public class ReturnBean implements Serializable {
             this.status = status;
         }
 
+
+        public static class StateBean implements Serializable{
+            /**
+             * time : 1516440373000
+             * value : 人工审核
+             * status : 1
+             */
+
+            private long time;
+            private String value;
+            private String status;
+
+            public long getTime() {
+                return time;
+            }
+
+            public void setTime(long time) {
+                this.time = time;
+            }
+
+            public String getValue() {
+                return value;
+            }
+
+            public void setValue(String value) {
+                this.value = value;
+            }
+
+            public String getStatus() {
+                return status;
+            }
+
+            public void setStatus(String status) {
+                this.status = status;
+            }
+        }
+
+
         public static class UseBean {
 
             public UseBean() {
@@ -329,6 +430,69 @@ public class ReturnBean implements Serializable {
             private String bizAddr;
             private String rentalSituation;
             private String monthlyIncome;
+            private String bankProvince;
+            private String bankCity;
+            private String customName;
+            private String customId;
+            private String incomeRange;
+            private String linkman1Relationship;
+            private String linkman2Relationship;
+
+            public String getBankProvince() {
+                return bankProvince;
+            }
+
+            public void setBankProvince(String bankProvince) {
+                this.bankProvince = bankProvince;
+            }
+
+            public String getBankCity() {
+                return bankCity;
+            }
+
+            public void setBankCity(String bankCity) {
+                this.bankCity = bankCity;
+            }
+
+            public String getCustomName() {
+                return customName;
+            }
+
+            public void setCustomName(String customName) {
+                this.customName = customName;
+            }
+
+            public String getCustomId() {
+                return customId;
+            }
+
+            public void setCustomId(String customId) {
+                this.customId = customId;
+            }
+
+            public String getIncomeRange() {
+                return incomeRange;
+            }
+
+            public void setIncomeRange(String incomeRange) {
+                this.incomeRange = incomeRange;
+            }
+
+            public String getLinkman1Relationship() {
+                return linkman1Relationship;
+            }
+
+            public void setLinkman1Relationship(String linkman1Relationship) {
+                this.linkman1Relationship = linkman1Relationship;
+            }
+
+            public String getLinkman2Relationship() {
+                return linkman2Relationship;
+            }
+
+            public void setLinkman2Relationship(String linkman2Relationship) {
+                this.linkman2Relationship = linkman2Relationship;
+            }
 
             public String getRentalSituation() {
                 return rentalSituation;

@@ -111,6 +111,78 @@ public class RequestBean implements Serializable {
         private String appNames;
         private String bankProvince;
         private String bankCity;
+        private String customName;
+        private String customId;
+        private String incomeRange;
+        private String linkman1Relationship;
+        private String linkman2Relationship;
+        private String cardno;
+        private String validatecode;
+        private String type;
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public String getValidatecode() {
+            return validatecode;
+        }
+
+        public void setValidatecode(String validatecode) {
+            this.validatecode = validatecode;
+        }
+
+        public String getCardno() {
+            return cardno;
+        }
+
+        public void setCardno(String cardno) {
+            this.cardno = cardno;
+        }
+
+        public String getIncomeRange() {
+            return incomeRange;
+        }
+
+        public void setIncomeRange(String incomeRange) {
+            this.incomeRange = incomeRange;
+        }
+
+        public String getLinkman1Relationship() {
+            return linkman1Relationship;
+        }
+
+        public void setLinkman1Relationship(String linkman1Relationship) {
+            this.linkman1Relationship = linkman1Relationship;
+        }
+
+        public String getLinkman2Relationship() {
+            return linkman2Relationship;
+        }
+
+        public void setLinkman2Relationship(String linkman2Relationship) {
+            this.linkman2Relationship = linkman2Relationship;
+        }
+
+        public String getCustomName() {
+            return customName;
+        }
+
+        public void setCustomName(String customName) {
+            this.customName = customName;
+        }
+
+        public String getCustomId() {
+            return customId;
+        }
+
+        public void setCustomId(String customId) {
+            this.customId = customId;
+        }
 
         public String getBankProvince() {
             return bankProvince;

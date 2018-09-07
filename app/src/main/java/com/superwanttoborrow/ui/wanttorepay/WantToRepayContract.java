@@ -16,6 +16,9 @@ public class WantToRepayContract {
     }
 
     interface  Presenter extends BasePresenter<View> {
-        
+
+        void repay(Context context);
+
+        void getCode(Context context);
     }
 }

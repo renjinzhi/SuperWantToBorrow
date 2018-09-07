@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
 import com.superwanttoborrow.R;
@@ -56,6 +58,7 @@ public class BasicInformationActivity extends MVPBaseActivity<BasicInformationCo
     private String adder;
     private ImageView basic_information_location;
     private ProgressDialog progressDialog;
+    private String city;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -84,9 +87,13 @@ public class BasicInformationActivity extends MVPBaseActivity<BasicInformationCo
 
     private void initData() {
         SharedPreferences sharedPreferences = getSharedPreferences("User", 0);
-        basic_information_name_tv.setText(sharedPreferences.getString("name", null));
-        basic_information_id_tv.setText(sharedPreferences.getString("idCard", null));
+        basic_information_name_tv.setText(sharedPreferences.getString("applicantName", null));
+        basic_information_id_tv.setText(sharedPreferences.getString("cardId", null));
         basic_information_phone_tv.setText(sharedPreferences.getString("user", null));
+        basic_information_city_tv.setText(sharedPreferences.getString("addres_code", null));
+        bi_ed_adder.setText(sharedPreferences.getString("perAddr", null));
+        basic_information_ed_weixin.setText(sharedPreferences.getString("weiXin", null));
+        basic_information_ed_qq.setText(sharedPreferences.getString("qq", null));
         ArrayList<String> moneys = new ArrayList<>();
         moneys.add("2000以下");
         moneys.add("2000-5000");
@@ -118,6 +125,21 @@ public class BasicInformationActivity extends MVPBaseActivity<BasicInformationCo
             }
         });
 //        basic_information_spinner_money.setSelection(3);
+        String incomeRangeo = sharedPreferences.getString("incomeRange", null);
+        if (!TextUtils.isEmpty(incomeRangeo)) {
+            switch (incomeRangeo) {
+                case "1001":
+                    basic_information_spinner_money.setSelection(0);
+                    break;
+                case "1002":
+                    basic_information_spinner_money.setSelection(1);
+                    break;
+                case "1003":
+                    basic_information_spinner_money.setSelection(2);
+                    break;
+            }
+            incomeRange = incomeRangeo;
+        }
     }
 
     @SuppressLint("CommitPrefEdits")
@@ -131,14 +153,26 @@ public class BasicInformationActivity extends MVPBaseActivity<BasicInformationCo
                 adder = bi_ed_adder.getText().toString();
                 customId = basic_information_ed_qq.getText().toString();
                 customName = basic_information_ed_weixin.getText().toString();
-
-                startActivity(new Intent(this, ContactsActivity.class));
-
-                SharedPreferences sharedPreferences = getSharedPreferences("User", 0);
-                SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putString("incomeRange", incomeRange);
-                edit.putString("customId", customId);
-                edit.putString("customName", customName);
+                city = basic_information_city_tv.getText().toString();
+                if (TextUtils.isEmpty(adder)){
+                    Toast.makeText(this,"请开启定位并获取位置",Toast.LENGTH_SHORT).show();
+                }else if (TextUtils.isEmpty(city)){
+                    Toast.makeText(this,"请输入您的现居住地址",Toast.LENGTH_SHORT).show();
+                }else if (TextUtils.isEmpty(customId)){
+                    Toast.makeText(this,"请输入您的QQ号码",Toast.LENGTH_SHORT).show();
+                }else if (TextUtils.isEmpty(customName)){
+                    Toast.makeText(this,"请输入您的微信号码",Toast.LENGTH_SHORT).show();
+                }else {
+                    SharedPreferences sharedPreferences = getSharedPreferences("User", 0);
+                    SharedPreferences.Editor edit = sharedPreferences.edit();
+                    edit.putString("incomeRange", incomeRange);
+                    edit.putString("customId", customId);
+                    edit.putString("customName", customName);
+                    edit.putString("addres_code", city);
+                    edit.putString("perAddr", adder);
+                    edit.apply();
+                    startActivity(new Intent(this, ContactsActivity.class));
+                }
                 break;
             case R.id.basic_information_location:
                 getPermission();
@@ -213,8 +247,8 @@ public class BasicInformationActivity extends MVPBaseActivity<BasicInformationCo
                 basic_information_city_tv.setText(mProvince + "   " + mCity);
                 SharedPreferences sharedPreferences = getSharedPreferences("User", 0);
                 SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putString("bankProvince",mProvince);
-                edit.putString("bankCity",mCity);
+                edit.putString("bankProvince", mProvince);
+                edit.putString("bankCity", mCity);
                 edit.apply();
             }
         });

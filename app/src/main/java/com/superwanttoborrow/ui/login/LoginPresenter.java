@@ -2,11 +2,11 @@ package com.superwanttoborrow.ui.login;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bqs.risk.df.android.BqsDF;
 import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
@@ -70,9 +70,7 @@ public class LoginPresenter extends BasePresenterImpl<LoginContract.View> implem
         RequestBean loginForCodeRequestBean = new RequestBean();
         loginForCodeRequestBean.setServiceId("JUNCAI0002");
         RequestBean.DataBean dataBean = new RequestBean.DataBean();
-        SharedPreferences sharedPreferences = context.getSharedPreferences("User", 0);
-        //TODO 记得改回null
-        String bqsTokenKey = sharedPreferences.getString("bqsTokenKey", "10001");
+        String bqsTokenKey = BqsDF.getInstance().getTokenKey();
         dataBean.setBqsTokenKey(bqsTokenKey);
         dataBean.setMobile(phone);
         dataBean.setCheckCode(code);
@@ -107,9 +105,7 @@ public class LoginPresenter extends BasePresenterImpl<LoginContract.View> implem
         RequestBean loginForCodeRequestBean = new RequestBean();
         loginForCodeRequestBean.setServiceId("JUNCAI0003");
         RequestBean.DataBean dataBean = new RequestBean.DataBean();
-        SharedPreferences sharedPreferences = context.getSharedPreferences("User", 0);
-        //todo 记得改回null
-        String bqsTokenKey = sharedPreferences.getString("bqsTokenKey", "10001");
+        String bqsTokenKey = BqsDF.getInstance().getTokenKey();
         dataBean.setBqsTokenKey(bqsTokenKey);
         dataBean.setMobile(phone);
         dataBean.setPassword(code);

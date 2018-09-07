@@ -76,11 +76,10 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.home_button_borrow:
-                startActivity(new Intent(getContext(), RealNameActivity.class));
-//                mPresenter.getRequestID(getContext());
+                mPresenter.getRequestID(getContext());
                 break;
             case R.id.home_button_select:
-                startActivity(new Intent(getContext(), ProgressQueryActivity.class));
+                mPresenter.getContract(getContext());
                 break;
             case R.id.activity_bar_img:
                 SharedPreferences sharedPreferences = getActivity().getSharedPreferences("User", 0);
@@ -112,17 +111,17 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
         cycleView.setData(mData, getContext(), position -> {
             //轮播图已设置
             if (list.get(position).getBannerinfoImageLinkurl() != null && !list.get(position).getBannerinfoImageLinkurl().equals("")) {
-                    Intent intent = new Intent(getActivity(), WebActivity.class);
-                    intent.putExtra("url", list.get(position).getBannerinfoImageLinkurl());
-                    intent.putExtra("name", list.get(position).getBannerinfoImageTitle());
-                    startActivity(intent);
+                Intent intent = new Intent(getActivity(), WebActivity.class);
+                intent.putExtra("url", list.get(position).getBannerinfoImageLinkurl());
+                intent.putExtra("name", list.get(position).getBannerinfoImageTitle());
+                startActivity(intent);
             }
         });
     }
 
     @Override
-    public void getOther(ArrayList<String> moneys,ArrayList<ReturnBean.DataBean.SupportPeriodBean> supportPeriodList) {
-        sharedPreferences = getContext().getSharedPreferences("User",0);
+    public void getOther(ArrayList<String> moneys, ArrayList<ReturnBean.DataBean.SupportPeriodBean> supportPeriodList) {
+        sharedPreferences = getContext().getSharedPreferences("User", 0);
         picker_money.setDataList(moneys);
         mPeriodsList = new ArrayList<>();
         for (int i = 0; i < supportPeriodList.size(); i++) {
@@ -138,7 +137,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
 
             @Override
             public void onScrollFinished(int curIndex) {
-                sharedPreferences.edit().putString("money",moneys.get(curIndex)).apply();
+                sharedPreferences.edit().putString("money", moneys.get(curIndex)).apply();
             }
         });
 
@@ -149,7 +148,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
 
             @Override
             public void onScrollFinished(int curIndex) {
-                sharedPreferences.edit().putString("periods",mPeriodsList.get(curIndex)).apply();
+                sharedPreferences.edit().putString("periods", mPeriodsList.get(curIndex)).apply();
             }
         });
 
@@ -163,6 +162,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
         edit.putString("requestId", dataBean.getRequestId());
         if (use != null) {
             edit.putString("addres_code", dataBean.getUse().getAddresCode());
+            edit.putString("perAddr", dataBean.getUse().getBizAddr());
             edit.putString("applicantName", dataBean.getUse().getApplicantName());
             edit.putString("cardId", dataBean.getUse().getCardId());
             edit.putString("bankCardId", dataBean.getUse().getBankCardId());
@@ -172,21 +172,35 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
             edit.putString("linkman2Name", dataBean.getUse().getLinkman2Name());
             edit.putString("linkman1Cell", dataBean.getUse().getLinkman1Cell());
             edit.putString("linkman2Cell", dataBean.getUse().getLinkman2Cell());
-            edit.putString("loanReason", dataBean.getUse().getBorrowMoneyUse());
-            edit.putString("house", dataBean.getUse().getRentalSituation());
 
-            edit.putString("bizWorkfor", dataBean.getUse().getBizWorkfor());
-            edit.putString("perAddr", dataBean.getUse().getBizAddr());
-            edit.putString("mail", dataBean.getUse().getMail());
-            edit.putString("bizType", dataBean.getUse().getBizType());
-            edit.putString("income", dataBean.getUse().getMonthlyIncome());
+            edit.putString("linkman1Relationship", dataBean.getUse().getLinkman1Relationship());
+            edit.putString("linkman2Relationship", dataBean.getUse().getLinkman2Relationship());
+            edit.putString("incomeRange", dataBean.getUse().getIncomeRange());
+            edit.putString("qq", dataBean.getUse().getCustomId());
+            edit.putString("weiXin", dataBean.getUse().getCustomName());
+
+
+//            edit.putString("bizWorkfor", dataBean.getUse().getBizWorkfor());
+//            edit.putString("mail", dataBean.getUse().getMail());
+//            edit.putString("bizType", dataBean.getUse().getBizType());
+//            edit.putString("income", dataBean.getUse().getMonthlyIncome());
         }
         edit.apply();
-        startActivity(new Intent(getContext(),RealNameActivity.class));
+        startActivity(new Intent(getContext(), RealNameActivity.class));
     }
 
-//    @Override
-//    public void setNullBanner() {
-//
-//    }
+    @Override
+    public void getContract(ReturnBean.DataBean dataBean) {
+        if (dataBean.getNode() < 1) {
+            Toast.makeText(getContext(), "请先前往首页点击“马上借钱”进行审核认证", Toast.LENGTH_LONG).show();
+        } else if (dataBean.getNode() == 7) {
+            Toast.makeText(getContext(), "您有待还款账单，请还款之后再次申请", Toast.LENGTH_LONG).show();
+        } else {
+            sharedPreferences = getActivity().getSharedPreferences("User", 0);
+            sharedPreferences.edit().putString("requestId", dataBean.getRequestId()).apply();
+            Intent intent = new Intent(getActivity(), ProgressQueryActivity.class);
+            intent.putExtra("dataBean", dataBean);
+            startActivity(intent);
+        }
+    }
 }

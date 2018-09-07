@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import com.superwanttoborrow.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
@@ -73,7 +75,16 @@ public class MyTextUtils {
     //时间戳转日期字符串
     public static String getStrData(String timeStamp) {
         String timeString = null;
-        SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd");
+        long l = Long.valueOf(timeStamp);
+        timeString = sdf.format(new Date(l));//单位秒
+        return timeString;
+    }
+
+    //时间戳转时间字符串
+    public static String getStrHour(String timeStamp) {
+        String timeString = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         long l = Long.valueOf(timeStamp);
         timeString = sdf.format(new Date(l));//单位秒
         return timeString;
@@ -122,79 +133,64 @@ public class MyTextUtils {
         return chan;
     }
 
-//    public static int getBankCard(String bank) {
-//        int i = 0;
-//        switch (bank) {
-//            case "中国银行":
-//                i = R.mipmap.zhongguobank;
-//                break;
-//            case "兴业银行":
-//                i = R.mipmap.xingyebank;
-//                break;
-//            case "光大银行":
-//                i = R.mipmap.guangdabank;
-//                break;
-//            case "平安银行":
-//                i = R.mipmap.pinganbank;
-//                break;
-//            case "上海银行":
-//                i = R.mipmap.shanghaibank;
-//                break;
-//            case "工商银行":
-//                i = R.mipmap.gongshangbank;
-//                break;
-//            case "广发银行":
-//                i = R.mipmap.guangfabank;
-//                break;
-//            case "招商银行":
-//                i = R.mipmap.zhaoshangbank;
-//                break;
-//            case "中信银行":
-//                i = R.mipmap.zhongxinbank;
-//                break;
-//            case "农业银行":
-//                i = R.mipmap.nongyebank;
-//                break;
-//            case "华夏银行":
-//                i = R.mipmap.huaxiabank;
-//                break;
-//            case "浦发银行":
-//                i = R.mipmap.pufabank;
-//                break;
-//            case "交通银行":
-//                i = R.mipmap.jiaotongbank;
-//                break;
-//            case "邮储银行":
-//                i = R.mipmap.youzhengbank;
-//                break;
-//            case "建设银行":
-//                i = R.mipmap.jianshebank;
-//                break;
-//            case "北京银行":
-//                i = R.mipmap.beijingbank;
-//                break;
-//            case "民生银行":
-//                i = R.mipmap.minshengbank;
-//                break;
-//            case "杭州银行":
-//                i = R.mipmap.hangzhoubank;
-//                break;
-//            case "宁波银行":
-//                i = R.mipmap.ningbobank;
-//                break;
-//            case "江苏银行":
-//                i = R.mipmap.jiangsubank;
-//                break;
-//            case "浙商银行":
-//                i = R.mipmap.zheshangbank;
-//                break;
-//            case "广州银行":
-//                i = R.mipmap.guangzhoubank;
-//                break;
-//            default:
-//                break;
-//        }
-//        back i;
-//    }
+    public static int getBankCard(String bank) {
+        int i = 0;
+        switch (bank) {
+            case "中国银行":
+                i = R.mipmap.zhongguoyinhang;
+                break;
+            case "兴业银行":
+                i = R.mipmap.xingyeyinhang;
+                break;
+            case "中国光大银行":
+                i = R.mipmap.guangdayinhang;
+                break;
+            case "平安银行":
+                i = R.mipmap.pinganyinhang;
+                break;
+            case "中国工商银行":
+                i = R.mipmap.gongshangyinhang;
+                break;
+            case "广发银行":
+                i = R.mipmap.guangfayinhang;
+                break;
+            case "招商银行":
+                i = R.mipmap.zhaoshangyinhang;
+                break;
+            case "中信银行":
+                i = R.mipmap.zhongxinyinhang;
+                break;
+            case "中国农业银行":
+                i = R.mipmap.nongyeyinhang;
+                break;
+            case "上海银行":
+                i = R.mipmap.shnaghaiyinhang;
+                break;
+            case "中国交通银行":
+                i = R.mipmap.jiaotongyinhang;
+                break;
+            case "中国邮政储蓄银行":
+                i = R.mipmap.youzhengyinhang;
+                break;
+            case "中国建设银行":
+                i = R.mipmap.jiansheyinhang;
+                break;
+            case "北京银行":
+                i = R.mipmap.beijingyinhang;
+                break;
+            case "民生银行":
+                i = R.mipmap.minshengyinhang;
+                break;
+            case "宁波银行":
+                i = R.mipmap.ningboyinhang;
+                break;
+            case "浦东发展银行":
+                i = R.mipmap.pufayinhang;
+                break;
+            default:
+                break;
+        }
+        return i;
+    }
 
 }

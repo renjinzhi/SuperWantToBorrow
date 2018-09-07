@@ -143,6 +143,7 @@
 
 
     <Button
+        android:id="@+id/wtr_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wtr_tv_repay_time"

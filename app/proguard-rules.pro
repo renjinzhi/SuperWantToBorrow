@@ -169,23 +169,38 @@
 -keepclassmembers class com.enjoyborrowing.ui.banner.BannerActivity {
    public *;
 }
-#-keep class com.enjoyborrowing.ui.banner.BannerPresenter
-#-keep class com.enjoyborrowing.ui.banner.BannerContract
-#-keep class com.enjoyborrowing.ui.borrowmessage.BorrowMessageContract
-#-keep class com.enjoyborrowing.ui.borrowmessage.BorrowMessagePresenter
-#-keep class com.enjoyborrowing.ui.messagedetails.MessageDetailsContract
-#-keep class com.enjoyborrowing.ui.messagedetails.MessageDetailsPresenter
-#-keep class com.enjoyborrowing.ui.userdetails.UserDetailsPresenter
-#-keep class com.enjoyborrowing.ui.userdetails.UserDetailsContract
-#-keep class com.enjoyborrowing.ui.shop.ShopPresenter
-#-keep class com.enjoyborrowing.ui.shop.ShopContract
-#-keep class com.enjoyborrowing.ui.mall.MallContract
-#-keep class com.enjoyborrowing.ui.mall.MallPresenter
+-keep class com.superwanttoborrow.ui.basicinformation.BasicInformationContract
+-keep class com.superwanttoborrow.ui.basicinformation.BasicInformationPresenter
+-keep class com.superwanttoborrow.ui.contacts.ContactsContract
+-keep class com.superwanttoborrow.ui.contacts.ContactsPresenter
+-keep class com.superwanttoborrow.ui.first.FirstContract
+-keep class com.superwanttoborrow.ui.first.FirstPresenter
+-keep class com.superwanttoborrow.ui.repaydetail.RepayDetailContract
+-keep class com.superwanttoborrow.ui.repaydetail.RepayDetailPresenter
+-keep class com.superwanttoborrow.ui.systemmessage.SystemMessageContract
+-keep class com.superwanttoborrow.ui.systemmessage.SystemMessagePresenter
+-keep class com.superwanttoborrow.ui.wanttoextension.WantToExtensionContract
+-keep class com.superwanttoborrow.ui.wanttoextension.WantToExtensionPresenter
+-keep class com.superwanttoborrow.ui.wanttorepay.WantToRepayContract
+-keep class com.superwanttoborrow.ui.wanttorepay.WantToRepayPresenter
+-keep class com.superwanttoborrow.ui.web.WebContract
+-keep class com.superwanttoborrow.ui.web.WebPresenter
 
 -keep public class com.megvii.**{*;}
 -dontwarn com.bqs.**
 
 -keepattributes *Annotation*
 -keepattributes *JavascriptInterface*
+
+-keep class com.umeng.** {*;}
+
+-keepclassmembers class * {
+   public <init> (org.json.JSONObject);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
 
 ####混淆保护自己项目的部分代码以及引用的第三方jar包library-end####

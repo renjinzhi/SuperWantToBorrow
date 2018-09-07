@@ -2,10 +2,12 @@ package com.superwanttoborrow.ui.bindbank;
 
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,9 @@ import android.widget.Toast;
 
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
+import com.superwanttoborrow.ui.first.FirstActivity;
+import com.superwanttoborrow.utils.MyCountDownTimer;
+import com.superwanttoborrow.utils.MyTextUtils;
 
 
 /**
@@ -95,6 +100,12 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
         });
         SharedPreferences user = getSharedPreferences("User", 0);
         bind_bank_ed_phone.setText(user.getString("user", null));
+        bind_bank_ed_bank_card.setText(user.getString("bankCardId", null));
+        String depositBank2 = user.getString("depositBank", null);
+        bind_bank_tv_bank.setText(depositBank2);
+        if (!TextUtils.isEmpty(depositBank2)){
+            bind_bank_img_bank.setImageResource(MyTextUtils.getBankCard(user.getString("depositBank", null)));
+        }
     }
 
     @Override
@@ -109,13 +120,14 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
             dialog_bc_img.setOnClickListener(view1 -> dialog.dismiss());
             dialog_bc_ed = (EditText) view.findViewById(R.id.dialog_bc_ed);
             dialog_bc_button_get_code = (Button) view.findViewById(R.id.dialog_bc_button_get_code);
-            dialog_bc_button_get_code.setOnClickListener(this);
+            new Thread(new MyCountDownTimer(dialog_bc_button_get_code)).start();
+            dialog_bc_button_get_code.setOnClickListener(view1 -> mPresenter.getCode(this,dialog_bc_button_get_code));
             dialog_pg_button = (Button) view.findViewById(R.id.dialog_pg_button);
-            dialog_pg_button.setOnClickListener(this);
+            dialog_pg_button.setOnClickListener(view1 -> mPresenter.checkCode(this,dialog_bc_ed.getText().toString()));
             dialog.show();
         } else {
             //不需要验证码
-            Toast.makeText(this, "不需要验证码", Toast.LENGTH_SHORT).show();
+            mPresenter.repayment(this);
         }
 
     }
@@ -129,6 +141,13 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
         edit.putString("depositBank",bankName);
         edit.apply();
         bind_bank_tv_bank.setText(bankName);
-//        bind_bank_img_bank.setImageResource();
+        bind_bank_img_bank.setImageResource(MyTextUtils.getBankCard(bankName));
+    }
+
+    @Override
+    public void repayment() {
+        Toast.makeText(this, "申请已提交，请前往进度查询查询当前状态", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, FirstActivity.class));
+        finish();
     }
 }

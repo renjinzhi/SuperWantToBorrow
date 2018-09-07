@@ -126,4 +126,54 @@ public class HomePresenter extends BasePresenterImpl<HomeContract.View> implemen
                     }
                 });
     }
+
+
+    @Override
+    public void getContract(Context context) {
+        RequestBean requestBean = new RequestBean();
+        requestBean.setServiceId("JUNCAI0025");
+        RequestBean.DataBean dataBean = new RequestBean.DataBean();
+        SharedPreferences sharedPreferences = context.getSharedPreferences("User", 0);
+        String user = sharedPreferences.getString("user", null);
+        String token = sharedPreferences.getString("token", null);
+        dataBean.setMobile(user);
+        dataBean.setToken(token);
+        requestBean.setData(dataBean);
+        progressDialog = ProgressDialog.show(context, "请稍等...", "正在查询...", true);
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
+        OkGo.<ReturnBean>post(Constants.HOST_URL)
+                .upJson(gson.toJson(requestBean))
+                .execute(new JsonCallback<ReturnBean>() {
+
+                    @Override
+                    public void onSuccess(Response<ReturnBean> response) {
+                        progressDialog.dismiss();
+                        ReturnBean auditBean = response.body();
+                        if (BeanSetHelper.CODESUCCESS.equals(auditBean.getCode())) {
+                            if (auditBean.getData().getNode() < 1) {
+                                Toast.makeText(context, "您还没有申请", Toast.LENGTH_SHORT).show();
+                            } else {
+                                mView.getContract(auditBean.getData());
+                            }
+                        } else if (BeanSetHelper.CODELOGIN.equals(auditBean.getCode())) {
+                            SharedPreferences sharedPreferences = context.getSharedPreferences("User", 0);
+                            sharedPreferences.edit().clear().apply();
+                            Toast.makeText(context, "登录过期,请先登录", Toast.LENGTH_SHORT).show();
+                            context.startActivity(new Intent(context, LoginActivity.class));
+                        } else if (BeanSetHelper.CODENEEDLOGIN.equals(auditBean.getCode())) {
+                            Toast.makeText(context, "请先登录", Toast.LENGTH_SHORT).show();
+                            context.startActivity(new Intent(context, LoginActivity.class));
+                        } else {
+                            Toast.makeText(context, auditBean.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Response<ReturnBean> response) {
+                        super.onError(response);
+                        progressDialog.dismiss();
+                    }
+                });
+    }
 }

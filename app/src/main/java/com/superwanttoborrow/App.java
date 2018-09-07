@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.lzy.okgo.OkGo;
 import com.rong360.app.crawler.CrawlerManager;
+import com.umeng.commonsdk.UMConfigure;
 
 public class App extends Application {
 
@@ -16,6 +17,7 @@ public class App extends Application {
         context = getApplicationContext();
         OkGo.getInstance().init(this);
         CrawlerManager.initSDK(this);
+        UMConfigure.init(context,UMConfigure.DEVICE_TYPE_PHONE,null);
     }
 
     public static Context getApplication() {

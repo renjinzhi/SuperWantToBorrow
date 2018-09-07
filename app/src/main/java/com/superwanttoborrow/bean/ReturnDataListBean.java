@@ -77,6 +77,24 @@ public class ReturnDataListBean implements Serializable {
         private double repaidServiceFee;
         private String swiftNumber;
         private double totalMoney;
+        private String bankCard;
+        private String bankName;
+
+        public String getBankCard() {
+            return bankCard;
+        }
+
+        public void setBankCard(String bankCard) {
+            this.bankCard = bankCard;
+        }
+
+        public String getBankName() {
+            return bankName;
+        }
+
+        public void setBankName(String bankName) {
+            this.bankName = bankName;
+        }
 
         public String getChannel() {
             return channel;

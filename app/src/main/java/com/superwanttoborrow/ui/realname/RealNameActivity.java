@@ -115,13 +115,13 @@ public class RealNameActivity extends MVPBaseActivity<RealNameContract.View, Rea
                 finish();
                 break;
             case R.id.real_button_next:
-//                if (!front) {
-//                    Toast.makeText(this, "请先拍摄身份证正面", Toast.LENGTH_SHORT).show();
-//                } else if (!verso) {
-//                    Toast.makeText(this, "请先拍摄身份证反面", Toast.LENGTH_SHORT).show();
-//                } else if (!head) {
-//                    Toast.makeText(this, "请先拍摄手持身份证正面照片", Toast.LENGTH_SHORT).show();
-//                } else
+                if (!front) {
+                    Toast.makeText(this, "请先拍摄身份证正面", Toast.LENGTH_SHORT).show();
+                } else if (!verso) {
+                    Toast.makeText(this, "请先拍摄身份证反面", Toast.LENGTH_SHORT).show();
+                } else if (!head) {
+                    Toast.makeText(this, "请先拍摄手持身份证正面照片", Toast.LENGTH_SHORT).show();
+                } else
                     startActivity(new Intent(this, BasicInformationActivity.class));
                 break;
             case R.id.real_img_front:
@@ -137,12 +137,12 @@ public class RealNameActivity extends MVPBaseActivity<RealNameContract.View, Rea
                 }
                 break;
             case R.id.real_img_head:
-//                if (front && verso) {
-                i = 2;
-                getPermission();
-//                } else {
-//                    Toast.makeText(this, "请先扫描身份证正反面", Toast.LENGTH_SHORT).show();
-//                }
+                if (front && verso) {
+                    i = 2;
+                    getPermission();
+                } else {
+                    Toast.makeText(this, "请先扫描身份证正反面", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }
@@ -313,8 +313,8 @@ public class RealNameActivity extends MVPBaseActivity<RealNameContract.View, Rea
         front = true;
         SharedPreferences sharedPreferences = getSharedPreferences("User", 0);
         SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putString("name", name);
-        edit.putString("idCard", idCard);
+        edit.putString("applicantName", name);
+        edit.putString("cardId", idCard);
         edit.apply();
         real_name_tv.setText(name);
         real_id_tv.setText(idCard);

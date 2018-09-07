@@ -10,20 +10,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.superwanttoborrow.R;
+import com.superwanttoborrow.bean.ReturnDataListBean;
+import com.superwanttoborrow.utils.MyTextUtils;
 
 import java.util.List;
 
 public class BankRvAdapter extends RecyclerView.Adapter<BankRvAdapter.BankRvHolder>{
 
     private Context mContext;
-    private List<String> mList;
+    private List<ReturnDataListBean.DataBean> mList;
 
-    public BankRvAdapter(Context context, List<String> list) {
+    public BankRvAdapter(Context context, List<ReturnDataListBean.DataBean> list) {
         mContext = context;
         mList = list;
     }
 
-    public void updata(List<String> list){
+    public void updata(List<ReturnDataListBean.DataBean> list){
         this.mList = list;
         notifyDataSetChanged();
     }
@@ -38,9 +40,9 @@ public class BankRvAdapter extends RecyclerView.Adapter<BankRvAdapter.BankRvHold
 
     @Override
     public void onBindViewHolder(@NonNull BankRvHolder holder, int position) {
-        String s = mList.get(position);
+        String s = mList.get(position).getBankName();
         holder.bank_name.setText(s);
-        holder.bank_img.setImageResource(R.mipmap.ic_launcher);
+        holder.bank_img.setImageResource(MyTextUtils.getBankCard(s));
     }
 
     @Override

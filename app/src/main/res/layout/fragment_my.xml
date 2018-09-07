@@ -57,7 +57,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/repay_tv_record"
         app:layout_constraintStart_toStartOf="@+id/repay_tv_record"
         app:layout_constraintTop_toTopOf="@+id/repay_tv_record"
-        android:src="@mipmap/offeraloan" />
+        android:src="@mipmap/jiekuanjilu" />
     <ImageView
         android:layout_width="8dp" android:layout_height="15dp"
         android:layout_marginEnd="15dp"
@@ -103,7 +103,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/my_tv_bank"
         app:layout_constraintStart_toStartOf="@+id/my_tv_bank"
         app:layout_constraintTop_toTopOf="@+id/my_tv_bank"
-        app:srcCompat="@mipmap/yinhangka"/>
+        app:srcCompat="@mipmap/genggaibangdingyinhangka"/>
     <ImageView
         android:layout_width="8dp" android:layout_height="15dp"
         android:layout_marginEnd="15dp"
@@ -136,7 +136,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/my_tv_help"
         app:layout_constraintStart_toStartOf="@+id/my_tv_help"
         app:layout_constraintTop_toTopOf="@+id/my_tv_help"
-        android:src="@mipmap/helpcenter"/>
+        android:src="@mipmap/bangzhuzhongxin"/>
     <ImageView
         android:layout_width="8dp" android:layout_height="15dp"
         android:layout_marginEnd="15dp"
@@ -168,7 +168,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/my_tv_set"
         app:layout_constraintStart_toStartOf="@+id/my_tv_set"
         app:layout_constraintTop_toTopOf="@+id/my_tv_set"
-        android:src="@mipmap/securitysetting"/>
+        android:src="@mipmap/anquanshezhi"/>
     <ImageView
         android:layout_width="8dp" android:layout_height="15dp"
         android:layout_marginEnd="15dp"

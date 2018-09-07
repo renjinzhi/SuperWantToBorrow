@@ -24,7 +24,8 @@ public class HomeContract {
 
         void getRequestID(ReturnBean.DataBean dataBean);
 
-//        void setNullBanner();
+        void getContract(ReturnBean.DataBean dataBean);
+
     }
 
     interface  Presenter extends BasePresenter<View> {
@@ -35,5 +36,7 @@ public class HomeContract {
         void getOther(Context context);
 
         void getRequestID(Context context);
+
+        void getContract(Context context);
     }
 }
