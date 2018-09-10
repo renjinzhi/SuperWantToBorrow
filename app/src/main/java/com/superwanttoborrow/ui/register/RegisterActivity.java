@@ -45,6 +45,7 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
     private String imgCode;
     private String code;
     private String password;
+    private boolean getCode = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -129,14 +130,18 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
             Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show();
         } else if (!PhoneNumberCheck.checkCellphone(phone)) {
             Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(imgCode)) {
+            Toast.makeText(this, "请输入图片验证码", Toast.LENGTH_SHORT).show();
+        } else if (!getCode) {
+            Toast.makeText(this, "请先获取短信验证码", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(code)) {
             Toast.makeText(this, "请输入收到的短信验证码", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "请设置您的密码", Toast.LENGTH_SHORT).show();
         } else if (password.length() < 6) {
-            Toast.makeText(this, "密码长度不得少于6位", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "密码应该由6-12位的数字和字母组成", Toast.LENGTH_SHORT).show();
         } else if (!MyTextUtils.isPassword(password)) {
-            Toast.makeText(this, "密码只能由数字和字母组成", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "密码应该由6-12位的数字和字母组成", Toast.LENGTH_SHORT).show();
         } else {
             mPresenter.register(this, phone, code, password);
         }
@@ -154,6 +159,7 @@ public class RegisterActivity extends MVPBaseActivity<RegisterContract.View, Reg
         } else if (TextUtils.isEmpty(imgCode)) {
             Toast.makeText(this, "请输入图片中的验证码", Toast.LENGTH_SHORT).show();
         } else {
+            getCode = true;
             mPresenter.getCodeRegister(this, phone, imgCode, imgCodeKey, register_tv_get_code);
         }
     }

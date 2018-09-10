@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bqs.risk.df.android.BqsDF;
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
 import com.superwanttoborrow.ui.first.FirstActivity;
@@ -52,6 +53,8 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
         initView();
         initData();
         initBqsDFSDK();
+        BqsDF.getInstance().commitLocation();
+        BqsDF.getInstance().commitContactsAndCallRecords(true, true);
     }
 
     private void initView() {
@@ -72,8 +75,8 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
             case R.id.bind_bank_button:
                 if (hasBank) {
                     mPresenter.isReal(this);
-                }else {
-                    Toast.makeText(this,"请先输入银行卡号",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "请先输入银行卡号", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
@@ -103,7 +106,7 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
         bind_bank_ed_bank_card.setText(user.getString("bankCardId", null));
         String depositBank2 = user.getString("depositBank", null);
         bind_bank_tv_bank.setText(depositBank2);
-        if (!TextUtils.isEmpty(depositBank2)){
+        if (!TextUtils.isEmpty(depositBank2)) {
             bind_bank_img_bank.setImageResource(MyTextUtils.getBankCard(user.getString("depositBank", null)));
         }
     }
@@ -121,9 +124,9 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
             dialog_bc_ed = (EditText) view.findViewById(R.id.dialog_bc_ed);
             dialog_bc_button_get_code = (Button) view.findViewById(R.id.dialog_bc_button_get_code);
             new Thread(new MyCountDownTimer(dialog_bc_button_get_code)).start();
-            dialog_bc_button_get_code.setOnClickListener(view1 -> mPresenter.getCode(this,dialog_bc_button_get_code));
+            dialog_bc_button_get_code.setOnClickListener(view1 -> mPresenter.getCode(this, dialog_bc_button_get_code));
             dialog_pg_button = (Button) view.findViewById(R.id.dialog_pg_button);
-            dialog_pg_button.setOnClickListener(view1 -> mPresenter.checkCode(this,dialog_bc_ed.getText().toString()));
+            dialog_pg_button.setOnClickListener(view1 -> mPresenter.checkCode(this, dialog_bc_ed.getText().toString()));
             dialog.show();
         } else {
             //不需要验证码
@@ -137,8 +140,8 @@ public class BindBankActivity extends MVPBaseActivity<BindBankContract.View, Bin
         hasBank = true;
         SharedPreferences sharedPreferences = getSharedPreferences("User", 0);
         SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putString("bankCardId",bank);
-        edit.putString("depositBank",bankName);
+        edit.putString("bankCardId", bank);
+        edit.putString("depositBank", bankName);
         edit.apply();
         bind_bank_tv_bank.setText(bankName);
         bind_bank_img_bank.setImageResource(MyTextUtils.getBankCard(bankName));

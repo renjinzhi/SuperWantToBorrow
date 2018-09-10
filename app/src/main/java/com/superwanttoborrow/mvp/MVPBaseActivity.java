@@ -1,6 +1,9 @@
 package com.superwanttoborrow.mvp;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
@@ -30,6 +33,8 @@ public abstract class MVPBaseActivity<V extends BaseView,T extends BasePresenter
         if (actionBar != null){
             actionBar.hide();
         }
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
     }
 
     @Override
@@ -46,9 +51,9 @@ public abstract class MVPBaseActivity<V extends BaseView,T extends BasePresenter
         BqsParams params = new BqsParams();
         params.setPartnerId("jxd");//商户编号
         params.setTestingEnv(true);//false是生产环境 true是测试环境
-        params.setGatherGps(true);
-        params.setGatherContact(true);
-        params.setGatherCallRecord(true);
+        params.setGatherGps(false);
+        params.setGatherContact(false);
+        params.setGatherCallRecord(false);
         params.setGatherInstalledApp(true);
         params.setGatherSMSCount(true);
 
@@ -107,5 +112,15 @@ public abstract class MVPBaseActivity<V extends BaseView,T extends BasePresenter
             e.printStackTrace();
         }
         return null;
+    }
+
+
+    @Override
+    public Resources getResources() {
+        Resources res = super.getResources();
+        Configuration config=new Configuration();
+        config.setToDefaults();
+        res.updateConfiguration(config,res.getDisplayMetrics());
+        return res;
     }
 }

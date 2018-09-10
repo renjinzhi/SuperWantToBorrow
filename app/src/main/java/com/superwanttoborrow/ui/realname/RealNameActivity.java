@@ -116,9 +116,9 @@ public class RealNameActivity extends MVPBaseActivity<RealNameContract.View, Rea
                 break;
             case R.id.real_button_next:
                 if (!front) {
-                    Toast.makeText(this, "请先拍摄身份证正面", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "请先扫描身份证正面", Toast.LENGTH_SHORT).show();
                 } else if (!verso) {
-                    Toast.makeText(this, "请先拍摄身份证反面", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "请先扫描身份证反面", Toast.LENGTH_SHORT).show();
                 } else if (!head) {
                     Toast.makeText(this, "请先拍摄手持身份证正面照片", Toast.LENGTH_SHORT).show();
                 } else

@@ -119,6 +119,16 @@ public class RequestBean implements Serializable {
         private String cardno;
         private String validatecode;
         private String type;
+        private String remoteNo;
+
+
+        public String getRemoteNo() {
+            return remoteNo;
+        }
+
+        public void setRemoteNo(String remoteNo) {
+            this.remoteNo = remoteNo;
+        }
 
         public String getType() {
             return type;

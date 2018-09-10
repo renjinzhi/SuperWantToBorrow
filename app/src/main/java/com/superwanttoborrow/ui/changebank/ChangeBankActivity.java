@@ -115,7 +115,6 @@ public class ChangeBankActivity extends MVPBaseActivity<ChangeBankContract.View,
         change_bank_ed_bank_card.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override

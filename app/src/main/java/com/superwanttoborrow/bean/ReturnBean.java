@@ -76,6 +76,60 @@ public class ReturnBean implements Serializable {
         private double approvedMoney;
         private List<StateBean> state;
         private double refundRate;
+        private String download;
+        private String forceUpdate;
+        private String inReview;
+        private String mark;
+        private String version;
+        private String versionNum;
+
+        public String getDownload() {
+            return download;
+        }
+
+        public void setDownload(String download) {
+            this.download = download;
+        }
+
+        public String getForceUpdate() {
+            return forceUpdate;
+        }
+
+        public void setForceUpdate(String forceUpdate) {
+            this.forceUpdate = forceUpdate;
+        }
+
+        public String getInReview() {
+            return inReview;
+        }
+
+        public void setInReview(String inReview) {
+            this.inReview = inReview;
+        }
+
+        public String getMark() {
+            return mark;
+        }
+
+        public void setMark(String mark) {
+            this.mark = mark;
+        }
+
+        public String getVersion() {
+            return version;
+        }
+
+        public void setVersion(String version) {
+            this.version = version;
+        }
+
+        public String getVersionNum() {
+            return versionNum;
+        }
+
+        public void setVersionNum(String versionNum) {
+            this.versionNum = versionNum;
+        }
 
         public int getNode() {
             return node;

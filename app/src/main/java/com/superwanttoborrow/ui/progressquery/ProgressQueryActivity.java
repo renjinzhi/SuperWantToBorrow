@@ -139,11 +139,11 @@ public class ProgressQueryActivity extends MVPBaseActivity<ProgressQueryContract
                 pg_tv_time_1.setText(MyTextUtils.getStrHour(dataBean.getState().get(0).getTime() + ""));
                 pg_tv_time_2.setText(MyTextUtils.getStrHour(dataBean.getState().get(1).getTime() + ""));
                 pg_tv_time_3.setText(MyTextUtils.getStrHour(dataBean.getState().get(2).getTime() + ""));
-
                 pq_button.setVisibility(View.VISIBLE);
                 if (!"3".equals(status)) {
                     progress_query_mess.setText("您申请的" + mFormat + "元" + approvalIFperiods + "期已经" + dataBean.getState().get(2).getValue());
 //                    textView5.setText(dataBean.getState().get(2).getValue());
+                    pq_button.setVisibility(View.GONE);
                     pq_tv_title_3.setText(dataBean.getState().get(2).getValue());
                     pq_button.setBackgroundResource(R.mipmap.button);
                 } else {

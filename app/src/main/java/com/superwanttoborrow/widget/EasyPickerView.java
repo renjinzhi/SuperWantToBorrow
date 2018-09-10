@@ -433,4 +433,5 @@ public class EasyPickerView extends View {
     public void setOnScrollChangedListener(OnScrollChangedListener onScrollChangedListener) {
         this.onScrollChangedListener = onScrollChangedListener;
     }
+
 }

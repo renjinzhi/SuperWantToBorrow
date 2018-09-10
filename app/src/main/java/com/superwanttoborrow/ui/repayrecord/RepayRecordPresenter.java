@@ -19,7 +19,7 @@ import com.superwanttoborrow.utils.JsonCallback;
  *  邮箱 784787081@qq.com
  */
 
-public class RepayRecordPresenter extends BasePresenterImpl<RepayRecordContract.View> implements RepayRecordContract.Presenter{
+public class  RepayRecordPresenter extends BasePresenterImpl<RepayRecordContract.View> implements RepayRecordContract.Presenter{
 
     Gson gson = new Gson();
     @Override

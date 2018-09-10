@@ -49,7 +49,7 @@
 
     <TextView
         android:id="@+id/register_tv_work"
-        android:layout_width="70dp"
+        android:layout_width="66dp"
         android:layout_height="30dp"
         android:layout_marginLeft="11dp"
         android:layout_marginTop="21dp"
@@ -63,7 +63,7 @@
 
     <TextView
         android:id="@+id/register_tv_alone"
-        android:layout_width="70dp"
+        android:layout_width="66dp"
         android:layout_height="30dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="21dp"
@@ -77,7 +77,7 @@
 
     <TextView
         android:id="@+id/register_tv_free"
-        android:layout_width="70dp"
+        android:layout_width="66dp"
         android:layout_height="30dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="21dp"
@@ -91,7 +91,7 @@
 
     <TextView
         android:id="@+id/register_tv_unemployed"
-        android:layout_width="70dp"
+        android:layout_width="66dp"
         android:layout_height="30dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="21dp"
@@ -158,6 +158,7 @@
         android:layout_width="84dp"
         android:layout_height="0dp"
         android:src="@mipmap/logo"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toBottomOf="@id/register_ed_img_code"
         app:layout_constraintEnd_toEndOf="@id/register_ed_img_code"
         app:layout_constraintTop_toTopOf="@id/register_ed_img_code"/>
@@ -214,7 +215,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:hint="密码为6-12位的数字和字母组成"
+        android:hint="密码由6-12位的数字和字母组成"
         android:inputType="textPassword"
         android:maxLength="12"
         android:paddingLeft="51dp"

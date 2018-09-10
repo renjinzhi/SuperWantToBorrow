@@ -143,6 +143,7 @@
         android:layout_width="84dp"
         android:layout_height="0dp"
         android:src="@mipmap/logo"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toBottomOf="@id/login_ed_img_code"
         app:layout_constraintEnd_toEndOf="@id/login_ed_img_code"
         app:layout_constraintTop_toTopOf="@id/login_ed_img_code"/>
@@ -274,7 +275,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="37.5dp"
         android:layout_marginTop="17dp"
-        android:text="密码登陆"
+        android:text="密码登录"
         android:textColor="@color/six_e"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/login_guideline"
