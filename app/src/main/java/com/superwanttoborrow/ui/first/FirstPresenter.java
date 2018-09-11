@@ -45,7 +45,7 @@ public class FirstPresenter extends BasePresenterImpl<FirstContract.View> implem
                         if (BeanSetHelper.CODESUCCESS.equals(returnBean.getCode())) {
                             if (("V" + VersionHelper.getVersionName()).equals(returnBean.getData().getVersionNum())) {
                             } else {
-                                mView.showUpdataDialog(returnBean.getData());
+                                mView.showUpdateDialog(returnBean.getData());
                             }
                         }
                     }

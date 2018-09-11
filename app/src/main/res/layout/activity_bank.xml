@@ -19,13 +19,13 @@
 
     <ImageView
         android:id="@+id/bank_back"
-        android:layout_width="8dp" android:layout_height="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:srcCompat="@mipmap/fanhui"
         app:layout_constraintBottom_toBottomOf="@id/bank_tv_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/bank_tv_title"
-        app:srcCompat="@mipmap/back"/>
+        />
 
     <View
         android:id="@+id/bank_view"

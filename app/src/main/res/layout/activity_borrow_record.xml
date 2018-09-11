@@ -19,12 +19,12 @@
 
     <ImageView
         android:id="@+id/borrow_record_back"
-        android:layout_width="8dp" android:layout_height="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp" android:layout_marginTop="16dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:srcCompat="@mipmap/fanhui"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/back"/>
+        app:layout_constraintBottom_toBottomOf="@id/borrow_record_title"
+        app:layout_constraintTop_toTopOf="@id/borrow_record_title"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/borrow_record_rv"
         android:layout_width="0dp"

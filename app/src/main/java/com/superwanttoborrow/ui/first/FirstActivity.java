@@ -35,7 +35,6 @@ import java.util.List;
 public class FirstActivity extends MVPBaseActivity<FirstContract.View, FirstPresenter> implements FirstContract.View {
 
     private BottomTabBar bottom_tab_bar;
-
     //退出时的时间
     private long mExitTime;
 
@@ -44,7 +43,6 @@ public class FirstActivity extends MVPBaseActivity<FirstContract.View, FirstPres
     private boolean boo = false;
     private boolean boo2 = false;
     private ReturnBean.DataBean dataBean;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,7 +74,7 @@ public class FirstActivity extends MVPBaseActivity<FirstContract.View, FirstPres
 
     public void exit() {
         if ((System.currentTimeMillis() - mExitTime) > 2000) {
-            Toast.makeText(FirstActivity.this, "再按一次退出去分期", Toast.LENGTH_SHORT).show();
+            Toast.makeText(FirstActivity.this, "再按一次退出超享借", Toast.LENGTH_SHORT).show();
             mExitTime = System.currentTimeMillis();
         } else {
             ActivityCollector.finishAll();
@@ -85,11 +83,10 @@ public class FirstActivity extends MVPBaseActivity<FirstContract.View, FirstPres
     }
 
     @Override
-    public void showUpdataDialog(ReturnBean.DataBean dataBean) {
+    public void showUpdateDialog(ReturnBean.DataBean dataBean) {
         getPermission();
         this.dataBean = dataBean;
     }
-
 
     @Override
     public void apkFinish() {

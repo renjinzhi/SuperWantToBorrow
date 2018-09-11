@@ -24,8 +24,12 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.rong360.app.crawler.CrawlerManager;
+import com.rong360.app.crawler.CrawlerStatus;
+import com.rong360.app.crawler.Util.CommonUtil;
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
+import com.superwanttoborrow.ui.bindbank.BindBankActivity;
 import com.superwanttoborrow.ui.face.FaceActivity;
 import com.superwanttoborrow.utils.DialogHelp;
 import com.superwanttoborrow.utils.PhoneNumberCheck;
@@ -63,11 +67,13 @@ public class ContactsActivity extends MVPBaseActivity<ContactsContract.View, Con
     private ArrayList<String> relations2;
     private String relation1;
     private String relation2;
+    private String mPrivateKey;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.avtivity_contacts);
+        setContentView(R.layout.activity_contacts);
         initView();
         initData();
     }
@@ -91,6 +97,8 @@ public class ContactsActivity extends MVPBaseActivity<ContactsContract.View, Con
         contacts_name_title_2.setOnClickListener(this);
         contacts_phone_title_2 = (TextView) findViewById(R.id.contacts_phone_title_2);
         contacts_phone_title_2.setOnClickListener(this);
+        mPrivateKey = CommonUtil.getFromAssets("private_key.pem");
+        CrawlerManager.getInstance().setDebug(true);//打开debug
     }
 
     private void initData() {
@@ -200,6 +208,7 @@ public class ContactsActivity extends MVPBaseActivity<ContactsContract.View, Con
                     edit.putString("linkman1Cell", linkman1Cell);
                     edit.putString("linkman2Cell", linkman2Cell);
                     edit.apply();
+                    startCrawlerTask("mobile");
                     startActivity(new Intent(this, FaceActivity.class));
                 }
                 break;
@@ -349,4 +358,75 @@ public class ContactsActivity extends MVPBaseActivity<ContactsContract.View, Con
             }
         }
     };
+
+    private void startCrawlerTask(String module) {
+        CrawlerStatus crawlerStatus = new CrawlerStatus();
+        crawlerStatus.type = module;
+        crawlerStatus.taskid = String.valueOf(System.currentTimeMillis());
+        crawlerStatus.appname = "com.superwanttoborrow";//自定义name，可以传包名
+        crawlerStatus.privatekey = mPrivateKey;
+        crawlerStatus.merchant_id = "2010757";//添加分配的appid
+        crawlerStatus.bPhoneSupportChange = false;//机构设置CrawlerStatus的属性变量bPhoneSupportChange为false即用户手机号不可变更
+
+        SharedPreferences sharedPreferences = getSharedPreferences("User", 0);
+        String user = sharedPreferences.getString("user", null);
+        String applicantName = sharedPreferences.getString("applicantName", null);
+        String cardId = sharedPreferences.getString("cardId", null);
+
+        //以下为身份信息三要素，必传
+        crawlerStatus.real_name = applicantName;//姓名
+        crawlerStatus.id_card = cardId;//身份证
+        crawlerStatus.cellphone = user;//手机
+
+        CrawlerManager.getInstance().startCrawlerByType(
+                crawlerStatus1 -> {
+                    switch (crawlerStatus1.status) {
+                        case 2:
+                            startActivity(new Intent(ContactsActivity.this, BindBankActivity.class));
+                            break;
+                        case 3:
+                            startActivity(new Intent(ContactsActivity.this, BindBankActivity.class));
+                            break;
+                        default:
+                            Toast.makeText(ContactsActivity.this, getStringStatus(crawlerStatus1.status), Toast.LENGTH_SHORT)
+                                    .show();
+                            break;
+                    }
+                }, crawlerStatus);
+
+    }
+
+
+    private String getStringStatus(int status) {
+        String text = null;
+        switch (status) {
+            case 0:
+                text = "未初始化";
+                break;
+            case 1:
+                text = "抓取开始";
+                break;
+            case 2:
+                text = "登录成功";
+                break;
+            case 3:
+                text = "抓取成功";
+                break;
+            case 4:
+                text = "授权失败";
+                break;
+            case 5:
+//                text = "用户返回界面";
+                text = "取消授权";
+                break;
+            case 6:
+                text = "打开登陆页面,支付宝和淘宝的登陆页面";
+                break;
+            default:
+                break;
+        }
+        return text;
+    }
+
+
 }

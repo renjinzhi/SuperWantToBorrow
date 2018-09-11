@@ -22,20 +22,20 @@
         android:layout_height="44dp"
         android:layout_marginRight="10dp"
         android:gravity="center"
-        android:text="第4/5步"
+        android:text="第1/5步"
         android:textColor="@color/gray"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <ImageView
         android:id="@+id/face_back"
-        android:layout_width="8dp" android:layout_height="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="@id/repayment_detail_4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/repayment_detail_4"
-        app:srcCompat="@mipmap/back"/>
+        app:srcCompat="@mipmap/fanhui"
+    />
 
     <View
         android:id="@+id/basic_information_title_view"

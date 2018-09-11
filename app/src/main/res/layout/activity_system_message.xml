@@ -19,13 +19,13 @@
 
     <ImageView
         android:id="@+id/system_message_back"
-        android:layout_width="8dp" android:layout_height="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="@id/system_message_tv_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/system_message_tv_title"
-        app:srcCompat="@mipmap/back"/>
+        app:srcCompat="@mipmap/fanhui"
+    />
 
     <View
         android:id="@+id/system_message_view"
@@ -37,16 +37,16 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/system_message_tv_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content">
+        app:layout_constraintTop_toBottomOf="@id/system_message_tv_title">
         <android.support.v7.widget.RecyclerView
-            android:layout_marginBottom="50dp"
             android:id="@+id/system_message_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"/>
 
     </RelativeLayout>
 

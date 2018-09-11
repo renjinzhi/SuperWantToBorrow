@@ -16,7 +16,7 @@ public class FirstContract {
 
     interface View extends BaseView {
 
-        void showUpdataDialog(ReturnBean.DataBean dataBean);
+        void showUpdateDialog(ReturnBean.DataBean dataBean);
 
         void apkFinish();
     }

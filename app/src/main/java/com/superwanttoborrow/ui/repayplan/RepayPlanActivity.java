@@ -31,7 +31,7 @@ public class RepayPlanActivity extends MVPBaseActivity<RepayPlanContract.View, R
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.avtivity_repay_plan);
+        setContentView(R.layout.activity_repay_plan);
         initView();
         mPresenter.getRepaymentPlan(this);
     }

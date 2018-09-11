@@ -20,19 +20,19 @@
         android:layout_height="43dp"
         android:layout_marginRight="10dp"
         android:paddingTop="16dp"
-        android:text="第1/5步"
+        android:text="第2/5步"
         android:textColor="@color/gray"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <ImageView
         android:id="@+id/realname_back"
-        android:layout_width="8dp" android:layout_height="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp" android:layout_marginTop="16dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:srcCompat="@mipmap/fanhui"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/back"/>
+       />
 
     <View
         android:id="@+id/real_title_view"
@@ -86,22 +86,22 @@
                 android:layout_marginLeft="20dp" android:layout_marginStart="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/real_tv_name_title"
-                app:srcCompat="@mipmap/front"/>
+                app:srcCompat="@mipmap/saomiaoshenfenzheng"/>
             <ImageView
                 android:id="@+id/real_img_verso"
                 android:layout_width="160dp" android:layout_height="104dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 app:layout_constraintStart_toEndOf="@+id/real_img_front"
                 app:layout_constraintTop_toBottomOf="@+id/real_tv_name_title"
-                app:srcCompat="@mipmap/reverseside"/>
+                app:srcCompat="@mipmap/saomiaoshenfenzhengfanmian"/>
             <ImageView
                 android:id="@+id/real_img_head"
                 android:layout_width="160dp" android:layout_height="104dp"
                 android:layout_marginLeft="20dp" android:layout_marginStart="20dp"
                 android:layout_marginTop="15dp" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/real_img_front"
-                app:srcCompat="@mipmap/inhand"/>
+                app:srcCompat="@mipmap/shouchishenfenzheng"/>
             <android.support.constraint.Guideline
                 android:id="@+id/real_guideline_text"
                 android:layout_width="wrap_content"

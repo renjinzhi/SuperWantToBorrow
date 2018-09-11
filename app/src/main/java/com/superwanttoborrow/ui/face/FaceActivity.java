@@ -16,12 +16,9 @@ import com.megvii.idcardlib.util.Util;
 import com.megvii.licensemanager.Manager;
 import com.megvii.livenessdetection.LivenessLicenseManager;
 import com.megvii.livenesslib.LivenessActivity;
-import com.rong360.app.crawler.CrawlerManager;
-import com.rong360.app.crawler.CrawlerStatus;
-import com.rong360.app.crawler.Util.CommonUtil;
 import com.superwanttoborrow.R;
 import com.superwanttoborrow.mvp.MVPBaseActivity;
-import com.superwanttoborrow.ui.bindbank.BindBankActivity;
+import com.superwanttoborrow.ui.realname.RealNameActivity;
 import com.superwanttoborrow.utils.Bitmap2Base64;
 import com.superwanttoborrow.utils.DialogHelp;
 import com.yanzhenjie.permission.AndPermission;
@@ -45,8 +42,6 @@ public class FaceActivity extends MVPBaseActivity<FaceContract.View, FacePresent
     private ProgressDialog progressDialog;
     private String uuid;
     private String fileContent;
-    private String mPrivateKey;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,8 +57,6 @@ public class FaceActivity extends MVPBaseActivity<FaceContract.View, FacePresent
         face_button = (Button) findViewById(R.id.face_button);
         face_button.setOnClickListener(this);
         uuid = Util.getUUIDString(this);
-        mPrivateKey = CommonUtil.getFromAssets("private_key.pem");
-        CrawlerManager.getInstance().setDebug(true);//打开debug
     }
 
     @Override
@@ -97,7 +90,6 @@ public class FaceActivity extends MVPBaseActivity<FaceContract.View, FacePresent
         }).start();
     }
 
-
     private static final int PAGE_INTO_LIVENESS = 100;
 
     @Override
@@ -117,11 +109,9 @@ public class FaceActivity extends MVPBaseActivity<FaceContract.View, FacePresent
         }
     }
 
-
     private void enterNextPage() {
         startActivityForResult(new Intent(this, LivenessActivity.class), PAGE_INTO_LIVENESS);
     }
-
 
     //动态权限处理
     private void getPermission() {
@@ -184,74 +174,8 @@ public class FaceActivity extends MVPBaseActivity<FaceContract.View, FacePresent
         }
     };
 
-
-    private void startCrawlerTask(String module) {
-        CrawlerStatus crawlerStatus = new CrawlerStatus();
-        crawlerStatus.type = module;
-        crawlerStatus.taskid = String.valueOf(System.currentTimeMillis());
-        crawlerStatus.appname = "com.superwanttoborrow";//自定义name，可以传包名
-        crawlerStatus.privatekey = mPrivateKey;
-        crawlerStatus.merchant_id = "2010757";//添加分配的appid
-        crawlerStatus.bPhoneSupportChange = false;//机构设置CrawlerStatus的属性变量bPhoneSupportChange为false即用户手机号不可变更
-
-        //以下为身份信息三要素，必传
-        crawlerStatus.real_name = "小兵";//姓名
-        crawlerStatus.id_card = "231121198602286438";//身份证
-        crawlerStatus.cellphone = "13512345678";//手机
-
-        CrawlerManager.getInstance().startCrawlerByType(
-                crawlerStatus1 -> {
-                    switch (crawlerStatus1.status) {
-                        case 2:
-                            startActivity(new Intent(FaceActivity.this, BindBankActivity.class));
-                            break;
-                        case 3:
-                            startActivity(new Intent(FaceActivity.this, BindBankActivity.class));
-                            break;
-                        default:
-                            Toast.makeText(FaceActivity.this, getStringStatus(crawlerStatus1.status), Toast.LENGTH_SHORT)
-                                    .show();
-                            break;
-                    }
-                }, crawlerStatus);
-
-    }
-
-
-    private String getStringStatus(int status) {
-        String text = null;
-        switch (status) {
-            case 0:
-                text = "未初始化";
-                break;
-            case 1:
-                text = "抓取开始";
-                break;
-            case 2:
-                text = "登录成功";
-                break;
-            case 3:
-                text = "抓取成功";
-                break;
-            case 4:
-                text = "授权失败";
-                break;
-            case 5:
-//                text = "用户返回界面";
-                text = "取消授权";
-                break;
-            case 6:
-                text = "打开登陆页面,支付宝和淘宝的登陆页面";
-                break;
-            default:
-                break;
-        }
-        return text;
-    }
-
-
     @Override
     public void postPace() {
-        startCrawlerTask("mobile");
+        startActivity(new Intent(this, RealNameActivity.class));
     }
 }

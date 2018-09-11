@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/wte_title"
         android:layout_width="0dp"
@@ -21,12 +20,12 @@
 
     <ImageView
         android:id="@+id/wte_back"
-        android:layout_width="8dp" android:layout_height="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp" android:layout_marginTop="16dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:srcCompat="@mipmap/fanhui"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/back"/>
+        app:layout_constraintBottom_toBottomOf="@id/wte_title"
+        app:layout_constraintTop_toTopOf="@id/wte_title"/>
 
 
     <TextView

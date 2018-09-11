@@ -18,10 +18,10 @@ import com.superwanttoborrow.bean.ReturnBean;
 import com.superwanttoborrow.bean.ReturnBean.DataBean.UseBean;
 import com.superwanttoborrow.bean.ReturnDataListBean;
 import com.superwanttoborrow.mvp.MVPBaseFragment;
+import com.superwanttoborrow.ui.face.FaceActivity;
 import com.superwanttoborrow.ui.login.LoginActivity;
 import com.superwanttoborrow.ui.message.MessageActivity;
 import com.superwanttoborrow.ui.progressquery.ProgressQueryActivity;
-import com.superwanttoborrow.ui.realname.RealNameActivity;
 import com.superwanttoborrow.ui.web.WebActivity;
 import com.superwanttoborrow.widget.EasyPickerView;
 import com.superwanttoborrow.widget.bannerhelper.model.CycleModel;
@@ -186,7 +186,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
 //            edit.putString("income", dataBean.getUse().getMonthlyIncome());
         }
         edit.apply();
-        startActivity(new Intent(getContext(), RealNameActivity.class));
+        startActivity(new Intent(getContext(), FaceActivity.class));
     }
 
     @Override

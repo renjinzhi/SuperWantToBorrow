@@ -23,20 +23,20 @@
         android:layout_height="44dp"
         android:layout_marginRight="10dp"
         android:gravity="center"
-        android:text="第3/5步"
+        android:text="第4/5步"
         android:textColor="@color/gray"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <ImageView
         android:id="@+id/contacts_back"
-        android:layout_width="8dp" android:layout_height="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="@id/repayment_detail_3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/repayment_detail_3"
-        app:srcCompat="@mipmap/back"/>
+        app:srcCompat="@mipmap/fanhui"
+    />
 
     <View
         android:id="@+id/contacts_title_view"
@@ -84,9 +84,9 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginLeft="20dp"
-                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/contacts_title_1"/>
+                android:background="@color/view_bg" app:layout_constraintBottom_toBottomOf="@+id/contacts_title_1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
             <TextView
                 android:id="@+id/contacts_first_relation"
                 android:layout_width="0dp"
@@ -105,8 +105,8 @@
                 android:id="@+id/contacts_first_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_spinner_drop_down"
                 android:layout_marginRight="15dp"
+                android:background="@drawable/shape_spinner_drop_down"
                 android:paddingRight="19dp"
                 android:spinnerMode="dropdown"
                 app:layout_constraintBottom_toBottomOf="@id/contacts_first_relation"
@@ -117,9 +117,9 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginLeft="20dp"
-                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/contacts_first_relation"/>
+                android:background="@color/view_bg" app:layout_constraintBottom_toBottomOf="@+id/contacts_first_relation"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
             <TextView
                 android:id="@+id/contacts_name_title"
                 android:layout_width="0dp"
@@ -137,11 +137,11 @@
                 android:id="@+id/contacts_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
+                android:layout_marginRight="15dp"
                 android:gravity="center_vertical"
                 android:textColor="@color/text_gray"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="15dp"
                 app:layout_constraintTop_toBottomOf="@+id/contacts_first_relation"/>
 
 
@@ -149,9 +149,9 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginLeft="20dp"
-                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/contacts_name_title"/>
+                android:background="@color/view_bg" app:layout_constraintBottom_toBottomOf="@+id/contacts_name_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
 
             <TextView
                 android:id="@+id/contacts_phone_title"
@@ -171,20 +171,20 @@
                 android:id="@+id/contacts_phone_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
+                android:layout_marginRight="15dp"
                 android:gravity="center_vertical"
                 android:textColor="@color/text_gray"
                 android:textSize="16sp"
-                android:layout_marginRight="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/contacts_name_title"/>
 
 
             <View
-                app:layout_constraintTop_toBottomOf="@id/contacts_phone_title"
                 android:id="@+id/contacts_view_title_2"
                 android:layout_width="0dp"
                 android:layout_height="15dp"
-                android:background="@color/bg"/>
+                android:background="@color/bg"
+                app:layout_constraintTop_toBottomOf="@id/contacts_phone_title"/>
 
 
             <TextView
@@ -204,9 +204,9 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginLeft="20dp"
-                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/contacts_title_2"/>
+                android:background="@color/view_bg" app:layout_constraintBottom_toBottomOf="@+id/contacts_title_2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
             <TextView
                 android:id="@+id/contacts_second_relation"
                 android:layout_width="0dp"
@@ -225,9 +225,9 @@
                 android:id="@+id/contacts_second_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="19dp"
-                android:background="@drawable/shape_spinner_drop_down"
                 android:layout_marginRight="15dp"
+                android:background="@drawable/shape_spinner_drop_down"
+                android:paddingRight="19dp"
                 app:layout_constraintBottom_toBottomOf="@id/contacts_second_relation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/contacts_second_relation"/>
@@ -236,9 +236,9 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginLeft="20dp"
-                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/contacts_second_relation"/>
+                android:background="@color/view_bg" app:layout_constraintBottom_toBottomOf="@+id/contacts_second_relation"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
             <TextView
                 android:id="@+id/contacts_name_title_2"
                 android:layout_width="0dp"
@@ -256,11 +256,11 @@
                 android:id="@+id/contacts_name_tv_2"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
+                android:layout_marginRight="15dp"
                 android:gravity="center_vertical"
                 android:textColor="@color/text_gray"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="15dp"
                 app:layout_constraintTop_toBottomOf="@+id/contacts_second_relation"/>
 
 
@@ -268,9 +268,9 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginLeft="20dp"
-                android:background="@color/view_bg" app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/contacts_name_title_2"/>
+                android:background="@color/view_bg" app:layout_constraintBottom_toBottomOf="@+id/contacts_name_title_2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
 
             <TextView
                 android:id="@+id/contacts_phone_title_2"
@@ -290,10 +290,10 @@
                 android:id="@+id/contacts_phone_tv_2"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
+                android:layout_marginRight="15dp"
                 android:gravity="center_vertical"
                 android:textColor="@color/text_gray"
                 android:textSize="16sp"
-                android:layout_marginRight="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/contacts_name_title_2"/>
 

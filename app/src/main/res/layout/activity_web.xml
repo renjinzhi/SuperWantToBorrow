@@ -18,13 +18,12 @@
 
     <ImageView
         android:id="@+id/web_back"
-        android:layout_width="8dp" android:layout_height="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:srcCompat="@mipmap/fanhui"
         app:layout_constraintBottom_toBottomOf="@id/web_tv_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/web_tv_title"
-        app:srcCompat="@mipmap/back"/>
+        app:layout_constraintTop_toTopOf="@id/web_tv_title"/>
 
     <WebView
         android:id="@+id/web_wv"

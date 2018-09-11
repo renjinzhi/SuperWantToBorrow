@@ -20,13 +20,13 @@
 
     <ImageView
         android:id="@+id/progress_query_back"
-        android:layout_width="8dp" android:layout_height="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="@id/progress_query_tv_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/progress_query_tv_title"
-        app:srcCompat="@mipmap/back"/>
+        app:srcCompat="@mipmap/fanhui"
+    />
 
     <View
         android:id="@+id/progress_query_title_view"
@@ -78,9 +78,9 @@
         android:id="@+id/pg_guideline_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_begin="122.5dp"
-        android:orientation="horizontal"/>
-    
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="122.5dp"/>
+
     <TextView
         android:id="@+id/pg_tv_date_5"
         android:layout_width="wrap_content"
@@ -91,24 +91,24 @@
         android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@id/pg_guideline_5"
         app:layout_constraintStart_toStartOf="parent"/>
-    
+
     <TextView
         android:id="@+id/pg_tv_time_5"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="17dp"
         android:text="14:26"
-        app:layout_constraintTop_toBottomOf="@id/pg_guideline_5"
         android:textColor="@color/red"
         android:textSize="13sp"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/pg_guideline_5"/>
 
     <View
         android:id="@+id/pg_view_4"
+        android:layout_width="1dp"
+        android:layout_height="56dp"
         android:background="@color/view_bg"
-        app:layout_constraintTop_toBottomOf="@id/pq_img_5"
-        app:layout_constraintStart_toStartOf="@id/pq_img_5"
         app:layout_constraintEnd_toEndOf="@id/pq_img_5"
-        android:layout_width="1dp" android:layout_height="56dp"/>
+        app:layout_constraintStart_toStartOf="@id/pq_img_5" app:layout_constraintTop_toBottomOf="@id/pq_img_5"/>
 
 
     <ImageView
@@ -135,8 +135,8 @@
         android:id="@+id/pg_guideline_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_begin="197.5dp"
-        android:orientation="horizontal"/>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="197.5dp"/>
 
     <TextView
         android:id="@+id/pg_tv_date_4"
@@ -151,21 +151,21 @@
 
     <TextView
         android:id="@+id/pg_tv_time_4"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="17dp"
         android:text="14:26"
-        app:layout_constraintTop_toBottomOf="@id/pg_guideline_4"
         android:textColor="@color/red"
         android:textSize="13sp"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/pg_guideline_4"/>
 
     <View
         android:id="@+id/pg_view_3"
+        android:layout_width="1dp"
+        android:layout_height="56dp"
         android:background="@color/view_bg"
-        app:layout_constraintTop_toBottomOf="@id/pq_img_4"
-        app:layout_constraintStart_toStartOf="@id/pq_img_4"
         app:layout_constraintEnd_toEndOf="@id/pq_img_4"
-        android:layout_width="1dp" android:layout_height="56dp"/>
+        app:layout_constraintStart_toStartOf="@id/pq_img_4" app:layout_constraintTop_toBottomOf="@id/pq_img_4"/>
 
 
     <ImageView
@@ -192,8 +192,8 @@
         android:id="@+id/pg_guideline_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_begin="272.5dp"
-        android:orientation="horizontal"/>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="272.5dp"/>
 
     <TextView
         android:id="@+id/pg_tv_date_3"
@@ -208,22 +208,21 @@
 
     <TextView
         android:id="@+id/pg_tv_time_3"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="17dp"
         android:text="14:26"
-        app:layout_constraintTop_toBottomOf="@id/pg_guideline_3"
         android:textColor="@color/red"
         android:textSize="13sp"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/pg_guideline_3"/>
 
     <View
         android:id="@+id/pg_view_2"
+        android:layout_width="1dp"
+        android:layout_height="56dp"
         android:background="@color/red"
-        app:layout_constraintTop_toBottomOf="@id/pq_img_3"
-        app:layout_constraintStart_toStartOf="@id/pq_img_3"
         app:layout_constraintEnd_toEndOf="@id/pq_img_3"
-        android:layout_width="1dp" android:layout_height="56dp"/>
-
+        app:layout_constraintStart_toStartOf="@id/pq_img_3" app:layout_constraintTop_toBottomOf="@id/pq_img_3"/>
 
 
     <ImageView
@@ -250,8 +249,8 @@
         android:id="@+id/pg_guideline_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_begin="347.5dp"
-        android:orientation="horizontal"/>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="347.5dp"/>
 
     <TextView
         android:id="@+id/pg_tv_date_2"
@@ -266,21 +265,21 @@
 
     <TextView
         android:id="@+id/pg_tv_time_2"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="17dp"
         android:text="14:26"
-        app:layout_constraintTop_toBottomOf="@id/pg_guideline_2"
         android:textColor="@color/red"
         android:textSize="13sp"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/pg_guideline_2"/>
 
     <View
         android:id="@+id/pg_view_1"
+        android:layout_width="1dp"
+        android:layout_height="56dp"
         android:background="@color/red"
-        app:layout_constraintTop_toBottomOf="@id/pq_img_2"
-        app:layout_constraintStart_toStartOf="@id/pq_img_2"
         app:layout_constraintEnd_toEndOf="@id/pq_img_2"
-        android:layout_width="1dp" android:layout_height="56dp"/>
+        app:layout_constraintStart_toStartOf="@id/pq_img_2" app:layout_constraintTop_toBottomOf="@id/pq_img_2"/>
 
 
     <ImageView
@@ -307,8 +306,8 @@
         android:id="@+id/pg_guideline_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_begin="422.5dp"
-        android:orientation="horizontal"/>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="422.5dp"/>
 
     <TextView
         android:id="@+id/pg_tv_date_1"
@@ -323,24 +322,24 @@
 
     <TextView
         android:id="@+id/pg_tv_time_1"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="17dp"
         android:text="14:26"
-        app:layout_constraintTop_toBottomOf="@id/pg_guideline_1"
         android:textColor="@color/red"
         android:textSize="13sp"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/pg_guideline_1"/>
 
     <Button
         android:id="@+id/pq_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pq_tv_title_1"
+        android:layout_width="345dp"
+        android:layout_height="44.5dp"
         android:layout_marginTop="69dp"
-        android:text="申请放款"
-        android:textSize="17sp"
-        android:textColor="@color/white"
         android:background="@mipmap/button"
-        android:layout_width="345dp" android:layout_height="44.5dp"/>
+        android:text="申请放款"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/pq_tv_title_1"/>
 
 </android.support.constraint.ConstraintLayout>
